@@ -1,9 +1,0 @@
-<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="473.687" height="385.982" viewBox="0 0 473.687 385.982" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Snake">
-<path id="Vector 2" d="M84.9906 2H388.125" stroke="#E3682D" stroke-width="4"/>
-<path id="Vector 3" d="M84.9906 192.991H388.125" stroke="#E3682D" stroke-width="4"/>
-<path id="Vector 5" d="M388.125 2C495.575 1.99994 503.438 192.991 388.125 192.991" stroke="#E3682D" stroke-width="4"/>
-<path id="Vector 6" d="M85.5625 192.991C-21.8884 192.991 -29.7507 383.982 85.5625 383.982" stroke="#E3682D" stroke-width="4"/>
-<path id="Vector 4" d="M84.9906 383.982H388.125" stroke="#E3682D" stroke-width="4"/>
-</g>
-</svg>
