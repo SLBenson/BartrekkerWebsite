@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     EDIT PER POST: browser tab title + search/social description
+     ============================================================ -->
+<title>Top 10 Places to Visit in Kraków — Bartrekker Blog</title>
+<meta name="description" content="Visiting Kraków for the first time? Here are the 10 places our guides always send first-timers to see.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* ==========================================================================
+   Bartrekker — one-page site
+   Colors:  orange #e3682d | dark #323741 | gray #474b54 | peach #f1b396
+   Fonts:   Anton (display) / Inter (body)
+   ========================================================================== */
+
+:root {
+  --orange: #e3682d;
+  --dark: #323741;
+  --gray: #474b54;
+  --peach: #f1b396;
+  --white: #ffffff;
+  --border: rgba(109, 109, 109, 0.5);
+  --shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.25);
+  --nav-h: 100px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  overflow-x: hidden;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+.display {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.section-title {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(38px, 6vw, 64px);
+  color: var(--orange);
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+}
+
+.section-subtitle {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(20px, 3vw, 32px);
+  color: var(--gray);
+  text-align: center;
+  margin: 10px 0 0;
+  line-height: 1;
+}
+
+.section-title.on-dark { color: var(--white); }
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+button { font-family: inherit; cursor: pointer; }
+
+/* ---------- Navigation ---------- */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(6px);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  transition: box-shadow .25s ease, height .25s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+  --nav-h: 78px;
+}
+
+.navbar-inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.logo img.logo-mark { height: 56px; width: auto; }
+.logo img.logo-text { height: 44px; width: auto; }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--gray);
+  text-transform: uppercase;
+  padding: 8px 2px;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.nav-links a.active { color: var(--orange); }
+
+.nav-cta {
+  display: none;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  width: 34px;
+  height: 26px;
+  position: relative;
+  z-index: 1100;
+}
+.nav-toggle span {
+  position: absolute;
+  left: 0; right: 0;
+  height: 3px;
+  background: var(--dark);
+  border-radius: 3px;
+  transition: transform .25s ease, opacity .25s ease, top .25s ease;
+}
+.nav-toggle span:nth-child(1) { top: 0; }
+.nav-toggle span:nth-child(2) { top: 11px; }
+.nav-toggle span:nth-child(3) { top: 22px; }
+
+.nav-toggle.open span:nth-child(1) { top: 11px; transform: rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
+
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 10px 30px 20px;
+    box-shadow: 0 12px 16px rgba(0,0,0,0.08);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .nav-links.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 14px 0; border-bottom: 1px solid #eee; }
+  .nav-toggle { display: block; }
+}
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--orange);
+  color: var(--white);
+  padding: 40px 20px;
+}
+
+.footer-inner {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.footer-company {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  margin: 0 0 6px;
+}
+
+.footer-line {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+.footer-line strong { font-weight: 700; }
+.footer-line a {
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+}
+.footer-line a:hover { text-decoration: underline; }
+
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.social-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform .15s ease;
+}
+.social-icon svg { width: 16px; height: 16px; }
+.social-icon:hover { transform: translateY(-2px); }
+
+/* ==========================================================================
+   Individual blog post styling
+   ========================================================================== */
+
+.back-link {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--orange);
+  padding: 8px 0;
+  margin-bottom: 14px;
+}
+.back-link:hover { text-decoration: underline; }
+.back-link .arrow { font-size: 18px; line-height: 1; }
+
+.post-hero {
+  padding: calc(var(--nav-h) + 34px) 20px 0;
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.post-eyebrow {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--white);
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+
+.post-title {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.05;
+  color: var(--dark);
+  margin: 0 0 18px;
+}
+
+.post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  color: var(--gray);
+  margin: 0 0 30px;
+}
+.post-meta .dot { opacity: 0.5; }
+
+.post-hero-image {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px 10px;
+}
+.post-hero-image img {
+  width: 100%;
+  height: auto;
+  max-height: 520px;
+  object-fit: cover;
+  border-radius: 30px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.post-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 44px 20px 30px;
+  color: var(--dark);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.post-body p { margin: 0 0 24px; }
+
+.post-body h2 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--orange);
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.15;
+  margin: 44px 0 18px;
+}
+
+.post-body h3 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: var(--gray);
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 34px 0 14px;
+}
+
+.post-body ul,
+.post-body ol {
+  margin: 0 0 24px;
+  padding-left: 22px;
+}
+.post-body li { margin-bottom: 10px; }
+.post-body ul { list-style: none; padding-left: 0; }
+.post-body ul li {
+  position: relative;
+  padding-left: 28px;
+}
+.post-body ul li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--orange);
+}
+
+.post-body img {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  margin: 6px 0 8px;
+}
+.post-body figure { margin: 30px 0; }
+.post-body figcaption {
+  font-size: 14px;
+  color: var(--gray);
+  opacity: 0.8;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.post-body blockquote {
+  margin: 30px 0;
+  padding: 4px 0 4px 24px;
+  border-left: 4px solid var(--orange);
+  font-style: italic;
+  color: var(--gray);
+  font-size: 20px;
+}
+
+.post-body a { color: var(--orange); text-decoration: underline; }
+
+.post-body hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 40px 0;
+}
+
+.post-footer-nav {
+  max-width: 720px;
+  margin: 10px auto 70px;
+  padding: 30px 20px 0;
+  border-top: 1px solid var(--border);
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SITE NAVIGATION — same on every page.
+     These links point back to sections on index.html, since this
+     page has no sections of its own. Leave them as-is.
+     ============================================================ -->
+<header class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="index.html" class="logo" aria-label="Bartrekker home">
+      <img class="logo-mark" src="assets/logo-image.png" alt="Bartrekker logo mark">
+      <img class="logo-text" src="assets/logo-text.png" alt="Bartrekker">
+    </a>
+
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html#download" class="nav-link">Download</a></li>
+        <li><a href="index.html#how-it-works" class="nav-link">How it works</a></li>
+        <li><a href="index.html#what-to-expect" class="nav-link">What to expect</a></li>
+        <li><a href="index.html#partnerships" class="nav-link">Partnerships</a></li>
+        <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+        <li><a href="index.html#blog" class="nav-link active">Blog</a></li>
+      </ul>
+    </nav>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="post-hero">
+    <a class="back-link" href="index.html#blog"><span class="arrow">←</span> Back to all posts</a>
+
+    <!-- ============================================================
+         EDIT PER POST: eyebrow tag, title, date / read time
+         ============================================================ -->
+    <p class="post-eyebrow">Travel Guide</p>
+    <h1 class="post-title">Top 10 places to visit in Kraków</h1>
+    <p class="post-meta">
+      <span>20 August 2026</span>
+      <span class="dot">&bull;</span>
+      <span>6 min read</span>
+      <span class="dot">&bull;</span>
+      <span>By the Bartrekker Team</span>
+    </p>
+  </div>
+
+  <!-- ============================================================
+       EDIT PER POST: hero image — swap the src and alt text
+       ============================================================ -->
+  <div class="post-hero-image">
+    <img src="assets/blog-krakow.png" alt="Kraków's Main Market Square at sunset, with St. Mary's Basilica in the background">
+  </div>
+
+  <!-- ============================================================
+       EDIT PER POST: everything inside <article> is the post body.
+       Use <h2> for main sections, <h3> for sub-points, <p> for text,
+       <ul> for lists, <blockquote> for pull quotes, and the <figure>
+       pattern below whenever you want an inline image with a caption.
+       ============================================================ -->
+  <article class="post-body">
+    <p>Visiting Kraków for the first time? The city is filled with beautiful locations, from a medieval market square to a riverside castle and a former Jewish quarter that's now full of bars and street food. Here are the ten spots our guides send every first-time visitor to see.</p>
+
+    <h2>1. Rynek Główny (Main Market Square)</h2>
+    <p>One of the largest medieval squares in Europe, and still the beating heart of the city. Grab a bench, order a coffee from one of the surrounding cafés, and watch Kraków go by — street musicians, horse-drawn carriages and all.</p>
+
+    <h2>2. St. Mary's Basilica</h2>
+    <p>The twin-towered brick church overlooking the square is famous for its wooden altarpiece and the hourly trumpet call — the <em>hejnał</em> — played live from the taller tower, which cuts off mid-note in honour of a 13th-century trumpeter shot mid-warning.</p>
+
+    <h2>3. Wawel Royal Castle</h2>
+    <p>Perched on a hill above the Vistula River, Wawel was the residence of Polish kings for centuries. Walk the castle grounds for free, or pay for entry to the State Rooms, Royal Private Apartments, or the dragon's den beneath the hill.</p>
+
+    <figure>
+      <img src="assets/blog-krakow.png" alt="Rooftops of Kraków's Old Town seen from Wawel hill">
+      <figcaption>The view over the Old Town rooftops from Wawel hill.</figcaption>
+    </figure>
+
+    <h2>4. Kazimierz (the Jewish Quarter)</h2>
+    <p>South of the Old Town, Kazimierz has gone from historic Jewish district to one of the most atmospheric nightlife areas in the city. By day it's synagogues and museums; by night, some of the best bars on a Bartrekker route.</p>
+
+    <h2>5. Rynek Underground Museum</h2>
+    <p>Beneath the Main Square lies an entire archaeological museum built around the medieval trading routes unearthed during renovation work — a genuinely surprising way to spend an hour out of the sun (or rain).</p>
+
+    <h2>6. Schindler's Factory</h2>
+    <p>Oskar Schindler's former enamel factory is now a museum covering Kraków's occupation during the Second World War. It's a heavier stop than the rest of this list, but one of the most highly rated things to do in the city.</p>
+
+    <blockquote>"You could spend a week in Kraków and still not run out of side streets worth getting lost in."</blockquote>
+
+    <h2>7. Cloth Hall (Sukiennice)</h2>
+    <p>The Renaissance trading hall running down the middle of the Main Square has sold cloth, spices and souvenirs for over 700 years. Today it's mostly amber jewellery and Polish crafts — still worth a browse.</p>
+
+    <h2>8. Kościuszko Mound</h2>
+    <p>A short tram ride from the centre, this man-made hill was raised in the 1820s in honour of national hero Tadeusz Kościuszko. The climb is easy and the panoramic view over Kraków at the top is one of the best in the city.</p>
+
+    <h2>9. Barbican &amp; St. Florian's Gate</h2>
+    <p>One of the few surviving pieces of Kraków's medieval fortifications, the circular Barbican once guarded the northern entrance to the city. Walk through St. Florian's Gate afterwards onto Floriańska Street, the Old Town's main artery.</p>
+
+    <h2>10. Planty Park</h2>
+    <p>A green ring circling the entire Old Town where the city walls used to stand. It's the easiest way to walk between sights without retracing your steps — and a good place to slow down between stops on a busy day.</p>
+
+    <h2>Ready to see it for yourself?</h2>
+    <ul>
+      <li>Download Bartrekker and book a Kraków event to visit several of these spots on one guided route.</li>
+      <li>New stops are revealed one at a time, so you won't know exactly where you're headed next.</li>
+      <li>One QR code covers your whole group — no need to juggle separate tickets.</li>
+    </ul>
+  </article>
+
+  <div class="post-footer-nav">
+    <a class="back-link" href="index.html#blog"><span class="arrow">←</span> Back to all posts</a>
+  </div>
+</main>
+
+<!-- ============================================================
+     SITE FOOTER — same on every page.
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-company">Bartrekker ltd.</p>
+    <p class="footer-line"><strong>Contact:</strong> <a href="mailto:customerservice@bartrekker.com">customer service@bartrekker.com</a></p>
+    <p class="footer-line"><strong>Partnerships:</strong> <a href="mailto:partnerships@bartrekker.com">partnerships@bartrekker.com</a></p>
+    <div class="footer-socials">
+      <a class="social-icon" href="https://instagram.com/bartrekker" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
+      </a>
+      <a class="social-icon" href="https://tiktok.com/@bartrekker" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://linkedin.com/company/bartrekker" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navbar = document.getElementById('navbar');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  const links = Array.from(document.querySelectorAll('.nav-link'));
+
+  // Nav links may point to another page (e.g. "index.html#blog") on pages
+  // like blog-post.html that don't have the matching section — querySelector
+  // throws on those hrefs, so resolve safely and just skip them.
+  function findSection(href) {
+    try { return document.querySelector(href); } catch (e) { return null; }
+  }
+
+  const sectionPairs = links
+    .map(link => ({ link, section: findSection(link.getAttribute('href')) }))
+    .filter(pair => pair.section);
+
+  // Sticky navbar shadow on scroll
+  const onScroll = () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+    updateActiveLink();
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile nav toggle
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+
+  links.forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Scrollspy — highlight the nav link for the section in view.
+  // No-op on pages (like blog-post.html) with no matching sections, leaving
+  // whatever "active" state is set in that page's own markup.
+  function updateActiveLink() {
+    if (!sectionPairs.length) return;
+    const navH = navbar.offsetHeight;
+    const scrollPos = window.scrollY + navH + 10;
+    let current = sectionPairs[0].section;
+
+    sectionPairs.forEach(({ section }) => {
+      if (section.offsetTop <= scrollPos) current = section;
+    });
+
+    sectionPairs.forEach(({ link, section }) => {
+      link.classList.toggle('active', section === current);
+    });
+  }
+
+  // Offset anchor scroll for fixed navbar. Links with no matching in-page
+  // section (cross-page links) just fall through to normal navigation.
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const target = findSection(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      const navH = navbar.offsetHeight;
+      const top = target.getBoundingClientRect().top + window.scrollY - navH + 1;
+      window.scrollTo({ top, behavior: 'smooth' });
+      history.pushState(null, '', link.getAttribute('href'));
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+
+    question.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+
+      document.querySelectorAll('.faq-item.open').forEach(openItem => {
+        if (openItem !== item) {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-answer').style.maxHeight = null;
+        }
+      });
+
+      item.classList.toggle('open', !isOpen);
+      answer.style.maxHeight = !isOpen ? answer.scrollHeight + 'px' : null;
+    });
+  });
+});
+</script>
+</body>
+</html>
