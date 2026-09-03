@@ -363,6 +363,7 @@ button { font-family: inherit; cursor: pointer; }
   display: flex;
   flex-direction: column;
   align-items: stretch;
+  gap: 20px; /* Handles the spacing between the boxes natively */
 }
 
 .step-pill {
@@ -385,24 +386,14 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--white);
   font-size: 22px;
   line-height: 1.1;
+  letter-spacing: 2px; /* Adds the micro-gap around the colon */
 }
+
 .step-pill .step-label {
   font-weight: 700;
   font-size: 17px;
   color: var(--white);
   line-height: 1.2;
-}
-
-.step-connector {
-  height: 26px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.step-connector img {
-  width: 26px;
-  height: 6px;
-  transform: rotate(90deg);
 }
 
 /* ---------- What to expect ---------- */
@@ -858,19 +849,16 @@ button { font-family: inherit; cursor: pointer; }
         <span class="step-no">Step 1:</span>
         <span class="step-label">Browse &amp; Book a ticket</span>
       </div>
-      <div class="step-connector"><img src="assets/step-connector.svg" alt="" aria-hidden="true"></div>
 
       <div class="step-pill dark">
         <span class="step-no">Step 2:</span>
         <span class="step-label">Meet at the start location</span>
       </div>
-      <div class="step-connector"><img src="assets/step-connector.svg" alt="" aria-hidden="true"></div>
 
       <div class="step-pill orange">
         <span class="step-no">Step 3:</span>
         <span class="step-label">Follow the guided tour</span>
       </div>
-      <div class="step-connector"><img src="assets/step-connector.svg" alt="" aria-hidden="true"></div>
 
       <div class="step-pill dark">
         <span class="step-no">Step 4:</span>
