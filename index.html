@@ -553,17 +553,26 @@ button { font-family: inherit; cursor: pointer; }
   grid-template-columns: 1fr 1fr;
   gap: 20px 40px;
   text-align: left;
-   align-items: start;
+  align-items: start;
+}
+
+/* Stacks items vertically inside the left/right columns */
+.faq-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .faq-item {
   background: var(--orange);
   border-radius: 11px;
   overflow: hidden;
-   align-self: start;
 }
 
+/* Removes default HTML5 summary browser arrows */
+.faq-question::-webkit-details-marker,
 .faq-question {
+  list-style: none;
   width: 100%;
   background: none;
   border: none;
@@ -578,6 +587,7 @@ button { font-family: inherit; cursor: pointer; }
   font-size: clamp(16px, 2vw, 22px);
   text-transform: uppercase;
   text-align: left;
+  cursor: pointer;
 }
 
 .faq-question .plus {
@@ -587,13 +597,23 @@ button { font-family: inherit; cursor: pointer; }
   transition: transform .2s ease;
   flex-shrink: 0;
 }
-.faq-item.open .faq-question .plus { transform: rotate(45deg); }
+
+/* Rotates plus sign when HTML details is open */
+.faq-item[open] .faq-question .plus { 
+  transform: rotate(45deg); 
+}
 
 .faq-answer {
   max-height: 0;
   overflow: hidden;
   transition: max-height .3s ease;
 }
+
+/* Expands the answer text box when HTML details is open */
+.faq-item[open] .faq-answer {
+  max-height: 300px; /* Adjust if your paragraphs are very long */
+}
+
 .faq-answer p {
   margin: 0;
   padding: 0 24px 20px;
@@ -603,7 +623,9 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 @media (max-width: 760px) {
-  .faq-list { grid-template-columns: 1fr; }
+  .faq-list { 
+    grid-template-columns: 1fr; 
+  }
 }
 
 /* ---------- Blog ---------- */
@@ -924,83 +946,89 @@ button { font-family: inherit; cursor: pointer; }
   </section>
 
   <!-- ============ SECTION 5 — FAQ ============ -->
-  <section class="faq" id="faq">
+ <section class="faq" id="faq">
     <h2 class="section-title">FAQ</h2>
     <p class="section-subtitle">The answers to your questions</p>
 
     <div class="faq-list" id="faqList">
       
-      <!-- ITEM 1 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">What is Bartrekker? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>Bartrekker is an app-guided event that takes you and your group around a city's best bars, restaurants and hidden spots — no tour guide required.</p></div>
-      </details>
+      <!-- LEFT COLUMN -->
+      <div class="faq-column">
+        <!-- ITEM 1 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">What is Bartrekker? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>Bartrekker is an app-guided event that takes you and your group around a city's best bars, restaurants and hidden spots — no tour guide required.</p></div>
+        </details>
 
-      <!-- ITEM 2 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">How does Bartrekker work? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>Buy a ticket in the app, head to the first location and scan the QR code there. From that point the app reveals each next stop, timing and everything you need.</p></div>
-      </details>
+        <!-- ITEM 3 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">How do I buy a ticket? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>Open the Bartrekker app, choose an event in your city and pay securely with card or your preferred wallet — your ticket appears instantly.</p></div>
+        </details>
 
-      <!-- ITEM 3 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">How do I buy a ticket? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>Open the Bartrekker app, choose an event in your city and pay securely with card or your preferred wallet — your ticket appears instantly.</p></div>
-      </details>
+        <!-- ITEM 5 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">Where does the experience start? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>The starting location is shown in the app once you've booked, so you know exactly where and when to meet before the event begins.</p></div>
+        </details>
 
-      <!-- ITEM 4 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">What is included in my ticket? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>Entry to every featured venue on the route, along with any deals, discounts or extras listed on the event page before you buy.</p></div>
-      </details>
+        <!-- ITEM 7 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">How does the app guide me? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>Using your location and a step-by-step route, the app reveals each stop only when you're ready for it, keeping the whole group in sync.</p></div>
+        </details>
 
-      <!-- ITEM 5 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">Where does the experience start? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>The starting location is shown in the app once you've booked, so you know exactly where and when to meet before the event begins.</p></div>
-      </details>
+        <!-- ITEM 9 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">Can I cancel or get a refund? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>Tickets can be cancelled for a full refund up to 24 hours before the event starts directly from your bookings page in the app.</p></div>
+        </details>
 
-      <!-- ITEM 6 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">Should I turn on notifications? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>Yes — notifications let the app tell you when the next stop unlocks and share important timing updates during the event.</p></div>
-      </details>
+        <!-- ITEM 11 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">What happens if I have a problem during an event? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>Use the in-app help button any time during your event to reach our support team, who can assist right away.</p></div>
+        </details>
+      </div>
 
-      <!-- ITEM 7 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">How does the app guide me? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>Using your location and a step-by-step route, the app reveals each stop only when you're ready for it, keeping the whole group in sync.</p></div>
-      </details>
+      <!-- RIGHT COLUMN -->
+      <div class="faq-column">
+        <!-- ITEM 2 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">How does Bartrekker work? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>Buy a ticket in the app, head to the first location and scan the QR code there. From that point the app reveals each next stop, timing and everything you need.</p></div>
+        </details>
 
-      <!-- ITEM 8 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">What happens if I arrive late? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>No problem — your route stays saved in the app, so you can jump back in and catch up with the group at the current stop.</p></div>
-      </details>
+        <!-- ITEM 4 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">What is included in my ticket? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>Entry to every featured venue on the route, along with any deals, discounts or extras listed on the event page before you buy.</p></div>
+        </details>
 
-      <!-- ITEM 9 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">Can I cancel or get a refund? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>Tickets can be cancelled for a full refund up to 24 hours before the event starts directly from your bookings page in the app.</p></div>
-      </details>
+        <!-- ITEM 6 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">Should I turn on notifications? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>Yes — notifications let the app tell you when the next stop unlocks and share important timing updates during the event.</p></div>
+        </details>
 
-      <!-- ITEM 10 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">What is the minimum age? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>You must meet the local legal drinking age for the city you're visiting — for Kraków that's 18 years old.</p></div>
-      </details>
+        <!-- ITEM 8 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">What happens if I arrive late? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>No problem — your route stays saved in the app, so you can jump back in and catch up with the group at the current stop.</p></div>
+        </details>
 
-      <!-- ITEM 11 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">What happens if I have a problem during an event? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>Use the in-app help button any time during your event to reach our support team, who can assist right away.</p></div>
-      </details>
+        <!-- ITEM 10 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">What is the minimum age? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>You must meet the local legal drinking age for the city you're visiting — for Kraków that's 18 years old.</p></div>
+        </details>
 
-      <!-- ITEM 12 -->
-      <details class="faq-item" name="faq">
-        <summary class="faq-question">How can I support the app? <span class="plus">+</span></summary>
-        <div class="faq-answer"><p>Leave a review, share Bartrekker with friends, or follow us on social media — every bit of support helps us grow to new cities.</p></div>
-      </details>
+        <!-- ITEM 12 -->
+        <details class="faq-item" name="faq">
+          <summary class="faq-question">How can I support the app? <span class="plus">+</span></summary>
+          <div class="faq-answer"><p>Leave a review, share Bartrekker with friends, or follow us on social media — every bit of support helps us grow to new cities.</p></div>
+        </details>
+      </div>
 
     </div>
   </section>
