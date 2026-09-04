@@ -27,14 +27,16 @@ else:
 
 
 def protect(text):
+    # Symbol-only placeholder (no letters), so there's nothing word-shaped
+    # for the translation engine to "correct" into a made-up word.
     for i, term in enumerate(PROTECTED_TERMS):
-        text = re.sub(re.escape(term), f'%%TERM{i}%%', text)
+        text = re.sub(re.escape(term), f'\u00a7{i}\u00a7', text)
     return text
 
 
 def restore(text):
     for i, term in enumerate(PROTECTED_TERMS):
-        text = text.replace(f'%%TERM{i}%%', term)
+        text = text.replace(f'\u00a7{i}\u00a7', term)
     return text
 
 
@@ -62,6 +64,15 @@ def call_translate_api(text, target_lang):
 def translate_text(text, target_lang, retries=3):
     if not text or len(text.strip()) == 0:
         return text
+
+    # If the whole chunk IS a protected term (e.g. "App Store" as its own
+    # button label), skip translation entirely instead of sending a bare
+    # placeholder through the API — with no surrounding words for context,
+    # some languages "correct" it into a made-up word rather than passing
+    # it through untouched.
+    if text.strip() in PROTECTED_TERMS:
+        return text
+
     key = f"en|{target_lang}|{text}"
     if key in cache:
         return cache[key]
