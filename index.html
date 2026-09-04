@@ -640,16 +640,12 @@ button { font-family: inherit; cursor: pointer; }
 /* --- THE COMPONENT HORIZONTAL SCROLL WINDOW --- */
 .blog-carousel-container {
   width: 100%;
-  overflow-x: scroll !important; /* Forces the browser to unlock the horizontal scroll path */
+  overflow-x: scroll !important; /* Unlocks the horizontal scrolling engine paths */
   padding: 15px 5px 25px;
   display: block;
   box-sizing: border-box;
   
-  /* CRITICAL CORRECTIONS FOR THE CHOPPING BUG: */
-  position: relative !important;
-  contain: layout paint !important; /* Forces the browser graphics engine to render cards 5 and 6 instead of throwing them away */
-  
-  /* Modern styling to keep scrollbars completely hidden from view */
+  /* Modern styling to keep scrollbar elements completely out of view */
   scrollbar-width: none;     /* Firefox */
   -ms-overflow-style: none;  /* IE/Edge */
 }
@@ -659,14 +655,13 @@ button { font-family: inherit; cursor: pointer; }
 
 /* --- THE RUNNING CAROUSEL TRACK --- */
 .blog-carousel-track {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important; /* Force cards into a single horizontal thread line */
-  
-  /* FIXED EXPANDING CORE BUG: */
-  /* (6 cards * 310px width each) + (5 spaces between cards * 24px gap each) = 1980px total track length */
-  width: calc((6 * 310px) + (5 * 24px)) !important;
-  min-width: calc((6 * 310px) + (5 * 24px)) !important;
+  /* FIXES CHOPPED CARDS BUG PERMANENTLY: */
+  /* Swapping 'flex' for 'inline-flex' and width to 'auto' breaks any grid constraints. */
+  /* It forces the row line to automatically expand sideways to hold all 6 boxes naturally. */
+  display: inline-flex !important; 
+  width: auto !important;
+  min-width: auto !important;
+  flex-wrap: nowrap !important; /* Forces cards into a single horizontal thread line */
   
   gap: 24px;                    
   scroll-snap-type: x mandatory; 
