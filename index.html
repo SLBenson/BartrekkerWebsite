@@ -626,30 +626,60 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
 }
 
-.blog-grid {
+/* --- THE NEW CAROUSEL VIEWPORT CONTAINER --- */
+/* This replaced your old .blog-grid */
+.blog-carousel-container {
   max-width: 1200px;
   margin: 55px auto 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  overflow-x: auto;          /* Enables smooth horizontal scrolling */
+  padding: 10px 5px 30px;    /* Extra bottom padding stops shadow clipping */
+  
+  /* Hides standard desktop scrollbars for a clean, modern aesthetic */
+  scrollbar-width: none;     /* Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
 }
 
+/* Hides scrollbars entirely for Chrome, Safari, and Opera */
+.blog-carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- THE SLIDING TRACK FOR CARDS --- */
+.blog-carousel-track {
+  display: flex;
+  gap: 30px;                 /* Retained your exact 30px card spacing */
+  
+  /* Enables native app-like touch swiping and scroll snapping */
+  scroll-snap-type: x mandatory; 
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch; /* Butter-smooth scrolling on Apple devices */
+}
+
+/* --- THE INDIVIDUAL BLOG CARDS --- */
 .blog-card {
+  /* Fits 3 cards across desktop width while factoring in your 30px gap gaps */
+  flex: 0 0 calc(33.333% - 20px); 
+  box-sizing: border-box;
+  scroll-snap-align: start;  /* Snaps perfectly to the edge when a user swipes */
+
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 38px;
+  border-radius: 38px;       /* Preserved your beautiful 38px curved edges */
   box-shadow: var(--shadow);
   overflow: hidden;
   text-align: left;
   display: flex;
   flex-direction: column;
 }
+
+/* --- CARD INNER STYLES (Kept exactly identical to your project colors/fonts) --- */
 .blog-card .thumb {
   height: 175px;
   width: 100%;
   object-fit: cover;
   background: #f4f4f4;
 }
+
 .blog-card .thumb.placeholder {
   display: flex;
   align-items: center;
@@ -659,9 +689,11 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 600;
   letter-spacing: 0.5px;
 }
+
 .blog-card .blog-body {
   padding: 20px 22px 26px;
 }
+
 .blog-card h3 {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -671,6 +703,7 @@ button { font-family: inherit; cursor: pointer; }
   margin: 0 0 12px;
   text-transform: uppercase;
 }
+
 .blog-card p {
   font-size: 15px;
   color: var(--gray);
@@ -678,20 +711,32 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.5;
   margin: 0;
 }
+
 .blog-card.empty {
   align-items: center;
   justify-content: center;
   min-height: 350px;
 }
-.blog-card.empty .thumb.placeholder { height: 175px; }
 
+.blog-card.empty .thumb.placeholder { 
+  height: 175px; 
+}
+
+/* --- RESPONSIVE TABLET BREAKPOINT --- */
 @media (max-width: 900px) {
-  .blog-grid { grid-template-columns: 1fr 1fr; }
-}
-@media (max-width: 600px) {
-  .blog-grid { grid-template-columns: 1fr; }
+  .blog-carousel-track .blog-card {
+    /* Fits exactly 2 cards side-by-side across the screen grid layout */
+    flex: 0 0 calc(50% - 15px); 
+  }
 }
 
+/* --- RESPONSIVE MOBILE BREAKPOINT --- */
+@media (max-width: 600px) {
+  .blog-carousel-track .blog-card {
+    /* Shows 1 full card, with the next card peeking out from the screen edge */
+    flex: 0 0 85%; 
+  }
+}
 /* ---------- Footer ---------- */
 
 .site-footer {
@@ -1023,10 +1068,14 @@ button { font-family: inherit; cursor: pointer; }
 
   <!-- ============ SECTION 6 — BLOG ============ -->
   <section class="blog" id="blog">
-    <h2 class="section-title">Blog</h2>
-    <p class="section-subtitle">Content for everyone</p>
+  <h2 class="section-title">Blog</h2>
+  <p class="section-subtitle">Content for everyone</p>
 
-    <div class="blog-grid">
+  <!-- IMPORTANT NEW STRUCTURAL VIEWPORT WRAPPERS -->
+  <div class="blog-carousel-container">
+    <div class="blog-carousel-track">
+      
+      <!-- Your 6 blog cards stay exactly here -->
       <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
       <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
       <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
@@ -1034,17 +1083,18 @@ button { font-family: inherit; cursor: pointer; }
       <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
       <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
 
-       <!-- Create active blog post -->
-<!-- <a class="blog-card" href="YOUR-FILE-NAME.html"> -->
-<!-- <img class="thumb" src="assets/YOUR-IMAGE-NAME.png" alt="Clear text description of the image for accessibility"> -->
-<!-- <div class="blog-body"> -->
- <!-- <h3>YOUR BLOG POST TITLE</h3> -->
- <!-- <p>A short summary paragraph describing what the blog post is about to entice readers to click.</p> -->
- <!-- </div> -->
- <!-- </a>  -->
+       <!-- ACTIVE BLOG CARD -->
+<!-- <a class="blog-card" href="blog/your-first-post.html"> -->
+  <!-- <img class="thumb" src="assets/blog-images/bar-tips.png" alt="A busy, beautifully lit cocktail bar in Kraków"> -->
+  <!-- <div class="blog-body"> -->
+    <!-- <h3>5 Secrets to Finding the Best Local Bars</h3> -->
+    <!-- <p>Skip the tourist traps. Here is how our app uncovers hidden speakeasies and local gems on your next trek.</p> -->
+  <!-- </div> -->
+<!-- </a> -->
        
     </div>
-  </section>
+  </div>
+</section>
 
 </main>
 
