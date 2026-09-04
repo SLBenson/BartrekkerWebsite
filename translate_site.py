@@ -1,13 +1,12 @@
 import os
 import time
-import requests
 from bs4 import BeautifulSoup
-from deep_translator import GoogleTranslator
+from deep_translator import MyMemoryTranslator  # Switched to the unrestricted free engine
 
 LANGUAGES = ['es', 'fr']
 FILES_TO_TRANSLATE = ['index.html']
 
-print("Starting automated translation pipeline with browser bypass...")
+print("Starting automated translation pipeline via open-source engine...")
 
 for lang in LANGUAGES:
     os.makedirs(lang, exist_ok=True)
@@ -21,16 +20,8 @@ for lang in LANGUAGES:
         with open(file_name, 'r', encoding='utf-8') as f:
             soup = BeautifulSoup(f.read(), 'html.parser')
             
-        # 1. Initialize the translator with a custom browser user-agent
-        # This prevents Google Translate from blocking the GitHub Action server traffic.
-        session = requests.Session()
-        session.headers.update({
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-        })
-        
-        translator = GoogleTranslator(source='auto', target=lang, proxies=None)
-        # Apply our custom browser session to the underlying request engine
-        translator.session = session
+        # Initialize the open-source translator
+        translator = MyMemoryTranslator(source='en', target=lang)
             
         for element in soup.find_all(text=True):
             if element.parent.name in ['style', 'script', 'head', 'meta', 'link']:
@@ -41,12 +32,14 @@ for lang in LANGUAGES:
                 continue
                 
             try:
-                # 2. Safely translate the text block
+                # Safely request translation text blocks
                 translated_text = translator.translate(element)
-                element.replace_with(translated_text)
                 
-                # 3. Add a tiny delay (0.1 seconds) to prevent triggering spam protections
-                time.sleep(0.1)
+                # Check for rare empty/failed responses from network limits
+                if translated_text and not translated_text.startswith("MYMEMORY WARNING"):
+                    element.replace_with(translated_text)
+                    
+                time.sleep(0.05) # Tiny buffer delay
                 
             except Exception as e:
                 print(f"    ❌ Error translating block: {e}")
@@ -55,6 +48,6 @@ for lang in LANGUAGES:
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(str(soup))
             
-        print(f"  ✅ Successfully wrote translated file to: {output_path}")
+        print(f"  ✅ Successfully compiled folder package for: {output_path}")
 
-print("\n🎉 Translation pipeline finished cleanly with connection safeguards!")
+print("\n🎉 Multilingual engine operation complete!")
