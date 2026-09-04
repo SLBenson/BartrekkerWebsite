@@ -627,8 +627,8 @@ button { font-family: inherit; cursor: pointer; }
   position: relative;
 }
 
-/* --- THE NEW CONTAINER WRAPPER --- */
-/* Holds both your slider container and your physical arrow overlays */
+/* --- THE CONTAINER WRAPPER --- */
+/* Holds your slider container layout and aligns the physical arrow icons */
 .blog-carousel-wrapper {
   position: relative;
   max-width: 1200px;
@@ -640,9 +640,9 @@ button { font-family: inherit; cursor: pointer; }
 /* --- THE COMPONENT HORIZONTAL SCROLL WINDOW --- */
 .blog-carousel-container {
   width: 100%;
-  overflow-x: scroll !important; /* CORRECTION: Forces browser to unlock horizontal scrolling layout engines */
+  overflow-x: scroll !important; /* Forces the browser to unlock horizontal scrolling mechanics */
   padding: 15px 5px 25px;
-  display: block;                /* Ensures the layout block properties do not distort or compress collapse */
+  display: block;                /* Prevents layout framework properties from collapsing */
   
   /* Modern styling to keep scrollbar elements completely out of view */
   scrollbar-width: none;     /* Firefox */
@@ -655,12 +655,9 @@ button { font-family: inherit; cursor: pointer; }
 /* --- THE RUNNING CAROUSEL TRACK --- */
 .blog-carousel-track {
   display: flex;
-  
-  /* CRITICAL CORRECTIONS: */
-  flex-wrap: nowrap !important; /* Prevents cards from dropping or stacking vertically */
-  width: max-content;           /* Forces row to extend past screen boundaries to fit all 6 boxes */
-  
-  gap: 24px;                    /* Slightly tighter gap to look better with smaller cards */
+  flex-wrap: nowrap !important; /* Keeps all 6 cards lined up side-by-side on a single thread */
+  width: initial !important;    /* Restores relative viewport boundary math to enable overflow track features */
+  gap: 24px;                    /* Sets the horizontal spacing margin between your cards */
   
   /* Enforces physical, snappy touch movements */
   scroll-snap-type: x mandatory; 
@@ -670,21 +667,33 @@ button { font-family: inherit; cursor: pointer; }
 
 /* --- THE PROPORTIONALLY SMALLER CARDS --- */
 .blog-card {
-  /* Desktop sizing: Made narrower so 3.5 cards fit on screen, letting the text and title breathe above */
-  flex: 0 0 calc(26% - 18px); 
-  min-width: 240px;          /* Adjusted minimum width to look proportional */
-  max-height: 270px;         /* Locked height so it fits within the viewport alongside the header */
+  /* Using explicit pixel layout calculations guarantees exactly 3 full items fit inside */
+  /* your max-width container, while leaving a portion of card 4 peeking from the side */
+  flex: 0 0 310px !important; 
+  width: 310px !important;
+  max-height: 270px;         /* Restricts the card height so it doesn't push down your text headers */
   box-sizing: border-box;
   scroll-snap-align: start;
 
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 32px;       /* Slightly smaller radius to look natural on a smaller card */
+  border-radius: 32px;       /* Proportional curved edges for a slightly smaller footprint */
   box-shadow: var(--shadow);
   overflow: hidden;
   text-align: left;
   display: flex;
   flex-direction: column;
+}
+
+/* --- HOVER EFFECTS FOR ACTIVE CARDS --- */
+a.blog-card {
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+a.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
 /* --- PURE CSS HARDWARE ARROWS --- */
@@ -696,7 +705,7 @@ button { font-family: inherit; cursor: pointer; }
   border: 1px solid var(--border, #e0e0e0);
   box-shadow: var(--shadow);
   color: #ff6f00;            /* Replace with your exact orange hex color code! */
-  width: 42px;               /* Slightly smaller to match the new card sizes */
+  width: 42px;               /* Proportional sizing to complement the layout track grid */
   height: 42px;
   border-radius: 50%;
   display: flex;
@@ -717,7 +726,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* --- INNER GRAPHIC AND FONTS --- */
 .blog-card .thumb {
-  height: 125px;             /* Shrunk proportionally to match the narrower width */
+  height: 125px;             /* Proportional crop framework ratio for the graphic placeholders */
   width: 100%;
   object-fit: cover;
   background: #f4f4f4;
@@ -727,24 +736,24 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   justify-content: center;
   color: #b9bcc2;
-  font-size: 13px;           /* Slightly smaller font to look natural */
+  font-size: 13px;           
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 .blog-card .blog-body { 
-  padding: 16px 18px 20px;   /* Tighter padding to fit the smaller footprint */
+  padding: 16px 18px 20px;   /* Clean inner margins tailored for smaller dimensions */
 }
 .blog-card h3 {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
-  font-size: 18px;           /* Scaled down text size so it doesn't wrap awkwardly */
+  font-size: 18px;           /* Prevents words from running off or wrapping awkwardly */
   color: var(--gray);
   text-align: center;
   margin: 0 0 10px;
   text-transform: uppercase;
 }
 .blog-card p {
-  font-size: 14px;           /* Scaled down body text size */
+  font-size: 14px;           
   color: var(--gray);
   text-align: center;
   line-height: 1.4;
@@ -753,25 +762,27 @@ button { font-family: inherit; cursor: pointer; }
 .blog-card.empty {
   align-items: center;
   justify-content: center;
-  height: 270px;             /* Matches the new smaller height layout constraint */
+  height: 270px;             /* Matches the main card height constraint */
 }
 
 /* --- RESPONSIVE TABLET CHANGES --- */
 @media (max-width: 1024px) {
   .blog-carousel-track {
-    width: auto;               /* Allows the track to calculate container boundaries naturally on tablets */
+    width: auto !important;    /* Relaxes tracking models on handheld viewports */
   }
   .blog-carousel-track .blog-card {
-    flex: 0 0 calc(47% - 15px); /* Displays 2 cards with a 3rd card peeking */
-    max-height: none;           /* Allows cards to scale naturally on mobile screen sizes */
+    /* Shifts back to adaptive percent scales on portable devices for fluid screen balancing */
+    flex: 0 0 calc(47% - 15px) !important; 
+    width: auto !important;
+    max-height: none;          
   }
-  .carousel-arrow { display: none; } /* Swiping gestures are cleaner on smaller screens */
+  .carousel-arrow { display: none; } /* On smaller displays, swiping gestures feel much cleaner */
 }
 
 /* --- RESPONSIVE SMARTPHONE CHANGES --- */
 @media (max-width: 640px) {
   .blog-carousel-track .blog-card {
-    flex: 0 0 82%;              /* Displays 1 card with the next peeking from the mobile viewport edge */
+    flex: 0 0 82% !important;  /* Centers 1 full mobile block card while subtly exposing the next card edge */
   }
 }
 /* ---------- Footer ---------- */
