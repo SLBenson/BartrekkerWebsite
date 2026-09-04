@@ -6,7 +6,7 @@ import urllib.request
 import urllib.parse
 from bs4 import BeautifulSoup, NavigableString, Comment
 
-LANGUAGES = ['es', 'fr', 'pl']
+LANGUAGES = ['es', 'fr', 'pl', 'it', 'de']
 FILES_TO_TRANSLATE = ['index.html', 'blog-post.html']  # remove 'blog-post.html' if you don't want it translated yet
 CACHE_FILE = 'translation_cache.json'
 
