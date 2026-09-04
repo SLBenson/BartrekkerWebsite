@@ -630,7 +630,6 @@ button { font-family: inherit; cursor: pointer; }
   width: 100% !important;
 }
 
-/* --- THE MAIN CAROUSEL FRAME SYSTEM --- */
 .css-slider-system {
   position: relative;
   max-width: 1200px;
@@ -638,48 +637,40 @@ button { font-family: inherit; cursor: pointer; }
   display: block !important;
 }
 
-/* --- THE VIEWPORT CLIPPING WINDOW --- */
 .blog-carousel-container {
   width: 100% !important;
   max-width: 1200px !important;
-  overflow: hidden !important; /* Locks out manual scrolling and yanking completely */
+  overflow: hidden !important; 
   padding: 15px 5px 25px !important;
   display: block !important;
   box-sizing: border-box !important;
 }
 
-/* --- THE ANIMATED RUNNING TRACK --- */
 .blog-carousel-track {
   display: flex !important;
   flex-direction: row !important;
-  flex-wrap: nowrap !important; /* Keeps all 6 cards lined up in a single horizontal sequence string */
-  
-  /* FIXED WIDTH ENGINE FOR 6 CARDS: (6 items * 310px) + (5 spaces * 24px gap size) = 1980px total track width */
+  flex-wrap: nowrap !important;
   width: calc((6 * 310px) + (5 * 24px)) !important;
   min-width: calc((6 * 310px) + (5 * 24px)) !important;
   gap: 24px !important;                    
   
-  /* SMOOTH MOVEMENT CALIBRATION: */
-  /* Extended to 0.8s with a cinematic cubic-bezier to make the glide look professional and slow */
-  transition: transform 0.8s cubic-bezier(0.25, 1, 0.35, 1) !important; 
-  
-  /* FORCES SMOOTHNESS: Tells the browser graphics card to keep the animation free-flowing */
-  will-change: transform !important; 
+  /* SLOW SCROLL CALIBRATION: */
+  /* Set to a relaxed 1.0 second duration with an ultra-smooth ease-in-out profile */
+  transition: transform 1.0s ease-in-out !important; 
+  will-change: transform !important;
 }
 
-/* --- THE PROPORTIONALLY SMALLER CARDS --- */
 .blog-card {
   flex: 0 0 310px !important; 
   width: 310px !important;
   max-width: 310px !important;
-  flex-shrink: 0 !important; /* STOPS THE COMPRESSION BUG FROM COLLAPSING BOXES 5 & 6 */
+  flex-shrink: 0 !important;
   height: 270px !important;
   max-height: 270px !important;
   box-sizing: border-box !important;
-
   background: var(--white, #ffffff);
   border: 1px solid var(--border, rgba(0,0,0,0.15));
-  border-radius: 32px;       /* Preserves your custom curves perfectly */
+  border-radius: 32px;       
   box-shadow: var(--shadow);
   overflow: hidden;
   text-align: left;
@@ -687,12 +678,14 @@ button { font-family: inherit; cursor: pointer; }
   flex-direction: column;
 }
 
-/* --- THE HARDWARE-POWERED MATRIX ENGINE CONTROLLERS --- */
-/* When the right arrow is clicked, it shifts the track left past exactly 3 cards + their gaps */
-#slide-batch-2:checked ~ .blog-carousel-container .blog-carousel-track {
-  /* Calculation: 3 cards (930px) + 3 gaps (72px) = 1002px displacement shift */
-  transform: translateX(-1002px) !important; 
-}
+/* --- REVISED CARD-BY-CARD INDIVIDUAL TRANSLATION ENGINE --- */
+/* Each click moves the slider horizontally by exactly one card width + one gap (334px) */
+#slide-1:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(0px) !important; }
+#slide-2:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(-334px) !important; }
+#slide-3:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(-668px) !important; }
+#slide-4:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(-1002px) !important; }
+#slide-5:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(-1336px) !important; }
+#slide-6:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(-1670px) !important; }
 
 /* --- INTERACTIVE BUTTON OVERLAYS --- */
 .carousel-arrow {
@@ -706,7 +699,7 @@ button { font-family: inherit; cursor: pointer; }
   width: 42px !important;               
   height: 42px !important;
   border-radius: 50% !important;
-  display: none;             /* Controlled contextually below */
+  display: none; /* Controlled contextually below */
   align-items: center !important;
   justify-content: center !important;
   font-weight: bold !important;
@@ -723,15 +716,14 @@ button { font-family: inherit; cursor: pointer; }
 .left-arrow { left: -20px !important; }
 .right-arrow { right: -20px !important; }
 
-/* --- ARROW HIDE/SHOW LOGIC --- */
-/* On load, show only the right arrow */
-#slide-batch-1:checked ~ .carousel-nav-arrows .arrow-to-p2 {
-  display: flex !important;
-}
-/* When shifted to the end, show only the left arrow */
-#slide-batch-2:checked ~ .carousel-nav-arrows .arrow-to-p1 {
-  display: flex !important;
-}
+/* --- STEP-BY-STEP ARROW HIDE/SHOW ROUTING MATRIX --- */
+/* Controls exactly which forward/backward arrow targets appear on screen at each slide step */
+#slide-1:checked ~ .carousel-nav-arrows .arrow-r1 { display: flex !important; }
+#slide-2:checked ~ .carousel-nav-arrows .arrow-r2, #slide-2:checked ~ .carousel-nav-arrows .arrow-l2 { display: flex !important; }
+#slide-3:checked ~ .carousel-nav-arrows .arrow-r3, #slide-3:checked ~ .carousel-nav-arrows .arrow-l3 { display: flex !important; }
+#slide-4:checked ~ .carousel-nav-arrows .arrow-r4, #slide-4:checked ~ .carousel-nav-arrows .arrow-l4 { display: flex !important; }
+#slide-5:checked ~ .carousel-nav-arrows .arrow-r5, #slide-5:checked ~ .carousel-nav-arrows .arrow-l5 { display: flex !important; }
+#slide-6:checked ~ .carousel-nav-arrows .arrow-l6 { display: flex !important; }
 
 /* --- HOVER EFFECTS FOR ACTIVE CARDS --- */
 a.blog-card {
@@ -744,7 +736,7 @@ a.blog-card:hover {
   box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
 }
 
-/* --- CARD IMAGE AREA AND GRAPHIC THUMBNAILS --- */
+/* --- IMAGES & TEXT DESIGN FORMATTING --- */
 .blog-card .thumb {
   height: 125px !important;             
   width: 100% !important;
@@ -779,20 +771,17 @@ a.blog-card:hover {
 }
 .blog-card.empty {
   align-items: center !important;
-  justify-content: center !important;
+  justify-content: center;
   height: 270px !important;             
 }
 
-/* ---------- RESPONSIVE MEDIA BREAKPOINTS (ALIGNED WITH SYSTEM LAWS) ---------- */
-
+/* ---------- RESPONSIVE MOBILE BREAKPOINTS ---------- */
 @media (max-width: 900px) {
-  .blog-carousel-container {
-    overflow-x: auto !important; /* Restores standard touch-swipe gestures on mobile screens */
-  }
+  .blog-carousel-container { overflow-x: auto !important; }
   .blog-carousel-track {
     width: auto !important;    
     min-width: auto !important;
-    transition: none !important; /* Disables the sliding translation on mobile so touch swiping works natively */
+    transition: none !important; 
   }
   .blog-carousel-track .blog-card {
     flex: 0 0 calc(47% - 12px) !important; 
@@ -801,15 +790,11 @@ a.blog-card:hover {
     height: auto !important;
   }
   .carousel-arrow { display: none !important; } 
-  #slide-batch-2:checked ~ .blog-carousel-container .blog-carousel-track {
-    transform: none !important;
-  }
+  [id^="slide-"]:checked ~ .blog-carousel-container .blog-carousel-track { transform: none !important; }
 }
 
 @media (max-width: 600px) {
-  .blog-carousel-track .blog-card {
-    flex: 0 0 82% !important;  
-  }
+  .blog-carousel-track .blog-card { flex: 0 0 82% !important; }
   .steps { max-width: 100%; }
   .step-pill { display: block; width: 100%; }
 }
@@ -1148,34 +1133,42 @@ a.blog-card:hover {
   <h2 class="section-title">Blog</h2>
   <p class="section-subtitle">Content for everyone</p>
 
-  <!-- THE PURE CSS SLIDER SYSTEM CONTAINER -->
   <div class="css-slider-system">
     
-    <!-- HIDDEN TRACK CONTROLLERS -->
-    <input type="radio" name="blog-slide" id="slide-batch-1" checked hidden>
-    <input type="radio" name="blog-slide" id="slide-batch-2" hidden>
+    <!-- 6 INDIVIDUAL HARDWARE TRACK CONTROLLERS -->
+    <input type="radio" name="blog-slide" id="slide-1" checked hidden>
+    <input type="radio" name="blog-slide" id="slide-2" hidden>
+    <input type="radio" name="blog-slide" id="slide-3" hidden>
+    <input type="radio" name="blog-slide" id="slide-4" hidden>
+    <input type="radio" name="blog-slide" id="slide-5" hidden>
+    <input type="radio" name="blog-slide" id="slide-6" hidden>
 
-    <!-- INTERACTIVE NAVIGATION ARROWS -->
+    <!-- SEQUENTIAL CLICKABLE ARROWS -->
     <div class="carousel-nav-arrows">
-      <!-- Clicks to trigger slide batch 2 -->
-      <label for="slide-batch-2" class="carousel-arrow right-arrow arrow-to-p2">❯</label>
+      <!-- Right Arrows (Each visible only on its specific card step) -->
+      <label for="slide-2" class="carousel-arrow right-arrow arrow-r1">❯</label>
+      <label for="slide-3" class="carousel-arrow right-arrow arrow-r2">❯</label>
+      <label for="slide-4" class="carousel-arrow right-arrow arrow-r3">❯</label>
+      <label for="slide-5" class="carousel-arrow right-arrow arrow-r4">❯</label>
+      <label for="slide-6" class="carousel-arrow right-arrow arrow-r5">❯</label>
       
-      <!-- Clicks to return to slide batch 1 -->
-      <label for="slide-batch-1" class="carousel-arrow left-arrow arrow-to-p1">❮</label>
+      <!-- Left Arrows (Each visible only on its specific card step) -->
+      <label for="slide-1" class="carousel-arrow left-arrow arrow-l2">❮</label>
+      <label for="slide-2" class="carousel-arrow left-arrow arrow-l3">❮</label>
+      <label for="slide-3" class="carousel-arrow left-arrow arrow-l4">❮</label>
+      <label for="slide-4" class="carousel-arrow left-arrow arrow-l5">❮</label>
+      <label for="slide-5" class="carousel-arrow left-arrow arrow-l6">❮</label>
     </div>
 
-    <!-- THE COMPONENT SLIDING WINDOW -->
+    <!-- THE SLIDING CONTAINER VIEWPORT -->
     <div class="blog-carousel-container">
       <div class="blog-carousel-track">
-        
-        <!-- ALL 6 CARDS RENDER SIDE-BY-SIDE NATIVELY -->
         <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
         <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
         <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
         <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
         <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
         <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-         
       </div>
     </div>
   </div>
