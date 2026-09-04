@@ -654,7 +654,7 @@ button { font-family: inherit; cursor: pointer; }
 /* --- THE RUNNING CAROUSEL TRACK --- */
 .blog-carousel-track {
   display: flex;
-  gap: 30px;                 /* Matches your exact native layout space */
+  gap: 24px;                 /* Slightly tighter gap to look better with smaller cards */
   
   /* Enforces physical, snappy touch movements */
   scroll-snap-type: x mandatory; 
@@ -662,17 +662,18 @@ button { font-family: inherit; cursor: pointer; }
   -webkit-overflow-scrolling: touch;
 }
 
-/* --- THE PEEK-THROUGH CARD CALCULATIONS --- */
+/* --- THE PROPORTIONALLY SMALLER CARDS --- */
 .blog-card {
-  /* Desktop sizing: Renders exactly 3 full items on screen while letting a tiny portion of card 4 peek in from the right edge */
-  flex: 0 0 calc(31.5% - 20px); 
-  min-width: 280px;          /* Prevents shrinking behavior */
+  /* CHANGED: Made narrower so 3.5 cards fit on screen, letting the text and title breathe above */
+  flex: 0 0 calc(26% - 18px); 
+  min-width: 240px;          /* Adjusted minimum width to look proportional */
+  max-height: 270px;         /* Locked height so it fits within the viewport alongside the header */
   box-sizing: border-box;
   scroll-snap-align: start;
 
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 38px;
+  border-radius: 32px;       /* Slightly smaller radius to look natural on a smaller card */
   box-shadow: var(--shadow);
   overflow: hidden;
   text-align: left;
@@ -689,15 +690,15 @@ button { font-family: inherit; cursor: pointer; }
   border: 1px solid var(--border, #e0e0e0);
   box-shadow: var(--shadow);
   color: #ff6f00;            /* Replace with your exact orange hex color code! */
-  width: 46px;
-  height: 46px;
+  width: 42px;               /* Slightly smaller to match the new card sizes */
+  height: 42px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-decoration: none;
   font-weight: bold;
-  font-size: 18px;
+  font-size: 16px;
   z-index: 10;
   transition: background 0.2s, transform 0.2s;
 }
@@ -705,12 +706,12 @@ button { font-family: inherit; cursor: pointer; }
   background: #fdfdfd;
   transform: translateY(-50%) scale(1.05);
 }
-.left-arrow { left: -25px; }
-.right-arrow { right: -25px; }
+.left-arrow { left: -20px; }
+.right-arrow { right: -20px; }
 
-/* --- INNER GRAPHIC AND FONTS (Unchanged from original) --- */
+/* --- INNER GRAPHIC AND FONTS --- */
 .blog-card .thumb {
-  height: 175px;
+  height: 125px;             /* CHANGED: Shrunk proportionally to match the narrower width */
   width: 100%;
   object-fit: cover;
   background: #f4f4f4;
@@ -720,45 +721,48 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   justify-content: center;
   color: #b9bcc2;
-  font-size: 14px;
+  font-size: 13px;           /* Slightly smaller font to look natural */
   font-weight: 600;
   letter-spacing: 0.5px;
 }
-.blog-card .blog-body { padding: 20px 22px 26px; }
+.blog-card .blog-body { 
+  padding: 16px 18px 20px;   /* Tighter padding to fit the smaller footprint */
+}
 .blog-card h3 {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
-  font-size: 20px;
+  font-size: 18px;           /* CHANGED: Scaled down text size so it doesn't wrap awkwardly */
   color: var(--gray);
   text-align: center;
-  margin: 0 0 12px;
+  margin: 0 0 10px;
   text-transform: uppercase;
 }
 .blog-card p {
-  font-size: 15px;
+  font-size: 14px;           /* CHANGED: Scaled down body text size */
   color: var(--gray);
   text-align: center;
-  line-height: 1.5;
+  line-height: 1.4;
   margin: 0;
 }
 .blog-card.empty {
   align-items: center;
   justify-content: center;
-  min-height: 350px;
+  height: 270px;             /* Matches the new smaller height layout constraint */
 }
 
 /* --- RESPONSIVE TABLET CHANGES --- */
 @media (max-width: 1024px) {
   .blog-carousel-track .blog-card {
     flex: 0 0 calc(47% - 15px); /* Displays 2 cards with a 3rd card peeking */
+    max-height: none;           /* Allows cards to scale naturally on mobile screen sizes */
   }
-  .carousel-arrow { display: none; } /* On smaller viewports, swipe controls are cleaner than tiny arrow tabs */
+  .carousel-arrow { display: none; } /* Swiping gestures are cleaner on smaller screens */
 }
 
 /* --- RESPONSIVE SMARTPHONE CHANGES --- */
 @media (max-width: 640px) {
   .blog-carousel-track .blog-card {
-    flex: 0 0 82%;              /* Displays 1 card with the next peeking neatly from the mobile screen viewport edge */
+    flex: 0 0 82%;              /* Displays 1 card with the next peeking from the mobile viewport edge */
   }
 }
 /* ---------- Footer ---------- */
