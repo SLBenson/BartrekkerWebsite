@@ -624,47 +624,55 @@ button { font-family: inherit; cursor: pointer; }
 .blog {
   padding: 70px 20px 100px;
   text-align: center;
+  position: relative;
 }
 
-/* --- THE NEW CAROUSEL VIEWPORT CONTAINER --- */
-/* This replaced your old .blog-grid */
-.blog-carousel-container {
+/* --- THE NEW CONTAINER WRAPPER --- */
+/* Holds both your slider container and your physical arrow overlays */
+.blog-carousel-wrapper {
+  position: relative;
   max-width: 1200px;
   margin: 55px auto 0;
-  overflow-x: auto;          /* Enables smooth horizontal scrolling */
-  padding: 10px 5px 30px;    /* Extra bottom padding stops shadow clipping */
+  display: flex;
+  align-items: center;
+}
+
+/* --- THE COMPONENT HORIZONTAL SCROLL WINDOW --- */
+.blog-carousel-container {
+  width: 100%;
+  overflow-x: auto;          /* Unlocks the scrolling engine */
+  padding: 15px 5px 25px;
   
-  /* Hides standard desktop scrollbars for a clean, modern aesthetic */
+  /* Modern styling to keep scrollbar elements completely out of view */
   scrollbar-width: none;     /* Firefox */
-  -ms-overflow-style: none;  /* IE and Edge */
+  -ms-overflow-style: none;  /* IE/Edge */
 }
-
-/* Hides scrollbars entirely for Chrome, Safari, and Opera */
 .blog-carousel-container::-webkit-scrollbar {
-  display: none;
+  display: none;             /* Chrome/Safari */
 }
 
-/* --- THE SLIDING TRACK FOR CARDS --- */
+/* --- THE RUNNING CAROUSEL TRACK --- */
 .blog-carousel-track {
   display: flex;
-  gap: 30px;                 /* Retained your exact 30px card spacing */
+  gap: 30px;                 /* Matches your exact native layout space */
   
-  /* Enables native app-like touch swiping and scroll snapping */
+  /* Enforces physical, snappy touch movements */
   scroll-snap-type: x mandatory; 
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch; /* Butter-smooth scrolling on Apple devices */
+  -webkit-overflow-scrolling: touch;
 }
 
-/* --- THE INDIVIDUAL BLOG CARDS --- */
+/* --- THE PEEK-THROUGH CARD CALCULATIONS --- */
 .blog-card {
-  /* Fits 3 cards across desktop width while factoring in your 30px gap gaps */
-  flex: 0 0 calc(33.333% - 20px); 
+  /* Desktop sizing: Renders exactly 3 full items on screen while letting a tiny portion of card 4 peek in from the right edge */
+  flex: 0 0 calc(31.5% - 20px); 
+  min-width: 280px;          /* Prevents shrinking behavior */
   box-sizing: border-box;
-  scroll-snap-align: start;  /* Snaps perfectly to the edge when a user swipes */
+  scroll-snap-align: start;
 
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 38px;       /* Preserved your beautiful 38px curved edges */
+  border-radius: 38px;
   box-shadow: var(--shadow);
   overflow: hidden;
   text-align: left;
@@ -672,14 +680,41 @@ button { font-family: inherit; cursor: pointer; }
   flex-direction: column;
 }
 
-/* --- CARD INNER STYLES (Kept exactly identical to your project colors/fonts) --- */
+/* --- PURE CSS HARDWARE ARROWS --- */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--white, #ffffff);
+  border: 1px solid var(--border, #e0e0e0);
+  box-shadow: var(--shadow);
+  color: #ff6f00;            /* Replace with your exact orange hex color code! */
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  z-index: 10;
+  transition: background 0.2s, transform 0.2s;
+}
+.carousel-arrow:hover {
+  background: #fdfdfd;
+  transform: translateY(-50%) scale(1.05);
+}
+.left-arrow { left: -25px; }
+.right-arrow { right: -25px; }
+
+/* --- INNER GRAPHIC AND FONTS (Unchanged from original) --- */
 .blog-card .thumb {
   height: 175px;
   width: 100%;
   object-fit: cover;
   background: #f4f4f4;
 }
-
 .blog-card .thumb.placeholder {
   display: flex;
   align-items: center;
@@ -689,11 +724,7 @@ button { font-family: inherit; cursor: pointer; }
   font-weight: 600;
   letter-spacing: 0.5px;
 }
-
-.blog-card .blog-body {
-  padding: 20px 22px 26px;
-}
-
+.blog-card .blog-body { padding: 20px 22px 26px; }
 .blog-card h3 {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -703,7 +734,6 @@ button { font-family: inherit; cursor: pointer; }
   margin: 0 0 12px;
   text-transform: uppercase;
 }
-
 .blog-card p {
   font-size: 15px;
   color: var(--gray);
@@ -711,30 +741,24 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.5;
   margin: 0;
 }
-
 .blog-card.empty {
   align-items: center;
   justify-content: center;
   min-height: 350px;
 }
 
-.blog-card.empty .thumb.placeholder { 
-  height: 175px; 
-}
-
-/* --- RESPONSIVE TABLET BREAKPOINT --- */
-@media (max-width: 900px) {
+/* --- RESPONSIVE TABLET CHANGES --- */
+@media (max-width: 1024px) {
   .blog-carousel-track .blog-card {
-    /* Fits exactly 2 cards side-by-side across the screen grid layout */
-    flex: 0 0 calc(50% - 15px); 
+    flex: 0 0 calc(47% - 15px); /* Displays 2 cards with a 3rd card peeking */
   }
+  .carousel-arrow { display: none; } /* On smaller viewports, swipe controls are cleaner than tiny arrow tabs */
 }
 
-/* --- RESPONSIVE MOBILE BREAKPOINT --- */
-@media (max-width: 600px) {
+/* --- RESPONSIVE SMARTPHONE CHANGES --- */
+@media (max-width: 640px) {
   .blog-carousel-track .blog-card {
-    /* Shows 1 full card, with the next card peeking out from the screen edge */
-    flex: 0 0 85%; 
+    flex: 0 0 82%;              /* Displays 1 card with the next peeking neatly from the mobile screen viewport edge */
   }
 }
 /* ---------- Footer ---------- */
@@ -1071,27 +1095,48 @@ button { font-family: inherit; cursor: pointer; }
   <h2 class="section-title">Blog</h2>
   <p class="section-subtitle">Content for everyone</p>
 
-  <!-- IMPORTANT NEW STRUCTURAL VIEWPORT WRAPPERS -->
-  <div class="blog-carousel-container">
-    <div class="blog-carousel-track">
-      
-      <!-- Your 6 blog cards stay exactly here -->
-      <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-      <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-      <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-      <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-      <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-      <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
+  <!-- CAROUSEL FRAMEWORK WRAPPER -->
+  <div class="blog-carousel-wrapper">
+    
+    <!-- PHYSICAL ARROWS USING HTML ANCHOR JUMPS -->
+    <a href="#slide-1" class="carousel-arrow left-arrow" aria-label="Previous posts">&#10094;</a>
+    <a href="#slide-2" class="carousel-arrow right-arrow" aria-label="Next posts">&#10095;</a>
 
-       <!-- ACTIVE BLOG CARD -->
-<!-- <a class="blog-card" href="blog/your-first-post.html"> -->
-  <!-- <img class="thumb" src="assets/blog-images/bar-tips.png" alt="A busy, beautifully lit cocktail bar in Kraków"> -->
-  <!-- <div class="blog-body"> -->
-    <!-- <h3>5 Secrets to Finding the Best Local Bars</h3> -->
-    <!-- <p>Skip the tourist traps. Here is how our app uncovers hidden speakeasies and local gems on your next trek.</p> -->
-  <!-- </div> -->
-<!-- </a> -->
-       
+    <!-- THE SCROLLING VIEWPORT CONTAINER -->
+    <div class="blog-carousel-container">
+      <div class="blog-carousel-track">
+        
+        <!-- CARD 1 (Anchored for Left button target) -->
+        <div class="blog-card empty" id="slide-1">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+        
+        <!-- CARD 2 -->
+        <div class="blog-card empty">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+        
+        <!-- CARD 3 -->
+        <div class="blog-card empty">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+        
+        <!-- CARD 4 (Anchored for Right button target) -->
+        <div class="blog-card empty" id="slide-2">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+        
+        <!-- CARD 5 -->
+        <div class="blog-card empty">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+        
+        <!-- CARD 6 -->
+        <div class="blog-card empty">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+         
+      </div>
     </div>
   </div>
 </section>
