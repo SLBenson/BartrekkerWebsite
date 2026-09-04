@@ -776,25 +776,60 @@ a.blog-card:hover {
 }
 
 /* ---------- RESPONSIVE MOBILE BREAKPOINTS ---------- */
+
+/* TABLETS / MID-SIZE SCREENS: Fixes desktop-to-tablet window shrinking */
 @media (max-width: 900px) {
-  .blog-carousel-container { overflow-x: auto !important; }
+  .blog-carousel-container { 
+    overflow-x: auto !important; 
+    /* Smooth, precise snapping behavior for touchscreens */
+    scroll-snap-type: x mandatory !important; 
+    -webkit-overflow-scrolling: touch !important;
+    padding-bottom: 30px !important; /* Prevents card shadows from getting clipped at the bottom */
+  }
+
   .blog-carousel-track {
-    width: auto !important;    
-    min-width: auto !important;
-    transition: none !important; 
+    /* Important: Resetting to absolute widths fixes the translation calculations if arrows are kept, 
+       but if we use native swipe, we calculate the wrapper dynamically */
+    width: max-content !important;    
+    min-width: 100% !important;
+    display: flex !important;
+    gap: 24px !important;
+    padding-right: 20px !important; /* Prevents the last card from hugging the edge closely */
+    transition: transform 0.4s ease-in-out !important; /* Keeps movement smooth if scaled down */
   }
+
   .blog-carousel-track .blog-card {
-    flex: 0 0 calc(47% - 12px) !important; 
-    width: auto !important;
-    max-height: none !important;          
-    height: auto !important;
+    /* FIX: Locks sizing ratio tightly to prevent any squishing */
+    flex: 0 0 290px !important; 
+    width: 290px !important;
+    max-width: 290px !important;
+    height: 252px !important; /* Calculated exact 310:270 ratio scaled down slightly for tablet */
+    max-height: 252px !important;         
+    scroll-snap-align: start !important;
+    box-sizing: border-box !important;
   }
+
+  /* Hides manual arrows on mid-size/touch devices where swipe is natural */
   .carousel-arrow { display: none !important; } 
   [id^="slide-"]:checked ~ .blog-carousel-container .blog-carousel-track { transform: none !important; }
 }
 
+/* SMARTPHONES: Maximizes screen real estate while locking shape proportions */
 @media (max-width: 600px) {
-  .blog-carousel-track .blog-card { flex: 0 0 82% !important; }
+  .blog-carousel-container {
+    padding-left: 20px !important;  /* Creates consistent visual margins on mobile screens */
+    padding-right: 20px !important;
+  }
+
+  .blog-carousel-track .blog-card { 
+    /* FIX: Standardizes card width so a piece of the next card peeks into view, hinting it scrolls */
+    flex: 0 0 280px !important; 
+    width: 280px !important;
+    max-width: 280px !important;
+    height: 244px !important; /* Math-matched to maintain the crisp 310:270 shape factor */
+    max-height: 244px !important;
+  }
+  
   .steps { max-width: 100%; }
   .step-pill { display: block; width: 100%; }
 }
