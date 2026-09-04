@@ -655,16 +655,19 @@ button { font-family: inherit; cursor: pointer; }
 /* --- THE RUNNING CAROUSEL TRACK --- */
 .blog-carousel-track {
   display: flex !important;
-  flex-wrap: nowrap !important; /* Keeps all 6 cards lined up side-by-side */
-  width: max-content !important; /* Forces row to stretch out past screen edges */
-  gap: 24px;                    
+  flex-wrap: nowrap !important; /* Force cards into a single horizontal thread line */
   
-  /* Enforces physical, snappy touch movements */
+  /* PERFECT HARD-STOP CALCULATION: */
+  /* (6 cards * 310px width each) + (5 spaces between cards * 24px gap each) = 1980px total track length */
+  width: calc((6 * 310px) + (5 * 24px)) !important;
+  min-width: calc((6 * 310px) + (5 * 24px)) !important;
+  
+  gap: 24px;                    
   scroll-snap-type: x mandatory; 
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
-
+   
 /* --- THE PROPORTIONALLY SMALLER CARDS --- */
 .blog-card {
   /* Using fixed pixel values ensures your exact look stays locked in place */
