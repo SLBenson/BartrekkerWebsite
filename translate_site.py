@@ -2,10 +2,22 @@ import os
 import time
 import re
 from bs4 import BeautifulSoup, NavigableString, Comment
-import requests
+from google.cloud import translate_v2
+import google.auth
 
 LANGUAGES = ['es', 'fr']
 FILES_TO_TRANSLATE = ['index.html']
+
+# Initialize Google Cloud Translation client
+try:
+    credentials, project = google.auth.default()
+    translate_client = translate_v2.Client(credentials=credentials)
+except Exception as e:
+    print(f"⚠️ Could not initialize Google Cloud Translation: {e}")
+    print("Falling back to googletrans library...")
+    from googletrans import Translator
+    fallback_translator = Translator()
+    translate_client = None
 
 def split_text_into_sentences(text):
     """Splits text into smaller, safe pieces for translation."""
@@ -13,51 +25,47 @@ def split_text_into_sentences(text):
     return [s.strip() for s in sentences if s.strip()]
 
 def translate_text(text, target_lang):
-    """Translate text using the LibreTranslate API (free, no key required)."""
+    """Translate text using Google Cloud Translation or googletrans as fallback."""
     if not text or len(text.strip()) == 0:
         return text
         
     try:
-        url = "https://libretranslate.de/translate"
-        payload = {
-            "q": text,
-            "source": "en",
-            "target": target_lang,
-        }
-        response = requests.post(url, json=payload, timeout=15)
-        
-        if response.status_code == 200:
-            result = response.json()
-            translated = result.get("translatedText", None)
-            if translated:
-                print(f"      ✓ Translated ({len(text)} chars): {text[:50]}... → {translated[:50]}...")
-                return translated
-            else:
-                print(f"      ✗ No translation returned for: {text[:50]}...")
-                return text
+        if translate_client:
+            # Use Google Cloud Translation
+            result = translate_client.translate_text(
+                text,
+                source_language='en',
+                target_language=target_lang
+            )
+            translated = result['translatedText']
         else:
-            print(f"      ✗ API error {response.status_code}: {response.text[:100]}")
+            # Use googletrans as fallback
+            result = fallback_translator.translate(text, src_lang='en', dest_lang=target_lang)
+            translated = result.text
+        
+        if translated and translated != text:
+            print(f"      ✓ Translated: {text[:50]}... → {translated[:50]}...")
+            return translated
+        else:
+            print(f"      ✗ Translation returned same text: {text[:50]}...")
             return text
-    except requests.exceptions.Timeout:
-        print(f"      ✗ Translation timeout for: {text[:50]}...")
-        return text
     except Exception as e:
-        print(f"      ✗ Translation exception: {str(e)[:100]}")
+        print(f"      ✗ Translation error: {str(e)[:100]}")
         return text
 
 def test_api(target_lang):
-    """Test if the API is working before processing."""
-    print(f"  Testing LibreTranslate API for {target_lang}...")
-    test_result = translate_text("Hello", target_lang)
-    if test_result and test_result != "Hello":
-        print(f"  ✅ API test passed: 'Hello' → '{test_result}'")
+    """Test if translation is working before processing."""
+    print(f"  Testing translation API for {target_lang}...")
+    test_result = translate_text("Hello world", target_lang)
+    if test_result and test_result.lower() != "hello world":
+        print(f"  ✅ API test passed: 'Hello world' → '{test_result}'")
         return True
     else:
         print(f"  ❌ API test failed: translation did not work")
         return False
 
 print("=" * 70)
-print("Starting automated translation pipeline with debugging...")
+print("Starting automated translation pipeline with Google Translate...")
 print("=" * 70)
 
 for lang in LANGUAGES:
@@ -68,7 +76,7 @@ for lang in LANGUAGES:
     
     # Test API first
     if not test_api(lang):
-        print(f"⚠️  Skipping {lang} - API is not responding properly")
+        print(f"⚠️  Skipping {lang} - Translation API is not responding")
         continue
     
     for file_name in FILES_TO_TRANSLATE:
@@ -121,7 +129,7 @@ for lang in LANGUAGES:
                         translated_chunks.append(translated_chunk)
                     else:
                         translated_chunks.append(chunk)
-                    time.sleep(0.2)
+                    time.sleep(0.1)
                 
                 translated_text = " ".join(translated_chunks)
                 element.replace_with(translated_text)
@@ -134,8 +142,8 @@ for lang in LANGUAGES:
                     element.replace_with(translated_text)
                     translated_count += 1
                 else:
-                    print(f"      (Translation failed or unchanged, keeping original)")
-                time.sleep(0.2)
+                    print(f"      (Translation unchanged, keeping original)")
+                time.sleep(0.1)
         
         output_path = os.path.join(lang, file_name)
         # Write using str() to preserve original formatting
