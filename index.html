@@ -659,8 +659,12 @@ button { font-family: inherit; cursor: pointer; }
   min-width: calc((6 * 310px) + (5 * 24px)) !important;
   gap: 24px !important;                    
   
-  /* Smooth hardware easing slide animation */
-  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; 
+  /* SMOOTH MOVEMENT CALIBRATION: */
+  /* Extended to 0.8s with a cinematic cubic-bezier to make the glide look professional and slow */
+  transition: transform 0.8s cubic-bezier(0.25, 1, 0.35, 1) !important; 
+  
+  /* FORCES SMOOTHNESS: Tells the browser graphics card to keep the animation free-flowing */
+  will-change: transform !important; 
 }
 
 /* --- THE PROPORTIONALLY SMALLER CARDS --- */
