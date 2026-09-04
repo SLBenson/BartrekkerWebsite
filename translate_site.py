@@ -93,10 +93,21 @@ def translate_text(text, target_lang, retries=3):
     return text
 
 
+EMAIL_RE = re.compile(r'^[\w.+-]+@[\w-]+\.[a-zA-Z]{2,}$')
+PHONE_RE = re.compile(r'^\+?[\d\s().-]{6,}$')
+
+
+def looks_like_contact_info(text):
+    """True only for text that IS an email address or phone number, not
+    just any text that happens to sit inside a mailto:/tel: link (e.g. a
+    "Contact us" button should still get translated)."""
+    stripped = text.strip()
+    return bool(EMAIL_RE.match(stripped) or PHONE_RE.match(stripped))
+
+
 def is_skippable(element):
-    """Skips <style>/<script>/<head>, the footer language picker itself,
-    and mailto:/tel: links — so emails, phone numbers and the language
-    names in the switcher never get run through translation."""
+    """Skips <style>/<script>/<head> and the footer language picker itself
+    — the language names in the switcher never get run through translation."""
     parent = element.parent if hasattr(element, 'parent') else element
     while parent is not None:
         name = getattr(parent, 'name', None)
@@ -105,10 +116,6 @@ def is_skippable(element):
         classes = parent.get('class') if hasattr(parent, 'get') else None
         if classes and 'footer-lang-switcher' in classes:
             return True
-        if name == 'a':
-            href = parent.get('href', '') or ''
-            if href.startswith('mailto:') or href.startswith('tel:'):
-                return True
         parent = getattr(parent, 'parent', None)
     return False
 
@@ -137,6 +144,8 @@ def translate_page(soup, target_lang):
         text_content = element.strip()
         if not text_content or len(text_content) < 2:
             continue
+        if looks_like_contact_info(text_content):
+            continue  # leave emails/phone numbers exactly as written
         elements_to_translate.append((element, text_content))
 
     print(f"    Found {len(elements_to_translate)} text elements to translate")
