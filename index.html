@@ -637,31 +637,38 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
 }
 
+/* --- THE COMPONENT HORIZONTAL SCROLL WINDOW --- */
 .blog-carousel-container {
   width: 100%;
-  overflow-x: scroll !important; /* Unlocks the horizontal scrolling track axis framework */
+  overflow-x: scroll !important; /* Forces the browser to unlock the horizontal scroll path */
   padding: 15px 5px 25px;
   display: block;
   box-sizing: border-box;
   
-  /* Modern styling overrides to keep raw browser scrollbar bars out of view */
+  /* CRITICAL CORRECTIONS FOR THE CHOPPING BUG: */
+  position: relative !important;
+  contain: layout paint !important; /* Forces the browser graphics engine to render cards 5 and 6 instead of throwing them away */
+  
+  /* Modern styling to keep scrollbars completely hidden from view */
   scrollbar-width: none;     /* Firefox */
   -ms-overflow-style: none;  /* IE/Edge */
 }
 .blog-carousel-container::-webkit-scrollbar {
-  display: none;             /* Chrome/Safari webkit */
+  display: none !important;  /* Chrome/Safari webkit */
 }
 
+/* --- THE RUNNING CAROUSEL TRACK --- */
 .blog-carousel-track {
   display: flex !important;
-  flex-wrap: nowrap !important; /* Keep all 6 boxes locked side-by-side on an inline sequence thread */
+  flex-direction: row !important;
+  flex-wrap: nowrap !important; /* Force cards into a single horizontal thread line */
   
-  /* CALCULATION FORMULA: (6 items * 310px wide) + (5 spaces * 24px gap size) = 1980px row width */
+  /* FIXED EXPANDING CORE BUG: */
+  /* (6 cards * 310px width each) + (5 spaces between cards * 24px gap each) = 1980px total track length */
   width: calc((6 * 310px) + (5 * 24px)) !important;
   min-width: calc((6 * 310px) + (5 * 24px)) !important;
-  gap: 24px;                    
   
-  /* CORE SLIDE ENGINE: Tells the browser how to slide when an arrow anchor link is triggered */
+  gap: 24px;                    
   scroll-snap-type: x mandatory; 
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
