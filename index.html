@@ -633,19 +633,18 @@ button { font-family: inherit; cursor: pointer; }
   position: relative;
   max-width: 1200px;
   margin: 55px auto 0;
-  display: flex;
-  align-items: center;
+  /* FIXED SCROLL TRAP BUG: Swapped out 'flex' for a safe block level rendering model */
+  display: block !important; 
 }
 
-/* --- THE COMPONENT HORIZONTAL SCROLL WINDOW --- */
 .blog-carousel-container {
   width: 100%;
-  overflow-x: scroll !important; /* Unlocks the horizontal scrolling engine paths */
+  overflow-x: scroll !important; /* Unlocks the horizontal scrolling track axis */
   padding: 15px 5px 25px;
   display: block;
   box-sizing: border-box;
   
-  /* Modern styling to keep scrollbar elements completely out of view */
+  /* Modern styling overrides to keep raw browser scrollbar bars out of view */
   scrollbar-width: none;     /* Firefox */
   -ms-overflow-style: none;  /* IE/Edge */
 }
@@ -653,36 +652,36 @@ button { font-family: inherit; cursor: pointer; }
   display: none !important;  /* Chrome/Safari webkit */
 }
 
-/* --- THE RUNNING CAROUSEL TRACK --- */
 .blog-carousel-track {
-  /* FIXES CHOPPED CARDS BUG PERMANENTLY: */
-  /* Swapping 'flex' for 'inline-flex' and width to 'auto' breaks any grid constraints. */
-  /* It forces the row line to automatically expand sideways to hold all 6 boxes naturally. */
+  /* FIXED CONTAINER CLAMP BUG: */
+  /* Using 'inline-flex' tells the track row to ignore screen-width limits. */
+  /* It lets the track extend past your monitor's edge to hold all 6 cards naturally. */
   display: inline-flex !important; 
   width: auto !important;
   min-width: auto !important;
-  flex-wrap: nowrap !important; /* Forces cards into a single horizontal thread line */
-  
+  flex-wrap: nowrap !important; /* Keep all 6 boxes locked side-by-side on an inline row line */
   gap: 24px;                    
+  
+  /* CORE SLIDE ENGINE: Snaps the targeted items into place on arrow click or trackpad swipe */
   scroll-snap-type: x mandatory; 
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
 }
 
-/* --- THE NEW NATURAL PROPORTIONAL COMPACT CARD FOOTPRINTS --- */
+/* --- THE NATURAL PROPORTIONAL COMPACT CARD FOOTPRINTS --- */
 .blog-card {
   flex: 0 0 310px !important; 
   width: 310px !important;
+  max-width: 310px !important;
   flex-shrink: 0 !important; /* STOPS THE COMPRESSION BUG FROM COLLAPSING BOXES 5 & 6 */
-  max-height: 270px;         /* Restricts height properties so your headings remain in place */
+  height: 270px !important;
+  max-height: 270px !important;
   box-sizing: border-box;
-  
-  /* CORE SLIDE ENGINE: Snaps the card perfectly to the left container edge when targeted by an arrow */
-  scroll-snap-align: start;
+  scroll-snap-align: start; /* Locks alignment rules for your arrow targets */
 
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 32px;       /* Sleek curved geometry matching your app style guidelines */
+  border-radius: 32px;       /* Sleek curved geometry matching your app design style */
   box-shadow: var(--shadow);
   overflow: hidden;
   text-align: left;
@@ -709,7 +708,7 @@ a.blog-card:hover {
   background: var(--white, #ffffff);
   border: 1px solid var(--border, #e0e0e0);
   box-shadow: var(--shadow);
-  color: var(--orange);      /* Pulls your theme's native brand accent orange color dynamically */
+  color: var(--orange);      /* Pulls your theme's brand accent orange color dynamically */
   width: 42px;               
   height: 42px;
   border-radius: 50%;
@@ -726,12 +725,12 @@ a.blog-card:hover {
   background: #fdfdfd;
   transform: translateY(-50%) scale(1.05);
 }
-.left-arrow { left: -20px; }
-.right-arrow { right: -20px; }
+.left-arrow { left: -21px; }
+.right-arrow { right: -21px; }
 
 /* --- CARD IMAGE AREA AND GRAPHIC THUMBNAILS --- */
 .blog-card .thumb {
-  height: 125px;             /* Proportionally cropped to match your new low profile width footprint layout */
+  height: 125px;             /* Proportionally cropped to match your new smaller width footprints */
   width: 100%;
   object-fit: cover;
   background: #f4f4f4;
@@ -774,16 +773,17 @@ a.blog-card:hover {
 
 @media (max-width: 900px) {
   .blog-carousel-track {
-    width: auto !important;    /* Relaxes layout grids so cards scale natively on tablets */
+    display: flex !important; /* Safely returns back to a normal flex row layout track on portable screens */
+    width: auto !important;    
     min-width: auto !important;
   }
   .blog-carousel-track .blog-card {
-    /* Shifts column ratios back to percentage models to fit medium browser widths smoothly */
+    /* Shifts columns back to adaptive percentage sizes to fit tablet screen widths fluidly */
     flex: 0 0 calc(47% - 12px) !important; 
     width: auto !important;
     max-height: none;          
   }
-  .carousel-arrow { display: none !important; } /* Touch tracking scales much better than small arrow elements */
+  .carousel-arrow { display: none !important; } /* Standard touch gestures scale much cleaner than small arrows on tablets */
 }
 
 @media (max-width: 600px) {
@@ -1133,18 +1133,18 @@ a.blog-card:hover {
   <h2 class="section-title">Blog</h2>
   <p class="section-subtitle">Content for everyone</p>
 
-  <!-- THE ORIGINAL WRAPPER CONTAINER -->
+  <!-- REVISED WRAPPER FRAMEWORK -->
   <div class="blog-carousel-wrapper">
     
-    <!-- ANCHOR TARGET ARROWS -->
-    <!-- Left arrow targets #card-start (Card 1) | Right arrow targets #card-next (Card 4) -->
+    <!-- ARROW ACTION CONTROLS -->
     <a href="#card-start" class="carousel-arrow left-arrow" aria-label="Previous posts">❮</a>
     <a href="#card-next" class="carousel-arrow right-arrow" aria-label="Next posts">❯</a>
 
+    <!-- THE UNLOCKED COMPONENT VIEWPORT -->
     <div class="blog-carousel-container">
       <div class="blog-carousel-track">
         
-        <!-- CARD 1 (Add id="card-start" right here) -->
+        <!-- CARD 1 (Targets the left arrow home snap) -->
         <div class="blog-card empty" id="card-start">
           <div class="thumb placeholder">Coming soon</div>
         </div>
@@ -1159,7 +1159,7 @@ a.blog-card:hover {
           <div class="thumb placeholder">Coming soon</div>
         </div>
         
-        <!-- CARD 4 (Add id="card-next" right here) -->
+        <!-- CARD 4 (Targets the right arrow forward slide) -->
         <div class="blog-card empty" id="card-next">
           <div class="thumb placeholder">Coming soon</div>
         </div>
