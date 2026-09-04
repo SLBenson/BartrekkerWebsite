@@ -1,7 +1,7 @@
 import os
 import time
 import re
-from bs4 import BeautifulSoup, NavigableString
+from bs4 import BeautifulSoup, NavigableString, Comment
 import requests
 
 LANGUAGES = ['es', 'fr']
@@ -45,14 +45,19 @@ for lang in LANGUAGES:
             continue
             
         with open(file_name, 'r', encoding='utf-8') as f:
-            soup = BeautifulSoup(f.read(), 'html.parser')
+            content = f.read()
+            soup = BeautifulSoup(content, 'html.parser')
             
         # Extract and update text safely
+        # We need to create a list of elements to process to avoid modifying during iteration
+        elements_to_translate = []
         for element in soup.find_all(text=True):
-            # Skip if not a NavigableString (for safety)
+            # Skip comments
+            if isinstance(element, Comment):
+                continue
+            # Skip if not a NavigableString
             if not isinstance(element, NavigableString):
                 continue
-                
             # Skip elements in certain parent tags
             if element.parent.name in ['style', 'script', 'head', 'meta', 'link']:
                 continue
@@ -60,7 +65,10 @@ for lang in LANGUAGES:
                 continue
             if not element.strip():
                 continue
-                
+            elements_to_translate.append(element)
+        
+        # Now translate the collected elements
+        for element in elements_to_translate:
             original_text = element.strip()
             
             # If the block is too long, break it up sentence by sentence
@@ -76,7 +84,7 @@ for lang in LANGUAGES:
                         translated_chunks.append(chunk)
                     time.sleep(0.1)
                 
-                # Use string replacement instead of replace_with to preserve HTML structure
+                # Join and replace
                 translated_text = " ".join(translated_chunks)
                 element.replace_with(translated_text)
                 
@@ -84,13 +92,13 @@ for lang in LANGUAGES:
                 # Small text blocks translate normally
                 translated_text = translate_text(original_text, lang)
                 if translated_text:
-                    # Replace the text node with the translated text
                     element.replace_with(translated_text)
                 time.sleep(0.05)
                 
         output_path = os.path.join(lang, file_name)
+        # Write using str() to preserve original formatting, not prettify()
         with open(output_path, 'w', encoding='utf-8') as f:
-            f.write(str(soup.prettify()))
+            f.write(str(soup))
             
         print(f"  ✅ Successfully processed: {output_path}")
 
