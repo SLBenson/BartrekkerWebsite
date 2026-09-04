@@ -639,7 +639,7 @@ button { font-family: inherit; cursor: pointer; }
 
 .blog-carousel-container {
   width: 100%;
-  overflow-x: scroll !important; /* Unlocks native cross-device horizontal scroll tracks */
+  overflow-x: scroll !important; /* Unlocks the horizontal scrolling track axis framework */
   padding: 15px 5px 25px;
   display: block;
   box-sizing: border-box;
@@ -659,8 +659,9 @@ button { font-family: inherit; cursor: pointer; }
   /* CALCULATION FORMULA: (6 items * 310px wide) + (5 spaces * 24px gap size) = 1980px row width */
   width: calc((6 * 310px) + (5 * 24px)) !important;
   min-width: calc((6 * 310px) + (5 * 24px)) !important;
-  
   gap: 24px;                    
+  
+  /* CORE SLIDE ENGINE: Tells the browser how to slide when an arrow anchor link is triggered */
   scroll-snap-type: x mandatory; 
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
@@ -673,6 +674,8 @@ button { font-family: inherit; cursor: pointer; }
   flex-shrink: 0 !important; /* STOPS THE COMPRESSION BUG FROM COLLAPSING BOXES 5 & 6 */
   max-height: 270px;         /* Restricts height properties so your headings remain in place */
   box-sizing: border-box;
+  
+  /* CORE SLIDE ENGINE: Snaps the card perfectly to the left container edge when targeted by an arrow */
   scroll-snap-align: start;
 
   background: var(--white);
@@ -1128,21 +1131,46 @@ a.blog-card:hover {
   <h2 class="section-title">Blog</h2>
   <p class="section-subtitle">Content for everyone</p>
 
+  <!-- THE ORIGINAL WRAPPER CONTAINER -->
   <div class="blog-carousel-wrapper">
-    <!-- Overlay Desktop Arrow indicators -->
-    <div class="carousel-arrow left-arrow">❮</div>
-    <div class="carousel-arrow right-arrow">❯</div>
+    
+    <!-- ANCHOR TARGET ARROWS -->
+    <!-- Left arrow targets #card-start (Card 1) | Right arrow targets #card-next (Card 4) -->
+    <a href="#card-start" class="carousel-arrow left-arrow" aria-label="Previous posts">❮</a>
+    <a href="#card-next" class="carousel-arrow right-arrow" aria-label="Next posts">❯</a>
 
     <div class="blog-carousel-container">
       <div class="blog-carousel-track">
         
-        <!-- ALL 6 BOXES SIT NATIVELY INSIDE THIS TRACK -->
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
+        <!-- CARD 1 (Add id="card-start" right here) -->
+        <div class="blog-card empty" id="card-start">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+        
+        <!-- CARD 2 -->
+        <div class="blog-card empty">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+        
+        <!-- CARD 3 -->
+        <div class="blog-card empty">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+        
+        <!-- CARD 4 (Add id="card-next" right here) -->
+        <div class="blog-card empty" id="card-next">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+        
+        <!-- CARD 5 -->
+        <div class="blog-card empty">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
+        
+        <!-- CARD 6 -->
+        <div class="blog-card empty">
+          <div class="thumb placeholder">Coming soon</div>
+        </div>
          
       </div>
     </div>
