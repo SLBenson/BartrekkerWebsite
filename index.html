@@ -655,12 +655,13 @@ button { font-family: inherit; cursor: pointer; }
 /* --- THE RUNNING CAROUSEL TRACK --- */
 .blog-carousel-track {
   display: flex !important;
-  flex-wrap: nowrap !important; /* Force cards into a single horizontal thread line */
+  flex-wrap: nowrap !important; /* Force cards into a single horizontal line thread */
   
-  /* PERFECT HARD-STOP CALCULATION: */
-  /* (6 cards * 310px width each) + (5 spaces between cards * 24px gap each) = 1980px total track length */
-  width: calc((6 * 310px) + (5 * 24px)) !important;
-  min-width: calc((6 * 310px) + (5 * 24px)) !important;
+  /* FIXED CHOPPED BOXES BUG: */
+  /* Rechanging these calculations to max-content allows cards 5 and 6 to stretch out */
+  /* dynamically based on their actual sizes instead of clamping the space tightly at 4 cards */
+  width: max-content !important;
+  min-width: max-content !important;
   
   gap: 24px;                    
   scroll-snap-type: x mandatory; 
