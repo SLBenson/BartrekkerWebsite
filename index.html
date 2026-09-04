@@ -1341,16 +1341,11 @@ a.blog-card:hover {
 <script>
 // Self-tracking Active Path Script Mapping
 window.addEventListener('DOMContentLoaded', () => {
-    const path = window.location.pathname;
-    const select = document.getElementById('lang-select');
-    if (path.includes('/es/')) {
-      select.value = '/es/';
-    } else if (path.includes('/fr/')) {
-      select.value = '/fr/';
-    } else {
-      select.value = '/';
-    }
-  });
+  const path = window.location.pathname;
+  const select = document.getElementById('lang-select');
+  const match = Array.from(select.options).find(opt => opt.value !== '/' && path.includes(opt.value));
+  select.value = match ? match.value : '/';
+});
    
 document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
