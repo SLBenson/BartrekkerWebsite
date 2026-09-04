@@ -352,6 +352,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ---------- How it works ---------- */
 
+/* ---------- How It Works Base Styles ---------- */
 .how-it-works {
   padding: 70px 20px 90px;
   text-align: center;
@@ -396,6 +397,29 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.2;
 }
 
+/* ---------- Responsive Mobile Fixes ---------- */
+@media (max-width: 600px) {
+  .steps {
+    max-width: 100% !important;
+    padding: 0 10px !important; /* Prevents pills from hitting the physical screen edge */
+    box-sizing: border-box !important;
+  }
+
+  .step-pill {
+    border-radius: 32px !important; /* Matches the sleek, deep pill curve on your mobile view */
+    padding: 18px 24px !important;  /* Balances padding perfectly on mobile rows */
+    min-height: auto !important;    /* Lets the container grow naturally instead of squeezing text */
+  }
+
+  .step-pill .step-no {
+    font-size: 20px !important;     /* Scales font size down slightly so it comfortably fits mobile screens */
+    margin-bottom: 2px !important;  /* Forces clean vertical stacking */
+  }
+
+  .step-pill .step-label {
+    font-size: 15px !important;     /* Shrinks label size to fit perfectly on a single line */
+  }
+}
 /* ---------- What to expect ---------- */
 
 .what-to-expect {
