@@ -27,7 +27,7 @@ for lang in LANGUAGES:
         with open(file_name, 'r', encoding='utf-8') as f:
             soup = BeautifulSoup(f.read(), 'html.parser')
             
-        translator = MyMemoryTranslator(source='en', target=lang)
+        translator = MyMemoryTranslator(source_language='en', target_language=lang)  # ✅ FIXED
             
         # Extract and update text safely
         for element in soup.find_all(text=True):
