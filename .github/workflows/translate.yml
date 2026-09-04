@@ -1,11 +1,24 @@
-name: Auto Translate Pages
+name: Deploy Multi-Language Website to Pages
+
 on:
   push:
-    branches:
-      - main
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
-  translate:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps: deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,21 +35,14 @@ jobs:
       - name: Run Translation Engine
         run: python translate_site.py
 
-      - name: Commit and Push Translated Pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-          # Stage the translation outputs safely
-          git add es/ index.html || echo "No Spanish directory found yet"
-          git add fr/ index.html || echo "No French directory found yet"
-          
-          # Check if there are actual text changes to commit so it doesn't crash empty runs
-          if git diff --staged --quiet; then
-            echo "No translation adjustments detected. Skipping deployment."
-          else
-            git commit -m "Automated translation sync [skip ci]"
-            git push origin main
-          fi
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload production artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'  # Uploads everything including your new /es/ and /fr/ folders
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
