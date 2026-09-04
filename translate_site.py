@@ -2,7 +2,7 @@ import os
 import time
 import re
 from bs4 import BeautifulSoup
-from deep_translator import MyMemoryTranslator
+from deep_translator import GoogleTranslator
 
 LANGUAGES = ['es', 'fr']
 FILES_TO_TRANSLATE = ['index.html']
@@ -27,7 +27,7 @@ for lang in LANGUAGES:
         with open(file_name, 'r', encoding='utf-8') as f:
             soup = BeautifulSoup(f.read(), 'html.parser')
             
-        translator = MyMemoryTranslator(source_language='en', target_language=lang)  # ✅ FIXED
+        translator = GoogleTranslator(source_language='en', target_language=lang)
             
         # Extract and update text safely
         for element in soup.find_all(text=True):
@@ -48,12 +48,13 @@ for lang in LANGUAGES:
                 for chunk in chunks:
                     try:
                         translated_chunk = translator.translate(chunk)
-                        if translated_chunk and not translated_chunk.startswith("MYMEMORY WARNING"):
+                        if translated_chunk:
                             translated_chunks.append(translated_chunk)
                         else:
-                            translated_chunks.append(chunk) # Fallback to original text if API errors
+                            translated_chunks.append(chunk)
                         time.sleep(0.1)
-                    except Exception:
+                    except Exception as e:
+                        print(f"    ⚠️ Error translating chunk: {e}")
                         translated_chunks.append(chunk)
                 
                 # Combine the translated sentences back together
@@ -63,11 +64,11 @@ for lang in LANGUAGES:
                 # Small text blocks translate normally
                 try:
                     translated_text = translator.translate(original_text)
-                    if translated_text and not translated_text.startswith("MYMEMORY WARNING"):
+                    if translated_text:
                         element.replace_with(translated_text)
                     time.sleep(0.05)
                 except Exception as e:
-                    print(f"    ❌ Error translating short block: {e}")
+                    print(f"    ⚠️ Error translating short block: {e}")
                 
         output_path = os.path.join(lang, file_name)
         with open(output_path, 'w', encoding='utf-8') as f:
