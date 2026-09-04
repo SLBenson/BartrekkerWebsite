@@ -626,49 +626,44 @@ button { font-family: inherit; cursor: pointer; }
   padding: 70px 20px 100px;
   text-align: center;
   position: relative;
+  display: block !important;
+  width: 100% !important;
 }
 
-/* --- THE RUNNING OVERFLOW CAROUSEL TRACK WINDOW --- */
-.blog-carousel-wrapper {
+/* --- THE MAIN CAROUSEL FRAME SYSTEM --- */
+.css-slider-system {
   position: relative;
   max-width: 1200px;
   margin: 55px auto 0;
-  /* FIXED SCROLL TRAP BUG: Swapped out 'flex' for a safe block level rendering model */
-  display: block !important; 
+  display: block !important;
 }
 
+/* --- THE VIEWPORT CLIPPING WINDOW --- */
 .blog-carousel-container {
-  width: 100%;
-  overflow-x: scroll !important; /* Unlocks the horizontal scrolling track axis */
-  padding: 15px 5px 25px;
-  display: block;
-  box-sizing: border-box;
-  
-  /* Modern styling overrides to keep raw browser scrollbar bars out of view */
-  scrollbar-width: none;     /* Firefox */
-  -ms-overflow-style: none;  /* IE/Edge */
-}
-.blog-carousel-container::-webkit-scrollbar {
-  display: none !important;  /* Chrome/Safari webkit */
+  width: 100% !important;
+  max-width: 1200px !important;
+  overflow: hidden !important; /* Locks out manual scrolling and yanking completely */
+  padding: 15px 5px 25px !important;
+  display: block !important;
+  box-sizing: border-box !important;
 }
 
+/* --- THE ANIMATED RUNNING TRACK --- */
 .blog-carousel-track {
-  /* FIXED CONTAINER CLAMP BUG: */
-  /* Using 'inline-flex' tells the track row to ignore screen-width limits. */
-  /* It lets the track extend past your monitor's edge to hold all 6 cards naturally. */
-  display: inline-flex !important; 
-  width: auto !important;
-  min-width: auto !important;
-  flex-wrap: nowrap !important; /* Keep all 6 boxes locked side-by-side on an inline row line */
-  gap: 24px;                    
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important; /* Keeps all 6 cards lined up in a single horizontal sequence string */
   
-  /* CORE SLIDE ENGINE: Snaps the targeted items into place on arrow click or trackpad swipe */
-  scroll-snap-type: x mandatory; 
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  /* FIXED WIDTH ENGINE FOR 6 CARDS: (6 items * 310px) + (5 spaces * 24px gap size) = 1980px total track width */
+  width: calc((6 * 310px) + (5 * 24px)) !important;
+  min-width: calc((6 * 310px) + (5 * 24px)) !important;
+  gap: 24px !important;                    
+  
+  /* Smooth hardware easing slide animation */
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important; 
 }
 
-/* --- THE NATURAL PROPORTIONAL COMPACT CARD FOOTPRINTS --- */
+/* --- THE PROPORTIONALLY SMALLER CARDS --- */
 .blog-card {
   flex: 0 0 310px !important; 
   width: 310px !important;
@@ -676,12 +671,11 @@ button { font-family: inherit; cursor: pointer; }
   flex-shrink: 0 !important; /* STOPS THE COMPRESSION BUG FROM COLLAPSING BOXES 5 & 6 */
   height: 270px !important;
   max-height: 270px !important;
-  box-sizing: border-box;
-  scroll-snap-align: start; /* Locks alignment rules for your arrow targets */
+  box-sizing: border-box !important;
 
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 32px;       /* Sleek curved geometry matching your app design style */
+  background: var(--white, #ffffff);
+  border: 1px solid var(--border, rgba(0,0,0,0.15));
+  border-radius: 32px;       /* Preserves your custom curves perfectly */
   box-shadow: var(--shadow);
   overflow: hidden;
   text-align: left;
@@ -689,114 +683,131 @@ button { font-family: inherit; cursor: pointer; }
   flex-direction: column;
 }
 
-/* --- HOVER EFFECTS FOR LIVE ARTICLES --- */
-a.blog-card {
-  text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
-a.blog-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+/* --- THE HARDWARE-POWERED MATRIX ENGINE CONTROLLERS --- */
+/* When the right arrow is clicked, it shifts the track left past exactly 3 cards + their gaps */
+#slide-batch-2:checked ~ .blog-carousel-container .blog-carousel-track {
+  /* Calculation: 3 cards (930px) + 3 gaps (72px) = 1002px displacement shift */
+  transform: translateX(-1002px) !important; 
 }
 
-/* --- VISUAL OVERLAY HARDWARE NAVIGATION ARROWS --- */
+/* --- INTERACTIVE BUTTON OVERLAYS --- */
 .carousel-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: var(--white, #ffffff);
-  border: 1px solid var(--border, #e0e0e0);
-  box-shadow: var(--shadow);
-  color: var(--orange);      /* Pulls your theme's brand accent orange color dynamically */
-  width: 42px;               
-  height: 42px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 16px;
-  z-index: 10;
-  transition: background 0.2s, transform 0.2s;
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  background: var(--white, #ffffff) !important;
+  border: 1px solid var(--border, #e0e0e0) !important;
+  box-shadow: var(--shadow) !important;
+  color: var(--orange, #e3682d) !important; 
+  width: 42px !important;               
+  height: 42px !important;
+  border-radius: 50% !important;
+  display: none;             /* Controlled contextually below */
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: bold !important;
+  font-size: 16px !important;
+  z-index: 100 !important;
+  cursor: pointer !important;
+  user-select: none !important;
+  transition: background 0.2s, transform 0.2s !important;
 }
 .carousel-arrow:hover {
-  background: #fdfdfd;
-  transform: translateY(-50%) scale(1.05);
+  background: #fdfdfd !important;
+  transform: translateY(-50%) scale(1.05) !important;
 }
-.left-arrow { left: -21px; }
-.right-arrow { right: -21px; }
+.left-arrow { left: -20px !important; }
+.right-arrow { right: -20px !important; }
+
+/* --- ARROW HIDE/SHOW LOGIC --- */
+/* On load, show only the right arrow */
+#slide-batch-1:checked ~ .carousel-nav-arrows .arrow-to-p2 {
+  display: flex !important;
+}
+/* When shifted to the end, show only the left arrow */
+#slide-batch-2:checked ~ .carousel-nav-arrows .arrow-to-p1 {
+  display: flex !important;
+}
+
+/* --- HOVER EFFECTS FOR ACTIVE CARDS --- */
+a.blog-card {
+  text-decoration: none !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+  cursor: pointer !important;
+}
+a.blog-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+}
 
 /* --- CARD IMAGE AREA AND GRAPHIC THUMBNAILS --- */
 .blog-card .thumb {
-  height: 125px;             /* Proportionally cropped to match your new smaller width footprints */
-  width: 100%;
-  object-fit: cover;
-  background: #f4f4f4;
+  height: 125px !important;             
+  width: 100% !important;
+  object-fit: cover !important;
+  background: #f4f4f4 !important;
 }
 .blog-card .thumb.placeholder {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #b9bcc2;
-  font-size: 13px;           
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #b9bcc2 !important;
+  font-size: 13px !important;           
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
 }
-.blog-card .blog-body { 
-  padding: 16px 18px 20px;   
-}
+.blog-card .blog-body { padding: 16px 18px 20px !important; }
 .blog-card h3 {
-  font-family: 'Anton', sans-serif;
-  font-weight: 400;
-  font-size: 18px;           
-  color: var(--gray);
-  text-align: center;
-  margin: 0 0 10px;
-  text-transform: uppercase;
+  font-family: 'Anton', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;           
+  color: var(--gray) !important;
+  text-align: center !important;
+  margin: 0 0 10px !important;
+  text-transform: uppercase !important;
 }
 .blog-card p {
-  font-size: 14px;           
-  color: var(--gray);
-  text-align: center;
-  line-height: 1.4;
-  margin: 0;
+  font-size: 14px !important;           
+  color: var(--gray) !important;
+  text-align: center !important;
+  line-height: 1.4 !important;
+  margin: 0 !important;
 }
 .blog-card.empty {
-  align-items: center;
-  justify-content: center;
-  height: 270px;             
+  align-items: center !important;
+  justify-content: center !important;
+  height: 270px !important;             
 }
 
 /* ---------- RESPONSIVE MEDIA BREAKPOINTS (ALIGNED WITH SYSTEM LAWS) ---------- */
 
 @media (max-width: 900px) {
+  .blog-carousel-container {
+    overflow-x: auto !important; /* Restores standard touch-swipe gestures on mobile screens */
+  }
   .blog-carousel-track {
-    display: flex !important; /* Safely returns back to a normal flex row layout track on portable screens */
     width: auto !important;    
     min-width: auto !important;
+    transition: none !important; /* Disables the sliding translation on mobile so touch swiping works natively */
   }
   .blog-carousel-track .blog-card {
-    /* Shifts columns back to adaptive percentage sizes to fit tablet screen widths fluidly */
     flex: 0 0 calc(47% - 12px) !important; 
     width: auto !important;
-    max-height: none;          
+    max-height: none !important;          
+    height: auto !important;
   }
-  .carousel-arrow { display: none !important; } /* Standard touch gestures scale much cleaner than small arrows on tablets */
+  .carousel-arrow { display: none !important; } 
+  #slide-batch-2:checked ~ .blog-carousel-container .blog-carousel-track {
+    transform: none !important;
+  }
 }
 
 @media (max-width: 600px) {
   .blog-carousel-track .blog-card {
-    flex: 0 0 82% !important;  /* Centers 1 block component while letting the next post peek from the edge */
+    flex: 0 0 82% !important;  
   }
-  .steps {
-    max-width: 100%;
-  }
-  .step-pill {
-    display: block;
-    width: 100%;
-  }
+  .steps { max-width: 100%; }
+  .step-pill { display: block; width: 100%; }
 }
    
 /* ---------- Footer ---------- */
@@ -1133,52 +1144,39 @@ a.blog-card:hover {
   <h2 class="section-title">Blog</h2>
   <p class="section-subtitle">Content for everyone</p>
 
-  <!-- REVISED WRAPPER FRAMEWORK -->
-  <div class="blog-carousel-wrapper">
+  <!-- THE PURE CSS SLIDER SYSTEM CONTAINER -->
+  <div class="css-slider-system">
     
-    <!-- ARROW ACTION CONTROLS -->
-    <a href="#card-start" class="carousel-arrow left-arrow" aria-label="Previous posts">❮</a>
-    <a href="#card-next" class="carousel-arrow right-arrow" aria-label="Next posts">❯</a>
+    <!-- HIDDEN TRACK CONTROLLERS -->
+    <input type="radio" name="blog-slide" id="slide-batch-1" checked hidden>
+    <input type="radio" name="blog-slide" id="slide-batch-2" hidden>
 
-    <!-- THE UNLOCKED COMPONENT VIEWPORT -->
+    <!-- INTERACTIVE NAVIGATION ARROWS -->
+    <div class="carousel-nav-arrows">
+      <!-- Clicks to trigger slide batch 2 -->
+      <label for="slide-batch-2" class="carousel-arrow right-arrow arrow-to-p2">❯</label>
+      
+      <!-- Clicks to return to slide batch 1 -->
+      <label for="slide-batch-1" class="carousel-arrow left-arrow arrow-to-p1">❮</label>
+    </div>
+
+    <!-- THE COMPONENT SLIDING WINDOW -->
     <div class="blog-carousel-container">
       <div class="blog-carousel-track">
         
-        <!-- CARD 1 (Targets the left arrow home snap) -->
-        <div class="blog-card empty" id="card-start">
-          <div class="thumb placeholder">Coming soon</div>
-        </div>
-        
-        <!-- CARD 2 -->
-        <div class="blog-card empty">
-          <div class="thumb placeholder">Coming soon</div>
-        </div>
-        
-        <!-- CARD 3 -->
-        <div class="blog-card empty">
-          <div class="thumb placeholder">Coming soon</div>
-        </div>
-        
-        <!-- CARD 4 (Targets the right arrow forward slide) -->
-        <div class="blog-card empty" id="card-next">
-          <div class="thumb placeholder">Coming soon</div>
-        </div>
-        
-        <!-- CARD 5 -->
-        <div class="blog-card empty">
-          <div class="thumb placeholder">Coming soon</div>
-        </div>
-        
-        <!-- CARD 6 -->
-        <div class="blog-card empty">
-          <div class="thumb placeholder">Coming soon</div>
-        </div>
+        <!-- ALL 6 CARDS RENDER SIDE-BY-SIDE NATIVELY -->
+        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
+        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
+        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
+        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
+        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
+        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
          
       </div>
     </div>
   </div>
 </section>
-
+   
 </main>
 
 <footer class="site-footer">
