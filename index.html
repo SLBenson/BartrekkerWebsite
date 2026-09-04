@@ -352,7 +352,7 @@ button { font-family: inherit; cursor: pointer; }
 
 /* ---------- How it works ---------- */
 
-/* ---------- How It Works Base Styles ---------- */
+/* ---------- How It Works Styles (Unified & Responsive) ---------- */
 .how-it-works {
   padding: 70px 20px 90px;
   text-align: center;
@@ -365,22 +365,25 @@ button { font-family: inherit; cursor: pointer; }
   flex-direction: column;
   align-items: stretch;
   gap: 20px; /* Handles the spacing between the boxes natively */
+  
+  /* FIX: Keeps the layout consistent on mobile screens */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .step-pill {
   border-radius: 20px;
   padding: 12px 28px;
   text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
+  display: block; /* FIX: Restores normal vertical text flow for spans on all screens */
   min-height: 73px;
-  justify-content: center;
+  box-sizing: border-box;
 }
 .step-pill.orange { background: var(--orange); }
 .step-pill.dark { background: var(--gray); }
 
 .step-pill .step-no {
+  display: block; /* FIX: Forces the step number to always sit on its own line */
   font-family: 'Anton', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -391,10 +394,18 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 .step-pill .step-label {
+  display: block; /* FIX: Forces the description label to always sit on its own line */
   font-weight: 700;
   font-size: 17px;
   color: var(--white);
   line-height: 1.2;
+}
+
+/* Small mobile padding adjustment so pills don't touch screen edges */
+@media (max-width: 480px) {
+  .steps {
+    padding: 0 15px; 
+  }
 }
 
 /* ---------- Responsive Mobile Fixes ---------- */
