@@ -1,0 +1,31 @@
+name: Auto Translate Pages
+on:
+  push:
+    branches:
+      - main  # Change this to 'master' if your default branch uses the older name
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install Dependencies
+        run: pip install beautifulsoup4 deep-translator
+
+      - name: Run Translation Engine
+        run: python translate_site.py
+
+      - name: Commit and Push Translated Pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@://github.com"
+          git add es/ fr/
+          git commit -m "Automated translation update [skip ci]" || echo "No changes to commit"
+          git push
