@@ -114,8 +114,8 @@ def is_skippable(element):
         if name in ['style', 'script', 'head', 'noscript']:
             return True
         classes = parent.get('class') if hasattr(parent, 'get') else None
-        if classes and 'footer-lang-switcher' in classes:
-            return True
+        if classes and 'nav-lang-switcher' in classes:
+        return True
         parent = getattr(parent, 'parent', None)
     return False
 
