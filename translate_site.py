@@ -6,7 +6,7 @@ import urllib.request
 import urllib.parse
 from bs4 import BeautifulSoup, NavigableString, Comment
 
-LANGUAGES = ['es', 'fr', 'pl', 'it', 'de']
+LANGUAGES = ['es', 'fr']
 FILES_TO_TRANSLATE = ['index.html', 'blog-post.html']  # remove 'blog-post.html' if you don't want it translated yet
 CACHE_FILE = 'translation_cache.json'
 
@@ -24,6 +24,23 @@ if os.path.exists(CACHE_FILE):
         cache = json.load(f)
 else:
     cache = {}
+
+# Manual corrections: translations/overrides/{lang}.json maps the exact
+# English source text to the translation you want used instead of the
+# machine translation. Checked before the API (and before the cache), so
+# a correction always wins and never gets re-translated on later runs.
+OVERRIDES_DIR = 'translations/overrides'
+
+
+def load_overrides(lang):
+    path = os.path.join(OVERRIDES_DIR, f'{lang}.json')
+    if os.path.exists(path):
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return {}
+
+
+overrides = {lang: load_overrides(lang) for lang in LANGUAGES}
 
 
 def protect(text):
@@ -73,6 +90,10 @@ def translate_text(text, target_lang, retries=3):
     if text.strip() in PROTECTED_TERMS:
         return text
 
+    # Manual correction takes priority over both the cache and the API.
+    if text in overrides.get(target_lang, {}):
+        return overrides[target_lang][text]
+
     key = f"en|{target_lang}|{text}"
     if key in cache:
         return cache[key]
@@ -114,7 +135,7 @@ def is_skippable(element):
         if name in ['style', 'script', 'head', 'noscript']:
             return True
         classes = parent.get('class') if hasattr(parent, 'get') else None
-        if classes and 'nav-lang-switcher' in classes:
+        if classes and 'footer-lang-switcher' in classes:
             return True
         parent = getattr(parent, 'parent', None)
     return False
