@@ -6,7 +6,7 @@ import urllib.request
 import urllib.parse
 from bs4 import BeautifulSoup, NavigableString, Comment
 
-LANGUAGES = ['es', 'fr']
+LANGUAGES = ['es', 'fr', 'pl', 'it', 'de']
 FILES_TO_TRANSLATE = ['index.html', 'blog-post.html']  # remove 'blog-post.html' if you don't want it translated yet
 CACHE_FILE = 'translation_cache.json'
 
@@ -36,7 +36,11 @@ def load_overrides(lang):
     path = os.path.join(OVERRIDES_DIR, f'{lang}.json')
     if os.path.exists(path):
         with open(path, 'r', encoding='utf-8') as f:
-            return json.load(f)
+            try:
+                return json.load(f)
+            except json.JSONDecodeError as e:
+                print(f"⚠️ Could not parse {path} ({e}). Treating '{lang}' as having no overrides for this run.")
+                return {}
     return {}
 
 
@@ -127,7 +131,7 @@ def looks_like_contact_info(text):
 
 
 def is_skippable(element):
-    """Skips <style>/<script>/<head> and the footer language picker itself
+    """Skips <style>/<script>/<head> and the nav language picker itself
     — the language names in the switcher never get run through translation."""
     parent = element.parent if hasattr(element, 'parent') else element
     while parent is not None:
@@ -135,7 +139,7 @@ def is_skippable(element):
         if name in ['style', 'script', 'head', 'noscript']:
             return True
         classes = parent.get('class') if hasattr(parent, 'get') else None
-        if classes and 'footer-lang-switcher' in classes:
+        if classes and 'nav-lang-switcher' in classes:
             return True
         parent = getattr(parent, 'parent', None)
     return False
