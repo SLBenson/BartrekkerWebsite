@@ -125,7 +125,7 @@ button { font-family: inherit; cursor: pointer; }
 .nav-links {
   display: flex;
   align-items: center;
-  gap: clamp(14px, 1.6vw, 30px);
+  gap: calc(clamp(14px, 1.6vw, 30px) * var(--nav-scale, 1));
   list-style: none;
   margin: 0;
   padding: 0;
@@ -134,7 +134,7 @@ button { font-family: inherit; cursor: pointer; }
 .nav-links a {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
-  font-size: clamp(13px, 1vw, 16px);
+  font-size: calc(clamp(13px, 1vw, 16px) * var(--nav-scale, 1));
   color: var(--gray);
   text-transform: uppercase;
   padding: 8px 2px;
@@ -1350,6 +1350,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
+   function fitNavLinks() {
+  if (window.innerWidth <= 900) {
+    navLinks.style.removeProperty('--nav-scale');
+    return;
+  }
+  const navbarInner = document.querySelector('.navbar-inner');
+  const logo = navbarInner.querySelector('.logo');
+  const switcher = navbarInner.querySelector('.nav-lang-switcher');
+  const toggle = navbarInner.querySelector('.nav-toggle');
+  const reserved = logo.offsetWidth + switcher.offsetWidth + toggle.offsetWidth + 60;
+  const available = navbarInner.clientWidth - reserved;
+
+  navLinks.style.setProperty('--nav-scale', 1);
+  let scale = 1;
+  while (navLinks.scrollWidth > available && scale > 0.72) {
+    scale -= 0.02;
+    navLinks.style.setProperty('--nav-scale', scale.toFixed(2));
+  }
+}
+window.addEventListener('load', fitNavLinks);
+window.addEventListener('resize', fitNavLinks);
   const links = Array.from(document.querySelectorAll('.nav-link'));
 
   // Nav links may point to another page (e.g. "index.html#blog") on pages
