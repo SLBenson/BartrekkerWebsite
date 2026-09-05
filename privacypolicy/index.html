@@ -3,13 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <!-- ============================================================
      EDIT PER POST: browser tab title + search/social description
-     ============================================================ -->
+============================================================ -->
 <title>Bartrekker Privacy Policy</title>
 <meta name="description" content="Bartrekker's Privacy Policy">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -19,7 +17,7 @@
    Colors:  orange #e3682d | dark #323741 | gray #474b54 | peach #f1b396
    Fonts:   Anton (display) / Inter (body)
    ========================================================================== */
-
+ 
 :root {
   --orange: #e3682d;
   --dark: #323741;
@@ -30,13 +28,13 @@
   --shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.25);
   --nav-h: 100px;
 }
-
+ 
 * { box-sizing: border-box; }
-
+ 
 html {
   scroll-behavior: smooth;
 }
-
+ 
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -44,18 +42,18 @@ body {
   background: var(--white);
   overflow-x: hidden;
 }
-
+ 
 img { max-width: 100%; display: block; }
-
+ 
 a { color: inherit; text-decoration: none; }
-
+ 
 .display {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
-
+ 
 .section-title {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -66,7 +64,7 @@ a { color: inherit; text-decoration: none; }
   margin: 0;
   line-height: 1;
 }
-
+ 
 .section-subtitle {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -77,19 +75,19 @@ a { color: inherit; text-decoration: none; }
   margin: 10px 0 0;
   line-height: 1;
 }
-
+ 
 .section-title.on-dark { color: var(--white); }
-
+ 
 .container {
   max-width: 1300px;
   margin: 0 auto;
   padding: 0 40px;
 }
-
+ 
 button { font-family: inherit; cursor: pointer; }
-
+ 
 /* ---------- Navigation ---------- */
-
+ 
 .navbar {
   position: fixed;
   top: 0;
@@ -104,12 +102,12 @@ button { font-family: inherit; cursor: pointer; }
   padding: 0 30px;
   transition: box-shadow .25s ease, height .25s ease;
 }
-
+ 
 .navbar.scrolled {
   box-shadow: 0 4px 16px rgba(0,0,0,0.08);
   --nav-h: 78px;
 }
-
+ 
 .navbar-inner {
   width: 100%;
   max-width: 1400px;
@@ -118,7 +116,7 @@ button { font-family: inherit; cursor: pointer; }
   align-items: center;
   justify-content: space-between;
 }
-
+ 
 .logo {
   display: flex;
   align-items: center;
@@ -126,7 +124,7 @@ button { font-family: inherit; cursor: pointer; }
 }
 .logo img.logo-mark { height: 56px; width: auto; }
 .logo img.logo-text { height: 44px; width: auto; }
-
+ 
 .nav-links {
   display: flex;
   align-items: center;
@@ -135,7 +133,7 @@ button { font-family: inherit; cursor: pointer; }
   margin: 0;
   padding: 0;
 }
-
+ 
 .nav-links a {
   font-family: 'Inter', sans-serif;
   font-weight: 600;
@@ -146,7 +144,7 @@ button { font-family: inherit; cursor: pointer; }
   position: relative;
   white-space: nowrap;
 }
-
+ 
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -157,18 +155,18 @@ button { font-family: inherit; cursor: pointer; }
   transform-origin: left;
   transition: transform .2s ease;
 }
-
+ 
 .nav-links a:hover::after,
 .nav-links a.active::after {
   transform: scaleX(1);
 }
-
+ 
 .nav-links a.active { color: var(--orange); }
-
+ 
 .nav-cta {
   display: none;
 }
-
+ 
 .nav-toggle {
   display: none;
   background: none;
@@ -189,11 +187,11 @@ button { font-family: inherit; cursor: pointer; }
 .nav-toggle span:nth-child(1) { top: 0; }
 .nav-toggle span:nth-child(2) { top: 11px; }
 .nav-toggle span:nth-child(3) { top: 22px; }
-
+ 
 .nav-toggle.open span:nth-child(1) { top: 11px; transform: rotate(45deg); }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
-
+ 
 @media (max-width: 900px) {
   .nav-links {
     position: fixed;
@@ -219,15 +217,15 @@ button { font-family: inherit; cursor: pointer; }
   .nav-links a { display: block; padding: 14px 0; border-bottom: 1px solid #eee; }
   .nav-toggle { display: block; }
 }
-
+ 
 /* ---------- Footer ---------- */
-
+ 
 .site-footer {
   background: var(--orange);
   color: var(--white);
   padding: 40px 20px;
 }
-
+ 
 .footer-inner {
   max-width: 1300px;
   margin: 0 auto;
@@ -236,14 +234,14 @@ button { font-family: inherit; cursor: pointer; }
   align-items: flex-start;
   gap: 6px;
 }
-
+ 
 .footer-company {
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 16px;
   margin: 0 0 6px;
 }
-
+ 
 .footer-line {
   font-size: 14px;
   line-height: 1.6;
@@ -256,13 +254,13 @@ button { font-family: inherit; cursor: pointer; }
   text-decoration: none;
 }
 .footer-line a:hover { text-decoration: underline; }
-
+ 
 .footer-socials {
   display: flex;
   gap: 12px;
   margin-top: 14px;
 }
-
+ 
 .social-icon {
   width: 34px;
   height: 34px;
@@ -277,11 +275,19 @@ button { font-family: inherit; cursor: pointer; }
 }
 .social-icon svg { width: 16px; height: 16px; }
 .social-icon:hover { transform: translateY(-2px); }
-
+ 
+.footer-legal-links {
+  text-align: center;
+  max-width: 1300px;
+  margin: 24px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+ 
 /* ==========================================================================
    Individual blog post styling
    ========================================================================== */
-
+ 
 .back-link {
   display: flex;
   width: fit-content;
@@ -295,13 +301,13 @@ button { font-family: inherit; cursor: pointer; }
 }
 .back-link:hover { text-decoration: underline; }
 .back-link .arrow { font-size: 18px; line-height: 1; }
-
+ 
 .post-hero {
   padding: calc(var(--nav-h) + 34px) 20px 0;
   max-width: 860px;
   margin: 0 auto;
 }
-
+ 
 .post-eyebrow {
   display: inline-block;
   background: var(--orange);
@@ -315,7 +321,7 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 20px;
   margin-bottom: 18px;
 }
-
+ 
 .post-title {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -325,7 +331,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--dark);
   margin: 0 0 18px;
 }
-
+ 
 .post-meta {
   display: flex;
   flex-wrap: wrap;
@@ -336,7 +342,7 @@ button { font-family: inherit; cursor: pointer; }
   margin: 0 0 30px;
 }
 .post-meta .dot { opacity: 0.5; }
-
+ 
 .post-hero-image {
   max-width: 1100px;
   margin: 0 auto;
@@ -351,7 +357,7 @@ button { font-family: inherit; cursor: pointer; }
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
 }
-
+ 
 .post-body {
   max-width: 720px;
   margin: 0 auto;
@@ -360,9 +366,7 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 18px;
   line-height: 1.75;
 }
-
 .post-body p { margin: 0 0 24px; }
-
 .post-body h2 {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -372,7 +376,6 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.15;
   margin: 44px 0 18px;
 }
-
 .post-body h3 {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -382,7 +385,6 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.2;
   margin: 34px 0 14px;
 }
-
 .post-body ul,
 .post-body ol {
   margin: 0 0 24px;
@@ -404,7 +406,6 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 50%;
   background: var(--orange);
 }
-
 .post-body img {
   width: 100%;
   height: auto;
@@ -419,7 +420,6 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
   margin-top: 10px;
 }
-
 .post-body blockquote {
   margin: 30px 0;
   padding: 4px 0 4px 24px;
@@ -428,15 +428,13 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--gray);
   font-size: 20px;
 }
-
 .post-body a { color: var(--orange); text-decoration: underline; }
-
 .post-body hr {
   border: none;
   border-top: 1px solid var(--border);
   margin: 40px 0;
 }
-
+ 
 .post-footer-nav {
   max-width: 720px;
   margin: 10px auto 70px;
@@ -446,43 +444,44 @@ button { font-family: inherit; cursor: pointer; }
 </style>
 </head>
 <body>
-
+ 
 <!-- ============================================================
      SITE NAVIGATION — same on every page.
      These links point back to sections on index.html, since this
      page has no sections of its own. Leave them as-is.
-     ============================================================ -->
+============================================================ -->
 <header class="navbar" id="navbar">
   <div class="navbar-inner">
-    <a href="index.html" class="logo" aria-label="Bartrekker home">
-      <img class="logo-mark" src="assets/logo-image.png" alt="Bartrekker logo mark">
-      <img class="logo-text" src="assets/logo-text.png" alt="Bartrekker">
+    <a href="/index.html" class="logo" aria-label="Bartrekker home">
+      <img class="logo-mark" src="/assets/logo-image.png" alt="Bartrekker logo mark">
+      <img class="logo-text" src="/assets/logo-text.png" alt="Bartrekker">
     </a>
-
+ 
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#download" class="nav-link">Download</a></li>
-        <li><a href="index.html#how-it-works" class="nav-link">How it works</a></li>
-        <li><a href="index.html#what-to-expect" class="nav-link">What to expect</a></li>
-        <li><a href="index.html#partnerships" class="nav-link">Partnerships</a></li>
-        <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
-        <li><a href="index.html#blog" class="nav-link active">Blog</a></li>
+        <li><a href="/index.html#download" class="nav-link">Download</a></li>
+        <li><a href="/index.html#how-it-works" class="nav-link">How it works</a></li>
+        <li><a href="/index.html#what-to-expect" class="nav-link">What to expect</a></li>
+        <li><a href="/index.html#partnerships" class="nav-link">Partnerships</a></li>
+        <li><a href="/index.html#faq" class="nav-link">FAQ</a></li>
+        <li><a href="/index.html#blog" class="nav-link active">Blog</a></li>
       </ul>
     </nav>
-
+ 
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
-
+ 
 <main>
+ 
   <div class="post-hero">
-    <a class="back-link" href="index.html#blog"><span class="arrow">←</span> Back to all posts</a>
-
+    <a class="back-link" href="/index.html#blog"><span class="arrow">←</span> Back to all posts</a>
+ 
     <!-- ============================================================
          EDIT PER POST: eyebrow tag, title, date / read time
-         ============================================================ -->
+    ============================================================ -->
     <p class="post-eyebrow">Privacy Policy</p>
     <h1 class="post-title">Bartrekker Privacy Policy</h1>
     <p class="post-meta">
@@ -493,542 +492,544 @@ button { font-family: inherit; cursor: pointer; }
       <span>By the Bartrekker Team</span>
     </p>
   </div>
-
+ 
   <!-- ============================================================
        EDIT PER POST: hero image — swap the src and alt text
-       ============================================================ -->
+  ============================================================ -->
   <div class="post-hero-image">
-    <img src="assets/PrivacyPolicy-hero.jpg" alt="Privacy Policy Hero Image">
+    <img src="/assets/PrivacyPolicy-hero.jpg" alt="Privacy Policy Hero Image">
   </div>
-
+ 
   <!-- ============================================================
        EDIT PER POST: everything inside <article> is the post body.
        Use <h2> for main sections, <h3> for sub-points, <p> for text,
        <ul> for lists, <blockquote> for pull quotes, and the <figure>
        pattern below whenever you want an inline image with a caption.
-       ============================================================ -->
+  ============================================================ -->
   <article class="post-body">
     <h2>Privacy Policy</h2>
-  <p>This Privacy Policy explains how BARTREKKER LTD ("BarTrekker", "we", "us" or "our") collects, uses, stores and protects personal information when you use the BarTrekker mobile application, website, ticketing services and related services (together, the "Service").</p>
-  <p>BarTrekker is committed to handling personal information responsibly and in accordance with applicable data protection and privacy laws, including the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018, and, where applicable, the EU General Data Protection Regulation (EU GDPR) and other applicable local data protection laws.</p>
-  <p>Please read this Privacy Policy carefully.</p>
-
-  <h2>1. Who We Are</h2>
-  <p>The entity responsible for processing your personal information is:</p>
-  <p>BARTREKKER LTD<br>
-  8 Melton Road, Runcorn, England, WA7 4AH<br>
-  Email: customerservice@bartrekker.com<br>
-  Customer service telephone: +48 451 047 025</p>
-  <p>For data protection questions or requests concerning your personal information, you may contact us using the email address above.</p>
-  <p>Where BarTrekker is the controller of your personal information, we determine why and how your personal information is processed.</p>
-
-  <h2>2. Information We Collect</h2>
-  <p>Depending on how you use BarTrekker, we may collect the following categories of information.</p>
-
-  <h3>2.1 Account information</h3>
-  <p>When you create a BarTrekker account, we may collect:</p>
-  <ul>
-    <li>your name;</li>
-    <li>email address;</li>
-    <li>account credentials;</li>
-    <li>account creation information; and</li>
-    <li>other information you voluntarily provide.</li>
-  </ul>
-  <p>An email address is used to identify your BarTrekker account.</p>
-
-  <h3>2.2 Ticket and Event information</h3>
-  <p>When you purchase or use a Ticket, we may collect information relating to:</p>
-  <ul>
-    <li>the Event purchased;</li>
-    <li>Ticket number or identifier;</li>
-    <li>QR Code information;</li>
-    <li>purchase date and time;</li>
-    <li>Event date and time;</li>
-    <li>participating Venues;</li>
-    <li>Ticket status;</li>
-    <li>Ticket usage;</li>
-    <li>cancellation or refund information; and</li>
-    <li>communications concerning the Event.</li>
-  </ul>
-  <p>This information is required to administer your Ticket and provide the Event.</p>
-
-  <h2>3. Payment Information</h2>
-  <p>Payments made through BarTrekker are processed using Stripe.</p>
-  <p>Where Stripe processes your payment, BarTrekker does not ordinarily receive or store your complete payment card number or card security information.</p>
-  <p>We may receive information such as:</p>
-  <ul>
-    <li>payment status;</li>
-    <li>transaction identifier;</li>
-    <li>amount paid;</li>
-    <li>currency;</li>
-    <li>date and time of payment;</li>
-    <li>payment method type;</li>
-    <li>refund status; and</li>
-    <li>limited information required to identify and administer the transaction.</li>
-  </ul>
-  <p>Stripe may process additional personal information in accordance with its own privacy policy and applicable data protection requirements.</p>
-
-  <h2>4. Information About Your Use of the App</h2>
-  <p>When you use BarTrekker, we may collect technical and usage information such as:</p>
-  <ul>
-    <li>device type;</li>
-    <li>operating system;</li>
-    <li>App version;</li>
-    <li>device identifiers where applicable;</li>
-    <li>IP address;</li>
-    <li>date and time of access;</li>
-    <li>technical logs;</li>
-    <li>security information; and</li>
-    <li>information about interactions with the Service.</li>
-  </ul>
-  <p>We may use Google Analytics to help us understand how Customers use the Service and to improve the performance and functionality of BarTrekker. Where consent is required by applicable law, analytics remain switched off until you agree, and you may change that choice at any time in the app.</p>
-  <p>We also use Firebase Crashlytics to record diagnostic information when the App stops unexpectedly, including the error, the state of the App at the time, the device model and operating system version. This is used to find and fix faults.</p>
-  <p>The precise information collected will depend on the technical configuration of the App and the services integrated with it.</p>
-
-  <h2>5. Location Information</h2>
-  <h3>5.1</h3>
-  <p>BarTrekker does not ordinarily directly track your GPS location for the purpose of navigating you between Venues. The BarTrekker App may provide links or instructions that allow you to open a third-party mapping application on your device.</p>
-  <h3>5.2</h3>
-  <p>When you choose to use a third-party mapping service, that service may process your location information in accordance with its own privacy policy and settings. Examples may include services such as:</p>
-  <ul>
-    <li>Google Maps;</li>
-    <li>Apple Maps; or</li>
-    <li>another mapping provider supported by your device.</li>
-  </ul>
-  <h3>5.3</h3>
-  <p>BarTrekker does not control the personal information collected directly by those third-party mapping providers. You should review the privacy settings and policies of the mapping service you choose to use.</p>
-
-  <h2>6. Event Notifications</h2>
-  <p>BarTrekker may use notifications to help operate Events. These may include:</p>
-  <ul>
-    <li>reminders;</li>
-    <li>Event start notifications;</li>
-    <li>instructions;</li>
-    <li>route notifications;</li>
-    <li>Venue notifications;</li>
-    <li>changes to Event arrangements;</li>
-    <li>important safety or operational information; and</li>
-    <li>other communications necessary to operate an Event.</li>
-  </ul>
-  <p>Some notifications may be essential to the operation of an Event.</p>
-  <p>You may be able to control certain notification permissions through your device settings.</p>
-
-  <h2>7. Customer Service Communications</h2>
-  <p>If you contact BarTrekker, we may collect information contained in your communication. This may include:</p>
-  <ul>
-    <li>your name;</li>
-    <li>email address;</li>
-    <li>telephone number;</li>
-    <li>account information;</li>
-    <li>Ticket information;</li>
-    <li>Event information;</li>
-    <li>details of your enquiry; and</li>
-    <li>information you voluntarily provide.</li>
-  </ul>
-  <p>We use this information to respond to your enquiry, investigate complaints and provide customer support.</p>
-
-  <h2>8. How We Use Personal Information</h2>
-  <p>We may use personal information to:</p>
-
-  <h3>8.1 Provide the Service</h3>
-  <p>Including to:</p>
-  <ul>
-    <li>create and manage accounts;</li>
-    <li>process Ticket purchases;</li>
-    <li>issue Tickets and QR Codes;</li>
-    <li>administer Events;</li>
-    <li>provide Event information;</li>
-    <li>send Event notifications;</li>
-    <li>communicate with participating Venues where necessary;</li>
-    <li>process refunds;</li>
-    <li>provide customer support; and</li>
-    <li>operate the BarTrekker platform.</li>
-  </ul>
-
-  <h3>8.2 Manage payments</h3>
-  <p>Including to:</p>
-  <ul>
-    <li>process transactions;</li>
-    <li>confirm payments;</li>
-    <li>process refunds;</li>
-    <li>detect potentially fraudulent transactions;</li>
-    <li>investigate payment disputes; and</li>
-    <li>maintain financial and transaction records.</li>
-  </ul>
-
-  <h3>8.3 Protect BarTrekker and its users</h3>
-  <p>Including to:</p>
-  <ul>
-    <li>detect fraud;</li>
-    <li>investigate suspicious activity;</li>
-    <li>prevent misuse of Tickets;</li>
-    <li>protect the security of the Service;</li>
-    <li>prevent unauthorised access;</li>
-    <li>investigate breaches of our Terms and Conditions; and</li>
-    <li>protect Customers, participating Venues and BarTrekker.</li>
-  </ul>
-
-  <h3>8.4 Improve the Service</h3>
-  <p>We may use appropriate technical and usage information to:</p>
-  <ul>
-    <li>understand how the App is used;</li>
-    <li>identify technical problems;</li>
-    <li>improve performance;</li>
-    <li>develop new features;</li>
-    <li>troubleshoot errors; and</li>
-    <li>improve the Customer experience.</li>
-  </ul>
-
-  <h3>8.5 Communicate with you</h3>
-  <p>We may use your contact information to provide:</p>
-  <ul>
-    <li>purchase confirmations;</li>
-    <li>Ticket information;</li>
-    <li>Event information;</li>
-    <li>changes to Events;</li>
-    <li>cancellation information;</li>
-    <li>important service announcements;</li>
-    <li>customer service responses; and</li>
-    <li>other communications relating to your use of BarTrekker.</li>
-  </ul>
-
-  <h3>8.6 Comply with legal obligations</h3>
-  <p>We may process personal information where necessary to comply with applicable:</p>
-  <ul>
-    <li>laws;</li>
-    <li>regulations;</li>
-    <li>court orders;</li>
-    <li>regulatory requirements;</li>
-    <li>accounting obligations; and</li>
-    <li>law enforcement requests.</li>
-  </ul>
-
-  <h2>9. Legal Bases for Processing</h2>
-  <p>Where the EU GDPR or UK GDPR applies, we process personal information using one or more lawful bases.</p>
-
-  <h3>9.1 Contract</h3>
-  <p>We may process information where it is necessary to perform a contract with you. For example:</p>
-  <ul>
-    <li>creating your account;</li>
-    <li>processing your Ticket;</li>
-    <li>providing Event information;</li>
-    <li>administering your Event;</li>
-    <li>processing refunds; and</li>
-    <li>providing customer support relating to your purchase.</li>
-  </ul>
-
-  <h3>9.2 Legal obligation</h3>
-  <p>We may process information where necessary to comply with a legal obligation. For example:</p>
-  <ul>
-    <li>accounting and tax requirements;</li>
-    <li>legal reporting requirements;</li>
-    <li>responding to lawful requests from authorities; or</li>
-    <li>complying with applicable legislation.</li>
-  </ul>
-
-  <h3>9.3 Legitimate interests</h3>
-  <p>We may process information where necessary for BarTrekker's legitimate interests, provided those interests are not overridden by your rights and interests. Examples may include:</p>
-  <ul>
-    <li>preventing fraud;</li>
-    <li>protecting the security of the Service;</li>
-    <li>improving the App;</li>
-    <li>managing disputes;</li>
-    <li>enforcing our Terms and Conditions;</li>
-    <li>protecting BarTrekker's legal rights; and</li>
-    <li>maintaining the security of our systems.</li>
-  </ul>
-
-  <h3>9.4 Consent</h3>
-  <p>Where consent is legally required, we will request your consent before processing the relevant information. Where processing is based on consent, you may withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing carried out before withdrawal.</p>
-
-  <h2>10. Marketing</h2>
-  <p>BarTrekker may wish to send promotional communications about:</p>
-  <ul>
-    <li>new Events;</li>
-    <li>new Venues;</li>
-    <li>offers;</li>
-    <li>discounts;</li>
-    <li>products;</li>
-    <li>services; and</li>
-    <li>other BarTrekker activities.</li>
-  </ul>
-  <p>Where required by law, we will obtain your consent before sending direct marketing communications.</p>
-  <p>You may unsubscribe from marketing communications at any time. Unsubscribing from marketing communications does not prevent us from sending essential communications relating to your account, Ticket or Event.</p>
-
-  <h2>11. Who We Share Information With</h2>
-  <p>We may share personal information with selected third parties where necessary to operate BarTrekker.</p>
-
-  <h3>11.1 Payment providers</h3>
-  <p>BarTrekker uses Stripe to process payments, refunds and payment-related transactions. Stripe may process personal information necessary to provide its payment services and may process information in accordance with its own privacy policy.</p>
-
-  <h3>11.2 Technology and hosting providers</h3>
-  <p>BarTrekker uses Firebase, provided by Google, for hosting and related technical infrastructure supporting the Service. Firebase may process information necessary to provide these technical services.</p>
-
-  <h3>11.3 Analytics providers</h3>
-  <p>BarTrekker uses Google Analytics to help us understand how Customers use the Service, identify trends, improve functionality and measure the performance of the Service. Google Analytics may collect technical and usage information in accordance with its applicable privacy practices and configuration. Where required by applicable law, BarTrekker will obtain the necessary consent before using non-essential analytics technologies.</p>
-
-  <h3>11.4 Participating Venues</h3>
-  <p>We may provide participating Venues with limited information necessary to administer an Event. For example, this may include information necessary to:</p>
-  <ul>
-    <li>validate a Ticket;</li>
-    <li>confirm attendance;</li>
-    <li>verify a QR Code;</li>
-    <li>administer an Event benefit; or</li>
-    <li>resolve an Event-related issue.</li>
-  </ul>
-  <p>We will not provide Venues with personal information that is unnecessary for these purposes.</p>
-
-  <h3>11.5 Professional advisers</h3>
-  <p>We may share personal information with professional advisers where reasonably necessary, including:</p>
-  <ul>
-    <li>lawyers;</li>
-    <li>accountants;</li>
-    <li>auditors;</li>
-    <li>insurers;</li>
-    <li>financial advisers; and</li>
-    <li>other professional advisers.</li>
-  </ul>
-
-  <h3>11.6 Authorities and legal recipients</h3>
-  <p>We may disclose personal information where required or permitted by law, including to:</p>
-  <ul>
-    <li>courts;</li>
-    <li>regulators;</li>
-    <li>law enforcement;</li>
-    <li>government authorities; or</li>
-    <li>other authorised bodies.</li>
-  </ul>
-
-  <h2>12. Third-Party Service Providers</h2>
-  <p>Some services used by BarTrekker may process personal information on our behalf.</p>
-  <p>Where appropriate, we enter into agreements with relevant processors and require them to process personal information only in accordance with our instructions and applicable data protection requirements.</p>
-  <p>Third-party providers may also independently process information as controllers under their own privacy policies where applicable.</p>
-
-  <h2>13. International Data Transfers</h2>
-  <p>Some of our service providers may process personal information outside the United Kingdom or European Economic Area.</p>
-  <p>Where personal information is transferred internationally, we will take appropriate steps required by applicable data protection law. This may include using:</p>
-  <ul>
-    <li>adequacy decisions;</li>
-    <li>Standard Contractual Clauses;</li>
-    <li>the UK International Data Transfer Agreement;</li>
-    <li>the UK Addendum to the EU Standard Contractual Clauses; or</li>
-    <li>other legally recognised transfer mechanisms.</li>
-  </ul>
-
-  <h2>14. How Long We Keep Personal Information</h2>
-  <p>We retain personal information only for as long as reasonably necessary for the purposes described in this Privacy Policy, unless a longer period is required or permitted by law.</p>
-  <p>Different types of information may be retained for different periods. For example:</p>
-  <ul>
-    <li>account information may be retained while your account remains active;</li>
-    <li>Ticket and transaction information may be retained for accounting, tax, legal and dispute-resolution purposes;</li>
-    <li>customer support information may be retained for as long as reasonably necessary to deal with the enquiry and any resulting dispute;</li>
-    <li>security and fraud information may be retained where reasonably necessary to protect BarTrekker and its users.</li>
-  </ul>
-  <p>When personal information is no longer required, we will take reasonable steps to delete it or otherwise securely dispose of it, subject to applicable legal requirements.</p>
-
-  <h2>15. Data Security</h2>
-  <p>BarTrekker takes reasonable technical and organisational measures to protect personal information against:</p>
-  <ul>
-    <li>unauthorised access;</li>
-    <li>unauthorised disclosure;</li>
-    <li>accidental loss;</li>
-    <li>destruction;</li>
-    <li>alteration; and</li>
-    <li>unlawful processing.</li>
-  </ul>
-  <p>Security measures may include appropriate access controls, authentication, encryption where appropriate, monitoring and secure infrastructure.</p>
-  <p>However, no internet-based service can guarantee absolute security. You acknowledge that transmission of information over the internet carries inherent risks.</p>
-
-  <h2>16. Data Breaches</h2>
-  <p>Where required by applicable law, BarTrekker will assess personal data breaches and notify relevant regulatory authorities and affected individuals where legally required.</p>
-
-  <h2>17. Your Data Protection Rights</h2>
-  <p>Depending on where you live and which data protection laws apply, you may have rights including:</p>
-
-  <h3>Right of access</h3>
-  <p>You may request a copy of personal information we hold about you.</p>
-
-  <h3>Right to rectification</h3>
-  <p>You may request correction of inaccurate or incomplete information.</p>
-
-  <h3>Right to erasure</h3>
-  <p>You may request deletion of your personal information in certain circumstances.</p>
-
-  <h3>Right to restriction</h3>
-  <p>You may request that we restrict processing in certain circumstances.</p>
-
-  <h3>Right to data portability</h3>
-  <p>Where applicable, you may request your information in a structured, commonly used and machine-readable format.</p>
-
-  <h3>Right to object</h3>
-  <p>You may object to certain processing, including certain processing based on legitimate interests or direct marketing.</p>
-
-  <h3>Right to withdraw consent</h3>
-  <p>Where processing is based on consent, you may withdraw that consent at any time.</p>
-
-  <h3>Rights relating to automated decision-making</h3>
-  <p>Where applicable law provides such rights, you may have rights concerning decisions based solely on automated processing that produce legal or similarly significant effects.</p>
-
-  <p>These rights are not absolute and may be subject to legal exceptions.</p>
-
-  <h2>18. How to Exercise Your Rights</h2>
-  <p>To exercise your rights, contact: customerservice@bartrekker.com</p>
-  <p>Please provide sufficient information to allow us to identify your account and understand your request.</p>
-  <p>We may need to request additional information to verify your identity before disclosing or changing personal information.</p>
-  <p>We aim to respond to valid requests within the time period required by applicable law.</p>
-
-  <h2>19. Account Deletion</h2>
-  <p>You may request deletion of your BarTrekker account by contacting: customerservice@bartrekker.com</p>
-  <p>Where appropriate, we will delete or anonymise personal information associated with your account.</p>
-  <p>However, some information may need to be retained where required or permitted by law, including information necessary for:</p>
-  <ul>
-    <li>accounting;</li>
-    <li>tax records;</li>
-    <li>legal claims;</li>
-    <li>fraud prevention;</li>
-    <li>security;</li>
-    <li>dispute resolution; or</li>
-    <li>compliance with legal obligations.</li>
-  </ul>
-  <p>Deleting your account does not necessarily cancel or refund Tickets that have already been purchased.</p>
-
-  <h2>20. Cookies and Similar Technologies</h2>
-  <p>The BarTrekker website and certain parts of the Service may use cookies and similar technologies. These may be used for:</p>
-  <ul>
-    <li>essential functionality;</li>
-    <li>security;</li>
-    <li>remembering preferences;</li>
-    <li>analytics;</li>
-    <li>improving performance; and</li>
-    <li>marketing where legally permitted.</li>
-  </ul>
-  <p>Where legally required, we will obtain consent before placing non-essential cookies or similar technologies.</p>
-  <p>Further information about our use of cookies may be provided in a separate Cookie Policy.</p>
-
-  <h2>21. Children's Privacy</h2>
-  <p>BarTrekker accounts may only be created by persons aged 18 or over.</p>
-  <p>BarTrekker does not knowingly permit children under 18 to create BarTrekker accounts or purchase Tickets.</p>
-  <p>Certain Events may permit individuals under 18 to attend or participate where expressly stated in the Event information. Where an Event permits under-18 participation, the relevant personal information will be handled in accordance with applicable law and the arrangements for that Event.</p>
-  <p>If you believe that a child has provided personal information to BarTrekker in circumstances where this was not permitted, please contact us.</p>
-
-  <h2>22. Information You Provide About Other People</h2>
-  <p>You must not provide BarTrekker with another person's personal information unless you have a lawful basis or appropriate permission to do so.</p>
-  <p>Where you purchase multiple Tickets, you may be responsible for ensuring that any information you provide concerning other participants is accurate and lawfully provided.</p>
-
-  <h2>23. Third-Party Websites and Applications</h2>
-  <p>BarTrekker may contain links or integrations with third-party websites and applications. These may include:</p>
-  <ul>
-    <li>mapping services;</li>
-    <li>payment services;</li>
-    <li>Venue websites;</li>
-    <li>social media services; and</li>
-    <li>other external platforms.</li>
-  </ul>
-  <p>BarTrekker does not control the privacy practices of independent third parties. You should review their respective privacy policies before providing personal information to them.</p>
-
-  <h2>24. Automated Decision-Making</h2>
-  <p>BarTrekker does not currently intend to make decisions producing legal or similarly significant effects about Customers solely through automated processing.</p>
-  <p>If this changes, we will update this Privacy Policy and provide any information and rights required by applicable law.</p>
-
-  <h2>25. Changes to This Privacy Policy</h2>
-  <p>We may update this Privacy Policy from time to time. Changes may be necessary because of:</p>
-  <ul>
-    <li>changes to the Service;</li>
-    <li>new features;</li>
-    <li>changes to our technology providers;</li>
-    <li>changes to applicable law;</li>
-    <li>changes to our processing activities; or</li>
-    <li>other operational or legal requirements.</li>
-  </ul>
-  <p>The latest version will be made available through the BarTrekker Service or website.</p>
-  <p>Where required by law, we will provide additional notice or obtain consent before implementing material changes.</p>
-
-  <h2>26. Complaints</h2>
-  <p>If you have concerns about how BarTrekker has handled your personal information, please contact us first: customerservice@bartrekker.com</p>
-  <p>You also have the right to complain to the relevant data protection supervisory authority.</p>
-  <p>For matters relating to the processing of personal information by an English company, the relevant supervisory authority may include the Information Commissioner's Office (ICO).</p>
-  <p>Where EU GDPR applies to your processing, you may also have the right to complain to the data protection supervisory authority in your country of residence or where you believe an infringement occurred.</p>
-  <p>For Customers in Poland, the relevant supervisory authority is the Prezes Urzędu Ochrony Danych Osobowych (UODO).</p>
-
-  <h2>27. Data Protection Contact</h2>
-  <p>For all privacy and data protection enquiries:</p>
-  <p>BARTREKKER LTD<br>
-  8 Melton Road, Runcorn, England, WA7 4AH<br>
-  Email: customerservice@bartrekker.com<br>
-  Telephone: +48 451 047 025</p>
-
-  <h2>28. Governing Principles</h2>
-  <p>BarTrekker aims to process personal information in accordance with the principles of applicable data protection law, including that personal information should be:</p>
-  <ul>
-    <li>processed lawfully, fairly and transparently;</li>
-    <li>collected for specified and legitimate purposes;</li>
-    <li>adequate, relevant and limited to what is necessary;</li>
-    <li>accurate and kept up to date where appropriate;</li>
-    <li>retained only for as long as necessary; and</li>
-    <li>protected using appropriate security measures.</li>
-  </ul>
-</article>
-
-<div class="post-footer-nav">
-  <a class="back-link" href="index.html#blog"><span class="arrow">←</span> Back to all posts</a>
+    <p>This Privacy Policy explains how BARTREKKER LTD ("BarTrekker", "we", "us" or "our") collects, uses, stores and protects personal information when you use the BarTrekker mobile application, website, ticketing services and related services (together, the "Service").</p>
+    <p>BarTrekker is committed to handling personal information responsibly and in accordance with applicable data protection and privacy laws, including the UK General Data Protection Regulation (UK GDPR), the Data Protection Act 2018, and, where applicable, the EU General Data Protection Regulation (EU GDPR) and other applicable local data protection laws.</p>
+    <p>Please read this Privacy Policy carefully.</p>
+ 
+    <h2>1. Who We Are</h2>
+    <p>The entity responsible for processing your personal information is:</p>
+    <p>BARTREKKER LTD<br>
+    8 Melton Road, Runcorn, England, WA7 4AH<br>
+    Email: customerservice@bartrekker.com<br>
+    Customer service telephone: +48 451 047 025</p>
+    <p>For data protection questions or requests concerning your personal information, you may contact us using the email address above.</p>
+    <p>Where BarTrekker is the controller of your personal information, we determine why and how your personal information is processed.</p>
+ 
+    <h2>2. Information We Collect</h2>
+    <p>Depending on how you use BarTrekker, we may collect the following categories of information.</p>
+ 
+    <h3>2.1 Account information</h3>
+    <p>When you create a BarTrekker account, we may collect:</p>
+    <ul>
+      <li>your name;</li>
+      <li>email address;</li>
+      <li>account credentials;</li>
+      <li>account creation information; and</li>
+      <li>other information you voluntarily provide.</li>
+    </ul>
+    <p>An email address is used to identify your BarTrekker account.</p>
+ 
+    <h3>2.2 Ticket and Event information</h3>
+    <p>When you purchase or use a Ticket, we may collect information relating to:</p>
+    <ul>
+      <li>the Event purchased;</li>
+      <li>Ticket number or identifier;</li>
+      <li>QR Code information;</li>
+      <li>purchase date and time;</li>
+      <li>Event date and time;</li>
+      <li>participating Venues;</li>
+      <li>Ticket status;</li>
+      <li>Ticket usage;</li>
+      <li>cancellation or refund information; and</li>
+      <li>communications concerning the Event.</li>
+    </ul>
+    <p>This information is required to administer your Ticket and provide the Event.</p>
+ 
+    <h2>3. Payment Information</h2>
+    <p>Payments made through BarTrekker are processed using Stripe.</p>
+    <p>Where Stripe processes your payment, BarTrekker does not ordinarily receive or store your complete payment card number or card security information.</p>
+    <p>We may receive information such as:</p>
+    <ul>
+      <li>payment status;</li>
+      <li>transaction identifier;</li>
+      <li>amount paid;</li>
+      <li>currency;</li>
+      <li>date and time of payment;</li>
+      <li>payment method type;</li>
+      <li>refund status; and</li>
+      <li>limited information required to identify and administer the transaction.</li>
+    </ul>
+    <p>Stripe may process additional personal information in accordance with its own privacy policy and applicable data protection requirements.</p>
+ 
+    <h2>4. Information About Your Use of the App</h2>
+    <p>When you use BarTrekker, we may collect technical and usage information such as:</p>
+    <ul>
+      <li>device type;</li>
+      <li>operating system;</li>
+      <li>App version;</li>
+      <li>device identifiers where applicable;</li>
+      <li>IP address;</li>
+      <li>date and time of access;</li>
+      <li>technical logs;</li>
+      <li>security information; and</li>
+      <li>information about interactions with the Service.</li>
+    </ul>
+    <p>We may use Google Analytics to help us understand how Customers use the Service and to improve the performance and functionality of BarTrekker. Where consent is required by applicable law, analytics remain switched off until you agree, and you may change that choice at any time in the app.</p>
+    <p>We also use Firebase Crashlytics to record diagnostic information when the App stops unexpectedly, including the error, the state of the App at the time, the device model and operating system version. This is used to find and fix faults.</p>
+    <p>The precise information collected will depend on the technical configuration of the App and the services integrated with it.</p>
+ 
+    <h2>5. Location Information</h2>
+    <h3>5.1</h3>
+    <p>BarTrekker does not ordinarily directly track your GPS location for the purpose of navigating you between Venues. The BarTrekker App may provide links or instructions that allow you to open a third-party mapping application on your device.</p>
+    <h3>5.2</h3>
+    <p>When you choose to use a third-party mapping service, that service may process your location information in accordance with its own privacy policy and settings. Examples may include services such as:</p>
+    <ul>
+      <li>Google Maps;</li>
+      <li>Apple Maps; or</li>
+      <li>another mapping provider supported by your device.</li>
+    </ul>
+    <h3>5.3</h3>
+    <p>BarTrekker does not control the personal information collected directly by those third-party mapping providers. You should review the privacy settings and policies of the mapping service you choose to use.</p>
+ 
+    <h2>6. Event Notifications</h2>
+    <p>BarTrekker may use notifications to help operate Events. These may include:</p>
+    <ul>
+      <li>reminders;</li>
+      <li>Event start notifications;</li>
+      <li>instructions;</li>
+      <li>route notifications;</li>
+      <li>Venue notifications;</li>
+      <li>changes to Event arrangements;</li>
+      <li>important safety or operational information; and</li>
+      <li>other communications necessary to operate an Event.</li>
+    </ul>
+    <p>Some notifications may be essential to the operation of an Event.</p>
+    <p>You may be able to control certain notification permissions through your device settings.</p>
+ 
+    <h2>7. Customer Service Communications</h2>
+    <p>If you contact BarTrekker, we may collect information contained in your communication. This may include:</p>
+    <ul>
+      <li>your name;</li>
+      <li>email address;</li>
+      <li>telephone number;</li>
+      <li>account information;</li>
+      <li>Ticket information;</li>
+      <li>Event information;</li>
+      <li>details of your enquiry; and</li>
+      <li>information you voluntarily provide.</li>
+    </ul>
+    <p>We use this information to respond to your enquiry, investigate complaints and provide customer support.</p>
+ 
+    <h2>8. How We Use Personal Information</h2>
+    <p>We may use personal information to:</p>
+ 
+    <h3>8.1 Provide the Service</h3>
+    <p>Including to:</p>
+    <ul>
+      <li>create and manage accounts;</li>
+      <li>process Ticket purchases;</li>
+      <li>issue Tickets and QR Codes;</li>
+      <li>administer Events;</li>
+      <li>provide Event information;</li>
+      <li>send Event notifications;</li>
+      <li>communicate with participating Venues where necessary;</li>
+      <li>process refunds;</li>
+      <li>provide customer support; and</li>
+      <li>operate the BarTrekker platform.</li>
+    </ul>
+ 
+    <h3>8.2 Manage payments</h3>
+    <p>Including to:</p>
+    <ul>
+      <li>process transactions;</li>
+      <li>confirm payments;</li>
+      <li>process refunds;</li>
+      <li>detect potentially fraudulent transactions;</li>
+      <li>investigate payment disputes; and</li>
+      <li>maintain financial and transaction records.</li>
+    </ul>
+ 
+    <h3>8.3 Protect BarTrekker and its users</h3>
+    <p>Including to:</p>
+    <ul>
+      <li>detect fraud;</li>
+      <li>investigate suspicious activity;</li>
+      <li>prevent misuse of Tickets;</li>
+      <li>protect the security of the Service;</li>
+      <li>prevent unauthorised access;</li>
+      <li>investigate breaches of our Terms and Conditions; and</li>
+      <li>protect Customers, participating Venues and BarTrekker.</li>
+    </ul>
+ 
+    <h3>8.4 Improve the Service</h3>
+    <p>We may use appropriate technical and usage information to:</p>
+    <ul>
+      <li>understand how the App is used;</li>
+      <li>identify technical problems;</li>
+      <li>improve performance;</li>
+      <li>develop new features;</li>
+      <li>troubleshoot errors; and</li>
+      <li>improve the Customer experience.</li>
+    </ul>
+ 
+    <h3>8.5 Communicate with you</h3>
+    <p>We may use your contact information to provide:</p>
+    <ul>
+      <li>purchase confirmations;</li>
+      <li>Ticket information;</li>
+      <li>Event information;</li>
+      <li>changes to Events;</li>
+      <li>cancellation information;</li>
+      <li>important service announcements;</li>
+      <li>customer service responses; and</li>
+      <li>other communications relating to your use of BarTrekker.</li>
+    </ul>
+ 
+    <h3>8.6 Comply with legal obligations</h3>
+    <p>We may process personal information where necessary to comply with applicable:</p>
+    <ul>
+      <li>laws;</li>
+      <li>regulations;</li>
+      <li>court orders;</li>
+      <li>regulatory requirements;</li>
+      <li>accounting obligations; and</li>
+      <li>law enforcement requests.</li>
+    </ul>
+ 
+    <h2>9. Legal Bases for Processing</h2>
+    <p>Where the EU GDPR or UK GDPR applies, we process personal information using one or more lawful bases.</p>
+ 
+    <h3>9.1 Contract</h3>
+    <p>We may process information where it is necessary to perform a contract with you. For example:</p>
+    <ul>
+      <li>creating your account;</li>
+      <li>processing your Ticket;</li>
+      <li>providing Event information;</li>
+      <li>administering your Event;</li>
+      <li>processing refunds; and</li>
+      <li>providing customer support relating to your purchase.</li>
+    </ul>
+ 
+    <h3>9.2 Legal obligation</h3>
+    <p>We may process information where necessary to comply with a legal obligation. For example:</p>
+    <ul>
+      <li>accounting and tax requirements;</li>
+      <li>legal reporting requirements;</li>
+      <li>responding to lawful requests from authorities; or</li>
+      <li>complying with applicable legislation.</li>
+    </ul>
+ 
+    <h3>9.3 Legitimate interests</h3>
+    <p>We may process information where necessary for BarTrekker's legitimate interests, provided those interests are not overridden by your rights and interests. Examples may include:</p>
+    <ul>
+      <li>preventing fraud;</li>
+      <li>protecting the security of the Service;</li>
+      <li>improving the App;</li>
+      <li>managing disputes;</li>
+      <li>enforcing our Terms and Conditions;</li>
+      <li>protecting BarTrekker's legal rights; and</li>
+      <li>maintaining the security of our systems.</li>
+    </ul>
+ 
+    <h3>9.4 Consent</h3>
+    <p>Where consent is legally required, we will request your consent before processing the relevant information. Where processing is based on consent, you may withdraw your consent at any time. Withdrawal of consent does not affect the lawfulness of processing carried out before withdrawal.</p>
+ 
+    <h2>10. Marketing</h2>
+    <p>BarTrekker may wish to send promotional communications about:</p>
+    <ul>
+      <li>new Events;</li>
+      <li>new Venues;</li>
+      <li>offers;</li>
+      <li>discounts;</li>
+      <li>products;</li>
+      <li>services; and</li>
+      <li>other BarTrekker activities.</li>
+    </ul>
+    <p>Where required by law, we will obtain your consent before sending direct marketing communications.</p>
+    <p>You may unsubscribe from marketing communications at any time. Unsubscribing from marketing communications does not prevent us from sending essential communications relating to your account, Ticket or Event.</p>
+ 
+    <h2>11. Who We Share Information With</h2>
+    <p>We may share personal information with selected third parties where necessary to operate BarTrekker.</p>
+ 
+    <h3>11.1 Payment providers</h3>
+    <p>BarTrekker uses Stripe to process payments, refunds and payment-related transactions. Stripe may process personal information necessary to provide its payment services and may process information in accordance with its own privacy policy.</p>
+ 
+    <h3>11.2 Technology and hosting providers</h3>
+    <p>BarTrekker uses Firebase, provided by Google, for hosting and related technical infrastructure supporting the Service. Firebase may process information necessary to provide these technical services.</p>
+ 
+    <h3>11.3 Analytics providers</h3>
+    <p>BarTrekker uses Google Analytics to help us understand how Customers use the Service, identify trends, improve functionality and measure the performance of the Service. Google Analytics may collect technical and usage information in accordance with its applicable privacy practices and configuration. Where required by applicable law, BarTrekker will obtain the necessary consent before using non-essential analytics technologies.</p>
+ 
+    <h3>11.4 Participating Venues</h3>
+    <p>We may provide participating Venues with limited information necessary to administer an Event. For example, this may include information necessary to:</p>
+    <ul>
+      <li>validate a Ticket;</li>
+      <li>confirm attendance;</li>
+      <li>verify a QR Code;</li>
+      <li>administer an Event benefit; or</li>
+      <li>resolve an Event-related issue.</li>
+    </ul>
+    <p>We will not provide Venues with personal information that is unnecessary for these purposes.</p>
+ 
+    <h3>11.5 Professional advisers</h3>
+    <p>We may share personal information with professional advisers where reasonably necessary, including:</p>
+    <ul>
+      <li>lawyers;</li>
+      <li>accountants;</li>
+      <li>auditors;</li>
+      <li>insurers;</li>
+      <li>financial advisers; and</li>
+      <li>other professional advisers.</li>
+    </ul>
+ 
+    <h3>11.6 Authorities and legal recipients</h3>
+    <p>We may disclose personal information where required or permitted by law, including to:</p>
+    <ul>
+      <li>courts;</li>
+      <li>regulators;</li>
+      <li>law enforcement;</li>
+      <li>government authorities; or</li>
+      <li>other authorised bodies.</li>
+    </ul>
+ 
+    <h2>12. Third-Party Service Providers</h2>
+    <p>Some services used by BarTrekker may process personal information on our behalf.</p>
+    <p>Where appropriate, we enter into agreements with relevant processors and require them to process personal information only in accordance with our instructions and applicable data protection requirements.</p>
+    <p>Third-party providers may also independently process information as controllers under their own privacy policies where applicable.</p>
+ 
+    <h2>13. International Data Transfers</h2>
+    <p>Some of our service providers may process personal information outside the United Kingdom or European Economic Area.</p>
+    <p>Where personal information is transferred internationally, we will take appropriate steps required by applicable data protection law. This may include using:</p>
+    <ul>
+      <li>adequacy decisions;</li>
+      <li>Standard Contractual Clauses;</li>
+      <li>the UK International Data Transfer Agreement;</li>
+      <li>the UK Addendum to the EU Standard Contractual Clauses; or</li>
+      <li>other legally recognised transfer mechanisms.</li>
+    </ul>
+ 
+    <h2>14. How Long We Keep Personal Information</h2>
+    <p>We retain personal information only for as long as reasonably necessary for the purposes described in this Privacy Policy, unless a longer period is required or permitted by law.</p>
+    <p>Different types of information may be retained for different periods. For example:</p>
+    <ul>
+      <li>account information may be retained while your account remains active;</li>
+      <li>Ticket and transaction information may be retained for accounting, tax, legal and dispute-resolution purposes;</li>
+      <li>customer support information may be retained for as long as reasonably necessary to deal with the enquiry and any resulting dispute;</li>
+      <li>security and fraud information may be retained where reasonably necessary to protect BarTrekker and its users.</li>
+    </ul>
+    <p>When personal information is no longer required, we will take reasonable steps to delete it or otherwise securely dispose of it, subject to applicable legal requirements.</p>
+ 
+    <h2>15. Data Security</h2>
+    <p>BarTrekker takes reasonable technical and organisational measures to protect personal information against:</p>
+    <ul>
+      <li>unauthorised access;</li>
+      <li>unauthorised disclosure;</li>
+      <li>accidental loss;</li>
+      <li>destruction;</li>
+      <li>alteration; and</li>
+      <li>unlawful processing.</li>
+    </ul>
+    <p>Security measures may include appropriate access controls, authentication, encryption where appropriate, monitoring and secure infrastructure.</p>
+    <p>However, no internet-based service can guarantee absolute security. You acknowledge that transmission of information over the internet carries inherent risks.</p>
+ 
+    <h2>16. Data Breaches</h2>
+    <p>Where required by applicable law, BarTrekker will assess personal data breaches and notify relevant regulatory authorities and affected individuals where legally required.</p>
+ 
+    <h2>17. Your Data Protection Rights</h2>
+    <p>Depending on where you live and which data protection laws apply, you may have rights including:</p>
+ 
+    <h3>Right of access</h3>
+    <p>You may request a copy of personal information we hold about you.</p>
+ 
+    <h3>Right to rectification</h3>
+    <p>You may request correction of inaccurate or incomplete information.</p>
+ 
+    <h3>Right to erasure</h3>
+    <p>You may request deletion of your personal information in certain circumstances.</p>
+ 
+    <h3>Right to restriction</h3>
+    <p>You may request that we restrict processing in certain circumstances.</p>
+ 
+    <h3>Right to data portability</h3>
+    <p>Where applicable, you may request your information in a structured, commonly used and machine-readable format.</p>
+ 
+    <h3>Right to object</h3>
+    <p>You may object to certain processing, including certain processing based on legitimate interests or direct marketing.</p>
+ 
+    <h3>Right to withdraw consent</h3>
+    <p>Where processing is based on consent, you may withdraw that consent at any time.</p>
+ 
+    <h3>Rights relating to automated decision-making</h3>
+    <p>Where applicable law provides such rights, you may have rights concerning decisions based solely on automated processing that produce legal or similarly significant effects.</p>
+ 
+    <p>These rights are not absolute and may be subject to legal exceptions.</p>
+ 
+    <h2>18. How to Exercise Your Rights</h2>
+    <p>To exercise your rights, contact: customerservice@bartrekker.com</p>
+    <p>Please provide sufficient information to allow us to identify your account and understand your request.</p>
+    <p>We may need to request additional information to verify your identity before disclosing or changing personal information.</p>
+    <p>We aim to respond to valid requests within the time period required by applicable law.</p>
+ 
+    <h2>19. Account Deletion</h2>
+    <p>You may request deletion of your BarTrekker account by contacting: customerservice@bartrekker.com</p>
+    <p>Where appropriate, we will delete or anonymise personal information associated with your account.</p>
+    <p>However, some information may need to be retained where required or permitted by law, including information necessary for:</p>
+    <ul>
+      <li>accounting;</li>
+      <li>tax records;</li>
+      <li>legal claims;</li>
+      <li>fraud prevention;</li>
+      <li>security;</li>
+      <li>dispute resolution; or</li>
+      <li>compliance with legal obligations.</li>
+    </ul>
+    <p>Deleting your account does not necessarily cancel or refund Tickets that have already been purchased.</p>
+ 
+    <h2>20. Cookies and Similar Technologies</h2>
+    <p>The BarTrekker website and certain parts of the Service may use cookies and similar technologies. These may be used for:</p>
+    <ul>
+      <li>essential functionality;</li>
+      <li>security;</li>
+      <li>remembering preferences;</li>
+      <li>analytics;</li>
+      <li>improving performance; and</li>
+      <li>marketing where legally permitted.</li>
+    </ul>
+    <p>Where legally required, we will obtain consent before placing non-essential cookies or similar technologies.</p>
+    <p>Further information about our use of cookies may be provided in a separate Cookie Policy.</p>
+ 
+    <h2>21. Children's Privacy</h2>
+    <p>BarTrekker accounts may only be created by persons aged 18 or over.</p>
+    <p>BarTrekker does not knowingly permit children under 18 to create BarTrekker accounts or purchase Tickets.</p>
+    <p>Certain Events may permit individuals under 18 to attend or participate where expressly stated in the Event information. Where an Event permits under-18 participation, the relevant personal information will be handled in accordance with applicable law and the arrangements for that Event.</p>
+    <p>If you believe that a child has provided personal information to BarTrekker in circumstances where this was not permitted, please contact us.</p>
+ 
+    <h2>22. Information You Provide About Other People</h2>
+    <p>You must not provide BarTrekker with another person's personal information unless you have a lawful basis or appropriate permission to do so.</p>
+    <p>Where you purchase multiple Tickets, you may be responsible for ensuring that any information you provide concerning other participants is accurate and lawfully provided.</p>
+ 
+    <h2>23. Third-Party Websites and Applications</h2>
+    <p>BarTrekker may contain links or integrations with third-party websites and applications. These may include:</p>
+    <ul>
+      <li>mapping services;</li>
+      <li>payment services;</li>
+      <li>Venue websites;</li>
+      <li>social media services; and</li>
+      <li>other external platforms.</li>
+    </ul>
+    <p>BarTrekker does not control the privacy practices of independent third parties. You should review their respective privacy policies before providing personal information to them.</p>
+ 
+    <h2>24. Automated Decision-Making</h2>
+    <p>BarTrekker does not currently intend to make decisions producing legal or similarly significant effects about Customers solely through automated processing.</p>
+    <p>If this changes, we will update this Privacy Policy and provide any information and rights required by applicable law.</p>
+ 
+    <h2>25. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes may be necessary because of:</p>
+    <ul>
+      <li>changes to the Service;</li>
+      <li>new features;</li>
+      <li>changes to our technology providers;</li>
+      <li>changes to applicable law;</li>
+      <li>changes to our processing activities; or</li>
+      <li>other operational or legal requirements.</li>
+    </ul>
+    <p>The latest version will be made available through the BarTrekker Service or website.</p>
+    <p>Where required by law, we will provide additional notice or obtain consent before implementing material changes.</p>
+ 
+    <h2>26. Complaints</h2>
+    <p>If you have concerns about how BarTrekker has handled your personal information, please contact us first: customerservice@bartrekker.com</p>
+    <p>You also have the right to complain to the relevant data protection supervisory authority.</p>
+    <p>For matters relating to the processing of personal information by an English company, the relevant supervisory authority may include the Information Commissioner's Office (ICO).</p>
+    <p>Where EU GDPR applies to your processing, you may also have the right to complain to the data protection supervisory authority in your country of residence or where you believe an infringement occurred.</p>
+    <p>For Customers in Poland, the relevant supervisory authority is the Prezes Urzędu Ochrony Danych Osobowych (UODO).</p>
+ 
+    <h2>27. Data Protection Contact</h2>
+    <p>For all privacy and data protection enquiries:</p>
+    <p>BARTREKKER LTD<br>
+    8 Melton Road, Runcorn, England, WA7 4AH<br>
+    Email: customerservice@bartrekker.com<br>
+    Telephone: +48 451 047 025</p>
+ 
+    <h2>28. Governing Principles</h2>
+    <p>BarTrekker aims to process personal information in accordance with the principles of applicable data protection law, including that personal information should be:</p>
+    <ul>
+      <li>processed lawfully, fairly and transparently;</li>
+      <li>collected for specified and legitimate purposes;</li>
+      <li>adequate, relevant and limited to what is necessary;</li>
+      <li>accurate and kept up to date where appropriate;</li>
+      <li>retained only for as long as necessary; and</li>
+      <li>protected using appropriate security measures.</li>
+    </ul>
+  </article>
+ 
+  <div class="post-footer-nav">
+    <a class="back-link" href="/index.html#blog"><span class="arrow">←</span> Back to all posts</a>
   </div>
+ 
 </main>
-
+ 
 <!-- ============================================================
      SITE FOOTER — same on every page.
-     ============================================================ -->
+============================================================ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <p class="footer-company">Bartrekker ltd.</p>
-    <p class="footer-line"><strong>Contact:</strong> <a href="mailto:customerservice@bartrekker.com">customer service@bartrekker.com</a></p>
+    <p class="footer-line"><strong>Contact:</strong> <a href="mailto:customerservice@bartrekker.com">customerservice@bartrekker.com</a></p>
     <p class="footer-line"><strong>Partnerships:</strong> <a href="mailto:partnerships@bartrekker.com">partnerships@bartrekker.com</a></p>
     <div class="footer-socials">
-      <a class="social-icon" href="https://instagram.com/bartrekker" target="_blank" rel="noopener" aria-label="Instagram">
+      <a class="social-icon" href="https://instagram.com/bartrekkersapp" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
       </a>
       <a class="social-icon" href="https://tiktok.com/@bartrekker" target="_blank" rel="noopener" aria-label="TikTok">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/></svg>
       </a>
-      <a class="social-icon" href="https://linkedin.com/company/bartrekker" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <a class="social-icon" href="https://www.linkedin.com/company/bartrekker" target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
       </a>
     </div>
   </div>
+ 
+  <p class="footer-legal-links">
+    <a href="/terms-and-conditions/">Terms &amp; Conditions</a> ·
+    <a href="/privacypolicy/">Privacy Policy</a> ·
+    <a href="/accountdeletion/">Delete My Account</a>
+  </p>
 </footer>
-
+ 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   const navToggle = document.getElementById('navToggle');
   const navLinks = document.getElementById('navLinks');
   const links = Array.from(document.querySelectorAll('.nav-link'));
-
-  // Nav links may point to another page (e.g. "index.html#blog") on pages
-  // like blog-post.html that don't have the matching section — querySelector
-  // throws on those hrefs, so resolve safely and just skip them.
+ 
   function findSection(href) {
     try { return document.querySelector(href); } catch (e) { return null; }
   }
-
+ 
   const sectionPairs = links
     .map(link => ({ link, section: findSection(link.getAttribute('href')) }))
     .filter(pair => pair.section);
-
-  // Sticky navbar shadow on scroll
+ 
   const onScroll = () => {
     navbar.classList.toggle('scrolled', window.scrollY > 20);
     updateActiveLink();
   };
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  // Mobile nav toggle
+ 
   navToggle.addEventListener('click', () => {
     const open = navLinks.classList.toggle('open');
     navToggle.classList.toggle('open', open);
     navToggle.setAttribute('aria-expanded', String(open));
   });
-
+ 
   links.forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('open');
@@ -1036,27 +1037,22 @@ document.addEventListener('DOMContentLoaded', () => {
       navToggle.setAttribute('aria-expanded', 'false');
     });
   });
-
-  // Scrollspy — highlight the nav link for the section in view.
-  // No-op on pages (like blog-post.html) with no matching sections, leaving
-  // whatever "active" state is set in that page's own markup.
+ 
   function updateActiveLink() {
     if (!sectionPairs.length) return;
     const navH = navbar.offsetHeight;
     const scrollPos = window.scrollY + navH + 10;
     let current = sectionPairs[0].section;
-
+ 
     sectionPairs.forEach(({ section }) => {
       if (section.offsetTop <= scrollPos) current = section;
     });
-
+ 
     sectionPairs.forEach(({ link, section }) => {
       link.classList.toggle('active', section === current);
     });
   }
-
-  // Offset anchor scroll for fixed navbar. Links with no matching in-page
-  // section (cross-page links) just fall through to normal navigation.
+ 
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       const target = findSection(link.getAttribute('href'));
@@ -1068,22 +1064,21 @@ document.addEventListener('DOMContentLoaded', () => {
       history.pushState(null, '', link.getAttribute('href'));
     });
   });
-
-  // FAQ accordion
+ 
   document.querySelectorAll('.faq-item').forEach(item => {
     const question = item.querySelector('.faq-question');
     const answer = item.querySelector('.faq-answer');
-
+ 
     question.addEventListener('click', () => {
       const isOpen = item.classList.contains('open');
-
+ 
       document.querySelectorAll('.faq-item.open').forEach(openItem => {
         if (openItem !== item) {
           openItem.classList.remove('open');
           openItem.querySelector('.faq-answer').style.maxHeight = null;
         }
       });
-
+ 
       item.classList.toggle('open', !isOpen);
       answer.style.maxHeight = !isOpen ? answer.scrollHeight + 'px' : null;
     });
