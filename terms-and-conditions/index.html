@@ -3,13 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <!-- ============================================================
      EDIT PER POST: browser tab title + search/social description
-     ============================================================ -->
+============================================================ -->
 <title>Bartrekker Terms & Conditions</title>
 <meta name="description" content="Here you can find the full terms & conditions for Bartrekker">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -278,6 +276,14 @@ button { font-family: inherit; cursor: pointer; }
 .social-icon svg { width: 16px; height: 16px; }
 .social-icon:hover { transform: translateY(-2px); }
 
+.footer-legal-links {
+  text-align: center;
+  max-width: 1300px;
+  margin: 24px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 /* ==========================================================================
    Individual blog post styling
    ========================================================================== */
@@ -360,9 +366,7 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 18px;
   line-height: 1.75;
 }
-
 .post-body p { margin: 0 0 24px; }
-
 .post-body h2 {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -372,7 +376,6 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.15;
   margin: 44px 0 18px;
 }
-
 .post-body h3 {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
@@ -382,7 +385,6 @@ button { font-family: inherit; cursor: pointer; }
   line-height: 1.2;
   margin: 34px 0 14px;
 }
-
 .post-body ul,
 .post-body ol {
   margin: 0 0 24px;
@@ -404,7 +406,6 @@ button { font-family: inherit; cursor: pointer; }
   border-radius: 50%;
   background: var(--orange);
 }
-
 .post-body img {
   width: 100%;
   height: auto;
@@ -419,7 +420,6 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
   margin-top: 10px;
 }
-
 .post-body blockquote {
   margin: 30px 0;
   padding: 4px 0 4px 24px;
@@ -428,9 +428,7 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--gray);
   font-size: 20px;
 }
-
 .post-body a { color: var(--orange); text-decoration: underline; }
-
 .post-body hr {
   border: none;
   border-top: 1px solid var(--border);
@@ -451,22 +449,22 @@ button { font-family: inherit; cursor: pointer; }
      SITE NAVIGATION — same on every page.
      These links point back to sections on index.html, since this
      page has no sections of its own. Leave them as-is.
-     ============================================================ -->
+============================================================ -->
 <header class="navbar" id="navbar">
   <div class="navbar-inner">
-    <a href="index.html" class="logo" aria-label="Bartrekker home">
-      <img class="logo-mark" src="assets/logo-image.png" alt="Bartrekker logo mark">
-      <img class="logo-text" src="assets/logo-text.png" alt="Bartrekker">
+    <a href="/index.html" class="logo" aria-label="Bartrekker home">
+      <img class="logo-mark" src="/assets/logo-image.png" alt="Bartrekker logo mark">
+      <img class="logo-text" src="/assets/logo-text.png" alt="Bartrekker">
     </a>
 
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html#download" class="nav-link">Download</a></li>
-        <li><a href="index.html#how-it-works" class="nav-link">How it works</a></li>
-        <li><a href="index.html#what-to-expect" class="nav-link">What to expect</a></li>
-        <li><a href="index.html#partnerships" class="nav-link">Partnerships</a></li>
-        <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
-        <li><a href="index.html#blog" class="nav-link active">Blog</a></li>
+        <li><a href="/index.html#download" class="nav-link">Download</a></li>
+        <li><a href="/index.html#how-it-works" class="nav-link">How it works</a></li>
+        <li><a href="/index.html#what-to-expect" class="nav-link">What to expect</a></li>
+        <li><a href="/index.html#partnerships" class="nav-link">Partnerships</a></li>
+        <li><a href="/index.html#faq" class="nav-link">FAQ</a></li>
+        <li><a href="/index.html#blog" class="nav-link active">Blog</a></li>
       </ul>
     </nav>
 
@@ -477,12 +475,13 @@ button { font-family: inherit; cursor: pointer; }
 </header>
 
 <main>
+
   <div class="post-hero">
-    <a class="back-link" href="index.html#blog"><span class="arrow">←</span> Back to all posts</a>
+    <a class="back-link" href="/index.html#blog"><span class="arrow">←</span> Back to all posts</a>
 
     <!-- ============================================================
          EDIT PER POST: eyebrow tag, title, date / read time
-         ============================================================ -->
+    ============================================================ -->
     <p class="post-eyebrow">Terms & Conditions</p>
     <h1 class="post-title">Bartrekker Terms & Conditions</h1>
     <p class="post-meta">
@@ -496,9 +495,9 @@ button { font-family: inherit; cursor: pointer; }
 
   <!-- ============================================================
        EDIT PER POST: hero image — swap the src and alt text
-       ============================================================ -->
+  ============================================================ -->
   <div class="post-hero-image">
-    <img src="assets/Terms-and-conditions-hero.jpg" alt="Hero image for terms & conditions page">
+    <img src="/assets/Terms-and-conditions-hero.jpg" alt="Hero image for terms & conditions page">
   </div>
 
   <!-- ============================================================
@@ -506,639 +505,646 @@ button { font-family: inherit; cursor: pointer; }
        Use <h2> for main sections, <h3> for sub-points, <p> for text,
        <ul> for lists, <blockquote> for pull quotes, and the <figure>
        pattern below whenever you want an inline image with a caption.
-       ============================================================ -->
+  ============================================================ -->
   <article class="post-body">
     <h2>Terms & Conditions</h2>
-       <p>These Terms and Conditions ("Terms") govern your use of the BarTrekker application, website and related services (together, the "Service") and your purchase and use of BarTrekker tickets and events. Please read these Terms carefully before registering for an account, purchasing a ticket or participating in a BarTrekker event. By creating an account, purchasing a ticket or using the Service, you acknowledge that you have read, understood and agree to be bound by these Terms. If you do not agree to these Terms, you must not use the Service or purchase a BarTrekker ticket.</p>
+    <p>These Terms and Conditions ("Terms") govern your use of the BarTrekker application, website and related services (together, the "Service") and your purchase and use of BarTrekker tickets and events. Please read these Terms carefully before registering for an account, purchasing a ticket or participating in a BarTrekker event. By creating an account, purchasing a ticket or using the Service, you acknowledge that you have read, understood and agree to be bound by these Terms. If you do not agree to these Terms, you must not use the Service or purchase a BarTrekker ticket.</p>
 
     <h2>1. ABOUT BARTREKKER</h2>
-    <h3>1.1</h3>   
+    <h3>1.1</h3>
     <p>BarTrekker is operated by BARTREKKER LTD, a company incorporated in England. Registered address: 8 Melton Road, Runcorn, England, WA7 4AH. Contact email: customerservice@bartrekker.com. Customer service telephone number: +48 451 047 025</p>
 
     <h3>1.2</h3>
-  <p>BarTrekker provides a digital platform that enables customers to discover, purchase and participate in events and experiences involving participating bars, restaurants and other venues. Depending on the event, BarTrekker may provide customers with:</p>
-  <ul>
-    <li>access to a digital ticket;</li>
-    <li>a QR code for use at participating venues;</li>
-    <li>directions or links to mapping applications;</li>
-    <li>timed notifications;</li>
-    <li>information about participating venues;</li>
-    <li>discounts or special offers;</li>
-    <li>complimentary or tasting products provided by participating venues;</li>
-    <li>food or drink tasting experiences;</li>
-    <li>access to one-location events; and</li>
-    <li>other event-specific benefits described at the time of purchase.</li>
-  </ul>
+    <p>BarTrekker provides a digital platform that enables customers to discover, purchase and participate in events and experiences involving participating bars, restaurants and other venues. Depending on the event, BarTrekker may provide customers with:</p>
+    <ul>
+      <li>access to a digital ticket;</li>
+      <li>a QR code for use at participating venues;</li>
+      <li>directions or links to mapping applications;</li>
+      <li>timed notifications;</li>
+      <li>information about participating venues;</li>
+      <li>discounts or special offers;</li>
+      <li>complimentary or tasting products provided by participating venues;</li>
+      <li>food or drink tasting experiences;</li>
+      <li>access to one-location events; and</li>
+      <li>other event-specific benefits described at the time of purchase.</li>
+    </ul>
 
-  <h3>1.3</h3>
-  <p>Unless expressly stated otherwise for a particular event, BarTrekker does not itself operate, own, manage or control the participating bars, restaurants or other venues. BarTrekker acts primarily as a platform and organiser/coordinator connecting customers with participating venues.</p>
+    <h3>1.3</h3>
+    <p>Unless expressly stated otherwise for a particular event, BarTrekker does not itself operate, own, manage or control the participating bars, restaurants or other venues. BarTrekker acts primarily as a platform and organiser/coordinator connecting customers with participating venues.</p>
 
-  <h3>1.4</h3>
-  <p>The individual services provided at a participating venue, including food, beverages, alcohol, admission, venue facilities and other venue services, remain the responsibility of the relevant venue.</p>
+    <h3>1.4</h3>
+    <p>The individual services provided at a participating venue, including food, beverages, alcohol, admission, venue facilities and other venue services, remain the responsibility of the relevant venue.</p>
 
-  <h2>2. Definitions</h2>
-  <p>For the purposes of these Terms:</p>
-  <p><strong>"BarTrekker", "we", "us" or "our"</strong> means BARTREKKER LTD.</p>
-  <p><strong>"App"</strong> means the BarTrekker mobile application and any associated software.</p>
-  <p><strong>"Customer", "you" or "your"</strong> means any person who registers for an account, purchases a ticket or uses the Service.</p>
-  <p><strong>"Event"</strong> means a BarTrekker tour, tasting, experience or other event advertised through the Service.</p>
-  <p><strong>"Ticket"</strong> means a ticket purchased by a Customer for a specific Event.</p>
-  <p><strong>"Venue"</strong> means a bar, restaurant, food establishment or other participating business involved in an Event.</p>
-  <p><strong>"QR Code"</strong> means the digital ticket code issued through the Service for presentation at participating Venues.</p>
-  <p><strong>"Service"</strong> means the App, website, ticketing functionality, notifications, event information and other services supplied by BarTrekker.</p>
+    <h2>2. Definitions</h2>
+    <p>For the purposes of these Terms:</p>
+    <p><strong>"BarTrekker", "we", "us" or "our"</strong> means BARTREKKER LTD.</p>
+    <p><strong>"App"</strong> means the BarTrekker mobile application and any associated software.</p>
+    <p><strong>"Customer", "you" or "your"</strong> means any person who registers for an account, purchases a ticket or uses the Service.</p>
+    <p><strong>"Event"</strong> means a BarTrekker tour, tasting, experience or other event advertised through the Service.</p>
+    <p><strong>"Ticket"</strong> means a ticket purchased by a Customer for a specific Event.</p>
+    <p><strong>"Venue"</strong> means a bar, restaurant, food establishment or other participating business involved in an Event.</p>
+    <p><strong>"QR Code"</strong> means the digital ticket code issued through the Service for presentation at participating Venues.</p>
+    <p><strong>"Service"</strong> means the App, website, ticketing functionality, notifications, event information and other services supplied by BarTrekker.</p>
 
-  <h2>3. Eligibility and Age Requirements</h2>
-  <h3>3.1</h3>
-  <p>BarTrekker accounts may only be created by persons aged 18 or over.</p>
-  <h3>3.2</h3>
-  <p>Some Events may have additional age requirements. Where an Event involves alcohol, the Event may be restricted to persons aged 18 or over regardless of the general nature of the Event.</p>
-  <h3>3.3</h3>
-  <p>Certain Events, such as food tasting Events, may permit persons under 18 to participate where expressly stated in the Event description. However, tickets may only be purchased through BarTrekker by persons aged 18 or over.</p>
-  <h3>3.4</h3>
-  <p>You are responsible for ensuring that you meet the age and eligibility requirements of the Event you purchase.</p>
-  <h3>3.5</h3>
-  <p>Where an Event involves alcohol, participating Venues may require valid photographic identification. The Venue may refuse alcohol service where:</p>
-  <ul>
-    <li>you are under the legal drinking age;</li>
-    <li>you cannot provide valid identification when requested;</li>
-    <li>the Venue reasonably believes you are underage;</li>
-    <li>you are intoxicated;</li>
-    <li>serving you would breach applicable law or licensing requirements; or</li>
-    <li>the Venue otherwise has a lawful reason to refuse service.</li>
-  </ul>
-  <h3>3.6</h3>
-  <p>Purchasing a BarTrekker Ticket does not guarantee that you will be served alcohol. BarTrekker does not control the decision of a Venue to provide or refuse alcohol.</p>
+    <h2>3. Eligibility and Age Requirements</h2>
+    <h3>3.1</h3>
+    <p>BarTrekker accounts may only be created by persons aged 18 or over.</p>
+    <h3>3.2</h3>
+    <p>Some Events may have additional age requirements. Where an Event involves alcohol, the Event may be restricted to persons aged 18 or over regardless of the general nature of the Event.</p>
+    <h3>3.3</h3>
+    <p>Certain Events, such as food tasting Events, may permit persons under 18 to participate where expressly stated in the Event description. However, tickets may only be purchased through BarTrekker by persons aged 18 or over.</p>
+    <h3>3.4</h3>
+    <p>You are responsible for ensuring that you meet the age and eligibility requirements of the Event you purchase.</p>
+    <h3>3.5</h3>
+    <p>Where an Event involves alcohol, participating Venues may require valid photographic identification. The Venue may refuse alcohol service where:</p>
+    <ul>
+      <li>you are under the legal drinking age;</li>
+      <li>you cannot provide valid identification when requested;</li>
+      <li>the Venue reasonably believes you are underage;</li>
+      <li>you are intoxicated;</li>
+      <li>serving you would breach applicable law or licensing requirements; or</li>
+      <li>the Venue otherwise has a lawful reason to refuse service.</li>
+    </ul>
+    <h3>3.6</h3>
+    <p>Purchasing a BarTrekker Ticket does not guarantee that you will be served alcohol. BarTrekker does not control the decision of a Venue to provide or refuse alcohol.</p>
 
-  <h2>4. User Accounts</h2>
-  <h3>4.1</h3>
-  <p>An account is required to purchase and use BarTrekker Tickets.</p>
-  <h3>4.2</h3>
-  <p>You must provide accurate and truthful information when creating an account.</p>
-  <h3>4.3</h3>
-  <p>Accounts are associated with an email address. You must not deliberately create accounts for fraudulent, abusive or unlawful purposes.</p>
-  <h3>4.4</h3>
-  <p>You are responsible for keeping your account credentials secure and for activity carried out through your account, except where the relevant activity results from circumstances outside your reasonable control.</p>
-  <h3>4.5</h3>
-  <p>You must notify BarTrekker promptly if you believe your account has been accessed without authorisation.</p>
-  <h3>4.6</h3>
-  <p>BarTrekker may suspend or terminate an account where we reasonably believe that:</p>
-  <ul>
-    <li>the account has been used fraudulently;</li>
-    <li>the account has been used for an unlawful purpose;</li>
-    <li>the Customer has breached these Terms;</li>
-    <li>the Customer has attempted to circumvent BarTrekker's ticketing system;</li>
-    <li>payment fraud has occurred;</li>
-    <li>the Customer has abused staff or Venue personnel;</li>
-    <li>the Customer has engaged in threatening, violent or disruptive behaviour; or</li>
-    <li>continued use of the account presents a material risk to BarTrekker, participating Venues or other Customers.</li>
-  </ul>
-  <p>Where appropriate, BarTrekker may investigate suspected misconduct before taking action.</p>
+    <h2>4. User Accounts</h2>
+    <h3>4.1</h3>
+    <p>An account is required to purchase and use BarTrekker Tickets.</p>
+    <h3>4.2</h3>
+    <p>You must provide accurate and truthful information when creating an account.</p>
+    <h3>4.3</h3>
+    <p>Accounts are associated with an email address. You must not deliberately create accounts for fraudulent, abusive or unlawful purposes.</p>
+    <h3>4.4</h3>
+    <p>You are responsible for keeping your account credentials secure and for activity carried out through your account, except where the relevant activity results from circumstances outside your reasonable control.</p>
+    <h3>4.5</h3>
+    <p>You must notify BarTrekker promptly if you believe your account has been accessed without authorisation.</p>
+    <h3>4.6</h3>
+    <p>BarTrekker may suspend or terminate an account where we reasonably believe that:</p>
+    <ul>
+      <li>the account has been used fraudulently;</li>
+      <li>the account has been used for an unlawful purpose;</li>
+      <li>the Customer has breached these Terms;</li>
+      <li>the Customer has attempted to circumvent BarTrekker's ticketing system;</li>
+      <li>payment fraud has occurred;</li>
+      <li>the Customer has abused staff or Venue personnel;</li>
+      <li>the Customer has engaged in threatening, violent or disruptive behaviour; or</li>
+      <li>continued use of the account presents a material risk to BarTrekker, participating Venues or other Customers.</li>
+    </ul>
+    <p>Where appropriate, BarTrekker may investigate suspected misconduct before taking action.</p>
 
-  <h2>5. Purchasing Tickets</h2>
-  <h3>5.1</h3>
-  <p>Tickets are purchased through the BarTrekker Service.</p>
-  <h3>5.2</h3>
-  <p>Before completing a purchase, Customers should review the Event description, including:</p>
-  <ul>
-    <li>Event date;</li>
-    <li>Event start and end times;</li>
-    <li>participating Venues;</li>
-    <li>Event location;</li>
-    <li>age restrictions;</li>
-    <li>included benefits;</li>
-    <li>price;</li>
-    <li>cancellation terms; and</li>
-    <li>any Event-specific requirements.</li>
-  </ul>
-  <h3>5.3</h3>
-  <p>A Ticket purchase is completed once payment has been successfully authorised and BarTrekker has issued confirmation of the purchase.</p>
-  <h3>5.4</h3>
-  <p>A Customer may purchase multiple Tickets where this functionality is made available. Multiple Tickets may be associated with a single QR Code where stated by BarTrekker.</p>
-  <h3>5.5</h3>
-  <p>A Ticket is valid only for the Event, date and period specified at the time of purchase.</p>
-  <h3>5.6</h3>
-  <p>Tickets expire when the relevant Event has finished. Unused Tickets do not automatically carry forward to another Event.</p>
+    <h2>5. Purchasing Tickets</h2>
+    <h3>5.1</h3>
+    <p>Tickets are purchased through the BarTrekker Service.</p>
+    <h3>5.2</h3>
+    <p>Before completing a purchase, Customers should review the Event description, including:</p>
+    <ul>
+      <li>Event date;</li>
+      <li>Event start and end times;</li>
+      <li>participating Venues;</li>
+      <li>Event location;</li>
+      <li>age restrictions;</li>
+      <li>included benefits;</li>
+      <li>price;</li>
+      <li>cancellation terms; and</li>
+      <li>any Event-specific requirements.</li>
+    </ul>
+    <h3>5.3</h3>
+    <p>A Ticket purchase is completed once payment has been successfully authorised and BarTrekker has issued confirmation of the purchase.</p>
+    <h3>5.4</h3>
+    <p>A Customer may purchase multiple Tickets where this functionality is made available. Multiple Tickets may be associated with a single QR Code where stated by BarTrekker.</p>
+    <h3>5.5</h3>
+    <p>A Ticket is valid only for the Event, date and period specified at the time of purchase.</p>
+    <h3>5.6</h3>
+    <p>Tickets expire when the relevant Event has finished. Unused Tickets do not automatically carry forward to another Event.</p>
 
-  <h2>6. Ticket Transfers and Resale</h2>
-  <h3>6.1</h3>
-  <p>Unless BarTrekker expressly permits otherwise, Tickets are personal to the Customer and may not be transferred, sold, resold or commercially distributed.</p>
-  <h3>6.2</h3>
-  <p>Customers must not:</p>
-  <ul>
-    <li>resell Tickets;</li>
-    <li>advertise Tickets for resale;</li>
-    <li>duplicate Tickets;</li>
-    <li>copy or manipulate QR Codes;</li>
-    <li>sell access to BarTrekker routes or Event information; or</li>
-    <li>use Tickets for unauthorised commercial purposes.</li>
-  </ul>
-  <h3>6.3</h3>
-  <p>Where BarTrekker reasonably believes that a Ticket has been obtained, transferred or used fraudulently, we may cancel the Ticket and/or suspend the associated account.</p>
+    <h2>6. Ticket Transfers and Resale</h2>
+    <h3>6.1</h3>
+    <p>Unless BarTrekker expressly permits otherwise, Tickets are personal to the Customer and may not be transferred, sold, resold or commercially distributed.</p>
+    <h3>6.2</h3>
+    <p>Customers must not:</p>
+    <ul>
+      <li>resell Tickets;</li>
+      <li>advertise Tickets for resale;</li>
+      <li>duplicate Tickets;</li>
+      <li>copy or manipulate QR Codes;</li>
+      <li>sell access to BarTrekker routes or Event information; or</li>
+      <li>use Tickets for unauthorised commercial purposes.</li>
+    </ul>
+    <h3>6.3</h3>
+    <p>Where BarTrekker reasonably believes that a Ticket has been obtained, transferred or used fraudulently, we may cancel the Ticket and/or suspend the associated account.</p>
 
-  <h2>7. QR Codes and Venue Entry</h2>
-  <h3>7.1</h3>
-  <p>Customers may be required to present or scan their QR Code at participating Venues.</p>
-  <h3>7.2</h3>
-  <p>A QR Code may only be used in accordance with the instructions provided by BarTrekker.</p>
-  <h3>7.3</h3>
-  <p>Where multiple Tickets are contained within one QR Code, the Customer presenting the QR Code is responsible for ensuring that all persons using those Tickets are entitled to participate.</p>
-  <h3>7.4</h3>
-  <p>A Venue may require additional information or identification before allowing a Customer to participate.</p>
-  <h3>7.5</h3>
-  <p>A Ticket does not override the lawful admission policies of a Venue.</p>
+    <h2>7. QR Codes and Venue Entry</h2>
+    <h3>7.1</h3>
+    <p>Customers may be required to present or scan their QR Code at participating Venues.</p>
+    <h3>7.2</h3>
+    <p>A QR Code may only be used in accordance with the instructions provided by BarTrekker.</p>
+    <h3>7.3</h3>
+    <p>Where multiple Tickets are contained within one QR Code, the Customer presenting the QR Code is responsible for ensuring that all persons using those Tickets are entitled to participate.</p>
+    <h3>7.4</h3>
+    <p>A Venue may require additional information or identification before allowing a Customer to participate.</p>
+    <h3>7.5</h3>
+    <p>A Ticket does not override the lawful admission policies of a Venue.</p>
 
-  <h2>8. Participating Venues</h2>
-  <h3>8.1</h3>
-  <p>Participating Venues are independent businesses and are not employees, agents or branches of BarTrekker unless expressly stated otherwise.</p>
-  <h3>8.2</h3>
-  <p>Each Venue remains responsible for its own:</p>
-  <ul>
-    <li>premises;</li>
-    <li>staff;</li>
-    <li>licensing requirements;</li>
-    <li>admission decisions;</li>
-    <li>opening hours;</li>
-    <li>capacity;</li>
-    <li>food;</li>
-    <li>beverages;</li>
-    <li>alcohol service;</li>
-    <li>health and safety requirements;</li>
-    <li>internal policies; and</li>
-    <li>compliance with applicable law.</li>
-  </ul>
-  <h3>8.3</h3>
-  <p>BarTrekker works with participating Venues to establish the offers, benefits and arrangements applicable to each Event.</p>
-  <h3>8.4</h3>
-  <p>Venues may have legitimate reasons to refuse entry or service to a Customer. This may include circumstances involving:</p>
-  <ul>
-    <li>intoxication;</li>
-    <li>threatening behaviour;</li>
-    <li>violence;</li>
-    <li>harassment;</li>
-    <li>failure to comply with Venue rules;</li>
-    <li>failure to provide required identification;</li>
-    <li>being underage;</li>
-    <li>unlawful behaviour;</li>
-    <li>capacity restrictions; or</li>
-    <li>other circumstances permitted by applicable law.</li>
-  </ul>
-  <h3>8.5</h3>
-  <p>Purchasing a Ticket does not give a Customer an unconditional right to enter or remain within a Venue.</p>
+    <h2>8. Participating Venues</h2>
+    <h3>8.1</h3>
+    <p>Participating Venues are independent businesses and are not employees, agents or branches of BarTrekker unless expressly stated otherwise.</p>
+    <h3>8.2</h3>
+    <p>Each Venue remains responsible for its own:</p>
+    <ul>
+      <li>premises;</li>
+      <li>staff;</li>
+      <li>licensing requirements;</li>
+      <li>admission decisions;</li>
+      <li>opening hours;</li>
+      <li>capacity;</li>
+      <li>food;</li>
+      <li>beverages;</li>
+      <li>alcohol service;</li>
+      <li>health and safety requirements;</li>
+      <li>internal policies; and</li>
+      <li>compliance with applicable law.</li>
+    </ul>
+    <h3>8.3</h3>
+    <p>BarTrekker works with participating Venues to establish the offers, benefits and arrangements applicable to each Event.</p>
+    <h3>8.4</h3>
+    <p>Venues may have legitimate reasons to refuse entry or service to a Customer. This may include circumstances involving:</p>
+    <ul>
+      <li>intoxication;</li>
+      <li>threatening behaviour;</li>
+      <li>violence;</li>
+      <li>harassment;</li>
+      <li>failure to comply with Venue rules;</li>
+      <li>failure to provide required identification;</li>
+      <li>being underage;</li>
+      <li>unlawful behaviour;</li>
+      <li>capacity restrictions; or</li>
+      <li>other circumstances permitted by applicable law.</li>
+    </ul>
+    <h3>8.5</h3>
+    <p>Purchasing a Ticket does not give a Customer an unconditional right to enter or remain within a Venue.</p>
 
-  <h2>9. Venue Deals, Discounts and Complimentary Items</h2>
-  <h3>9.1</h3>
-  <p>Event benefits vary between Events and Venues. These may include discounts, tastings, complimentary drinks, food samples or other benefits.</p>
-  <h3>9.2</h3>
-  <p>Where alcohol or food is provided by a Venue, the Venue is responsible for providing that item in accordance with applicable law and its own licensing, health and safety requirements.</p>
-  <h3>9.3</h3>
-  <p>BarTrekker does not guarantee that a Customer will consume alcohol or receive a particular alcoholic beverage.</p>
-  <h3>9.4</h3>
-  <p>A Venue may refuse alcohol or another product where it is legally entitled or required to do so.</p>
-  <h3>9.5</h3>
-  <p>The specific benefits applicable to an Event will be communicated through the Event listing or other information supplied by BarTrekker.</p>
+    <h2>9. Venue Deals, Discounts and Complimentary Items</h2>
+    <h3>9.1</h3>
+    <p>Event benefits vary between Events and Venues. These may include discounts, tastings, complimentary drinks, food samples or other benefits.</p>
+    <h3>9.2</h3>
+    <p>Where alcohol or food is provided by a Venue, the Venue is responsible for providing that item in accordance with applicable law and its own licensing, health and safety requirements.</p>
+    <h3>9.3</h3>
+    <p>BarTrekker does not guarantee that a Customer will consume alcohol or receive a particular alcoholic beverage.</p>
+    <h3>9.4</h3>
+    <p>A Venue may refuse alcohol or another product where it is legally entitled or required to do so.</p>
+    <h3>9.5</h3>
+    <p>The specific benefits applicable to an Event will be communicated through the Event listing or other information supplied by BarTrekker.</p>
 
-  <h2>10. Venue Changes, Substitutions and Closures</h2>
-  <h3>10.1</h3>
-  <p>BarTrekker may need to change the Venue or route forming part of an Event. This may occur because of:</p>
-  <ul>
-    <li>Venue closure;</li>
-    <li>operational difficulties;</li>
-    <li>capacity restrictions;</li>
-    <li>changes requested or agreed with a Venue;</li>
-    <li>safety concerns;</li>
-    <li>legal or regulatory requirements;</li>
-    <li>circumstances outside BarTrekker's reasonable control; or</li>
-    <li>other circumstances affecting the successful operation of the Event.</li>
-  </ul>
-  <h3>10.2</h3>
-  <p>Where reasonably possible, BarTrekker will provide Customers with notice of material Event changes by email or through the App.</p>
-  <h3>10.3</h3>
-  <p>Where appropriate, BarTrekker may substitute a Venue with another suitable Venue.</p>
-  <h3>10.4</h3>
-  <p>BarTrekker will seek to ensure that any replacement Venue is reasonably consistent with the nature of the advertised Event, but the precise experience at an individual Venue may vary.</p>
-  <h3>10.5</h3>
-  <p>If a Venue unexpectedly closes or is unable to honour an advertised Event benefit, Customers should contact BarTrekker customer service as soon as reasonably possible.</p>
-  <h3>10.6</h3>
-  <p>Where a Venue failure materially affects the Event, BarTrekker may provide an appropriate partial refund or alternative remedy, taking into account the circumstances and applicable consumer rights.</p>
+    <h2>10. Venue Changes, Substitutions and Closures</h2>
+    <h3>10.1</h3>
+    <p>BarTrekker may need to change the Venue or route forming part of an Event. This may occur because of:</p>
+    <ul>
+      <li>Venue closure;</li>
+      <li>operational difficulties;</li>
+      <li>capacity restrictions;</li>
+      <li>changes requested or agreed with a Venue;</li>
+      <li>safety concerns;</li>
+      <li>legal or regulatory requirements;</li>
+      <li>circumstances outside BarTrekker's reasonable control; or</li>
+      <li>other circumstances affecting the successful operation of the Event.</li>
+    </ul>
+    <h3>10.2</h3>
+    <p>Where reasonably possible, BarTrekker will provide Customers with notice of material Event changes by email or through the App.</p>
+    <h3>10.3</h3>
+    <p>Where appropriate, BarTrekker may substitute a Venue with another suitable Venue.</p>
+    <h3>10.4</h3>
+    <p>BarTrekker will seek to ensure that any replacement Venue is reasonably consistent with the nature of the advertised Event, but the precise experience at an individual Venue may vary.</p>
+    <h3>10.5</h3>
+    <p>If a Venue unexpectedly closes or is unable to honour an advertised Event benefit, Customers should contact BarTrekker customer service as soon as reasonably possible.</p>
+    <h3>10.6</h3>
+    <p>Where a Venue failure materially affects the Event, BarTrekker may provide an appropriate partial refund or alternative remedy, taking into account the circumstances and applicable consumer rights.</p>
 
-  <h2>11. Event Cancellation by BarTrekker</h2>
-  <h3>11.1</h3>
-  <p>BarTrekker may cancel an Event where necessary.</p>
-  <h3>11.2</h3>
-  <p>If BarTrekker cancels an Event before it takes place, Customers who purchased valid Tickets for that Event will normally receive a full refund of the Ticket price.</p>
-  <h3>11.3</h3>
-  <p>Refunds will be made using the payment method used for the original purchase where reasonably practicable.</p>
-  <h3>11.4</h3>
-  <p>This section does not affect any statutory rights a Customer may have.</p>
+    <h2>11. Event Cancellation by BarTrekker</h2>
+    <h3>11.1</h3>
+    <p>BarTrekker may cancel an Event where necessary.</p>
+    <h3>11.2</h3>
+    <p>If BarTrekker cancels an Event before it takes place, Customers who purchased valid Tickets for that Event will normally receive a full refund of the Ticket price.</p>
+    <h3>11.3</h3>
+    <p>Refunds will be made using the payment method used for the original purchase where reasonably practicable.</p>
+    <h3>11.4</h3>
+    <p>This section does not affect any statutory rights a Customer may have.</p>
 
-  <h2>12. Customer Cancellations and Refunds</h2>
-  <h3>12.1</h3>
-  <p>BarTrekker permits Customers to request cancellation of a Ticket up to 4 hours before the scheduled start of the relevant Event, subject to the conditions in this section.</p>
-  <h3>12.2</h3>
-  <p>To request a cancellation, the Customer must contact BarTrekker customer service at: +48 451 047 025</p>
-  <h3>12.3</h3>
-  <p>Cancellation requests received less than 4 hours before the Event may be refused, except where the Customer has a statutory right to a refund or other remedy.</p>
-  <h3>12.4</h3>
-  <p>Where a Ticket is validly cancelled in accordance with this section, BarTrekker will process the applicable refund.</p>
-  <h3>12.5</h3>
-  <p>Customers who do not attend an Event ("no-shows") are generally not entitled to a refund.</p>
-  <h3>12.6</h3>
-  <p>A Ticket that is not used before the Event finishes expires and does not create an entitlement to a refund.</p>
-  <h3>12.7</h3>
-  <p>Nothing in these Terms removes or restricts any mandatory consumer rights applicable to the Customer under applicable law.</p>
+    <h2>12. Customer Cancellations and Refunds</h2>
+    <h3>12.1</h3>
+    <p>BarTrekker permits Customers to request cancellation of a Ticket up to 4 hours before the scheduled start of the relevant Event, subject to the conditions in this section.</p>
+    <h3>12.2</h3>
+    <p>To request a cancellation, the Customer must contact BarTrekker customer service at: +48 451 047 025</p>
+    <h3>12.3</h3>
+    <p>Cancellation requests received less than 4 hours before the Event may be refused, except where the Customer has a statutory right to a refund or other remedy.</p>
+    <h3>12.4</h3>
+    <p>Where a Ticket is validly cancelled in accordance with this section, BarTrekker will process the applicable refund.</p>
+    <h3>12.5</h3>
+    <p>Customers who do not attend an Event ("no-shows") are generally not entitled to a refund.</p>
+    <h3>12.6</h3>
+    <p>A Ticket that is not used before the Event finishes expires and does not create an entitlement to a refund.</p>
+    <h3>12.7</h3>
+    <p>Nothing in these Terms removes or restricts any mandatory consumer rights applicable to the Customer under applicable law.</p>
 
-  <h2>13. Customer Conduct</h2>
-  <h3>13.1</h3>
-  <p>Customers must behave responsibly and respectfully when using the Service and participating in Events.</p>
-  <h3>13.2</h3>
-  <p>Customers must comply with:</p>
-  <ul>
-    <li>applicable law;</li>
-    <li>BarTrekker instructions;</li>
-    <li>Venue rules;</li>
-    <li>staff instructions;</li>
-    <li>safety requirements; and</li>
-    <li>reasonable requests made by Venue personnel.</li>
-  </ul>
-  <h3>13.3</h3>
-  <p>The following behaviour is prohibited:</p>
-  <ul>
-    <li>violence or threats of violence;</li>
-    <li>harassment;</li>
-    <li>discrimination;</li>
-    <li>threatening or abusive behaviour;</li>
-    <li>serious disruption;</li>
-    <li>property damage;</li>
-    <li>theft;</li>
-    <li>illegal activity;</li>
-    <li>fraud;</li>
-    <li>abuse of BarTrekker or Venue staff;</li>
-    <li>deliberate misuse of the App;</li>
-    <li>interference with the Event;</li>
-    <li>attempting to obtain benefits dishonestly;</li>
-    <li>tampering with QR Codes or Tickets;</li>
-    <li>attempting to circumvent BarTrekker's systems; or</li>
-    <li>behaviour that creates a material risk to other Customers, staff, Venues or members of the public.</li>
-  </ul>
-  <h3>13.4</h3>
-  <p>BarTrekker and participating Venues may take reasonable action where a Customer breaches these requirements. This may include removal from an Event, refusal of entry, cancellation of a Ticket, suspension of an account or termination of access to the Service.</p>
-  <h3>13.5</h3>
-  <p>Where a Ticket is cancelled because of serious misconduct, the Customer will generally not be entitled to a refund, except where applicable law requires otherwise.</p>
+    <h2>13. Customer Conduct</h2>
+    <h3>13.1</h3>
+    <p>Customers must behave responsibly and respectfully when using the Service and participating in Events.</p>
+    <h3>13.2</h3>
+    <p>Customers must comply with:</p>
+    <ul>
+      <li>applicable law;</li>
+      <li>BarTrekker instructions;</li>
+      <li>Venue rules;</li>
+      <li>staff instructions;</li>
+      <li>safety requirements; and</li>
+      <li>reasonable requests made by Venue personnel.</li>
+    </ul>
+    <h3>13.3</h3>
+    <p>The following behaviour is prohibited:</p>
+    <ul>
+      <li>violence or threats of violence;</li>
+      <li>harassment;</li>
+      <li>discrimination;</li>
+      <li>threatening or abusive behaviour;</li>
+      <li>serious disruption;</li>
+      <li>property damage;</li>
+      <li>theft;</li>
+      <li>illegal activity;</li>
+      <li>fraud;</li>
+      <li>abuse of BarTrekker or Venue staff;</li>
+      <li>deliberate misuse of the App;</li>
+      <li>interference with the Event;</li>
+      <li>attempting to obtain benefits dishonestly;</li>
+      <li>tampering with QR Codes or Tickets;</li>
+      <li>attempting to circumvent BarTrekker's systems; or</li>
+      <li>behaviour that creates a material risk to other Customers, staff, Venues or members of the public.</li>
+    </ul>
+    <h3>13.4</h3>
+    <p>BarTrekker and participating Venues may take reasonable action where a Customer breaches these requirements. This may include removal from an Event, refusal of entry, cancellation of a Ticket, suspension of an account or termination of access to the Service.</p>
+    <h3>13.5</h3>
+    <p>Where a Ticket is cancelled because of serious misconduct, the Customer will generally not be entitled to a refund, except where applicable law requires otherwise.</p>
 
-  <h2>14. Alcohol</h2>
-  <h3>14.1</h3>
-  <p>Some BarTrekker Events may involve alcohol.</p>
-  <h3>14.2</h3>
-  <p>BarTrekker does not itself supply or serve alcohol unless expressly stated otherwise.</p>
-  <h3>14.3</h3>
-  <p>Alcohol supplied as part of an Event is supplied by the relevant participating Venue.</p>
-  <h3>14.4</h3>
-  <p>The Venue is responsible for complying with applicable licensing and alcohol laws.</p>
-  <h3>14.5</h3>
-  <p>Customers must comply with all Venue rules concerning alcohol.</p>
-  <h3>14.6</h3>
-  <p>Customers must not participate in an Event while behaving in a manner that creates a safety risk to themselves or others.</p>
-  <h3>14.7</h3>
-  <p>BarTrekker does not guarantee that every Customer will receive alcohol.</p>
-  <h3>14.8</h3>
-  <p>A Venue may refuse alcohol service where permitted or required by law or where the Venue reasonably considers refusal appropriate.</p>
+    <h2>14. Alcohol</h2>
+    <h3>14.1</h3>
+    <p>Some BarTrekker Events may involve alcohol.</p>
+    <h3>14.2</h3>
+    <p>BarTrekker does not itself supply or serve alcohol unless expressly stated otherwise.</p>
+    <h3>14.3</h3>
+    <p>Alcohol supplied as part of an Event is supplied by the relevant participating Venue.</p>
+    <h3>14.4</h3>
+    <p>The Venue is responsible for complying with applicable licensing and alcohol laws.</p>
+    <h3>14.5</h3>
+    <p>Customers must comply with all Venue rules concerning alcohol.</p>
+    <h3>14.6</h3>
+    <p>Customers must not participate in an Event while behaving in a manner that creates a safety risk to themselves or others.</p>
+    <h3>14.7</h3>
+    <p>BarTrekker does not guarantee that every Customer will receive alcohol.</p>
+    <h3>14.8</h3>
+    <p>A Venue may refuse alcohol service where permitted or required by law or where the Venue reasonably considers refusal appropriate.</p>
 
-  <h2>15. Personal Safety and Travel Between Venues</h2>
-  <h3>15.1</h3>
-  <p>Customers are responsible for their own safety when travelling between Venues.</p>
-  <h3>15.2</h3>
-  <p>BarTrekker may provide directions, route information, notifications or links to external mapping applications.</p>
-  <h3>15.3</h3>
-  <p>Customers must exercise their own judgement when travelling and must comply with local traffic, pedestrian and other safety requirements.</p>
-  <h3>15.4</h3>
-  <p>Customers should not rely exclusively on BarTrekker's directions or notifications when determining whether a route is safe or suitable.</p>
-  <h3>15.5</h3>
-  <p>Customers remain responsible for choosing a safe route and mode of transport.</p>
+    <h2>15. Personal Safety and Travel Between Venues</h2>
+    <h3>15.1</h3>
+    <p>Customers are responsible for their own safety when travelling between Venues.</p>
+    <h3>15.2</h3>
+    <p>BarTrekker may provide directions, route information, notifications or links to external mapping applications.</p>
+    <h3>15.3</h3>
+    <p>Customers must exercise their own judgement when travelling and must comply with local traffic, pedestrian and other safety requirements.</p>
+    <h3>15.4</h3>
+    <p>Customers should not rely exclusively on BarTrekker's directions or notifications when determining whether a route is safe or suitable.</p>
+    <h3>15.5</h3>
+    <p>Customers remain responsible for choosing a safe route and mode of transport.</p>
 
-  <h2>16. Maps, GPS and Directions</h2>
-  <h3>16.1</h3>
-  <p>BarTrekker may provide links or directions that open in third-party mapping applications.</p>
-  <h3>16.2</h3>
-  <p>BarTrekker does not itself provide GPS positioning.</p>
-  <h3>16.3</h3>
-  <p>The accuracy of GPS positioning, walking times, routes, road conditions, maps and directions may depend upon the Customer's device, internet connection, third-party mapping provider and external circumstances.</p>
-  <h3>16.4</h3>
-  <p>BarTrekker does not guarantee that:</p>
-  <ul>
-    <li>GPS positioning will be accurate;</li>
-    <li>directions will always be correct;</li>
-    <li>walking times will be accurate;</li>
-    <li>roads, paths or entrances will remain accessible;</li>
-    <li>third-party mapping services will remain available; or</li>
-    <li>the route shown will always represent the safest or fastest route.</li>
-  </ul>
-  <h3>16.5</h3>
-  <p>Customers are responsible for using reasonable judgement when following directions.</p>
+    <h2>16. Maps, GPS and Directions</h2>
+    <h3>16.1</h3>
+    <p>BarTrekker may provide links or directions that open in third-party mapping applications.</p>
+    <h3>16.2</h3>
+    <p>BarTrekker does not itself provide GPS positioning.</p>
+    <h3>16.3</h3>
+    <p>The accuracy of GPS positioning, walking times, routes, road conditions, maps and directions may depend upon the Customer's device, internet connection, third-party mapping provider and external circumstances.</p>
+    <h3>16.4</h3>
+    <p>BarTrekker does not guarantee that:</p>
+    <ul>
+      <li>GPS positioning will be accurate;</li>
+      <li>directions will always be correct;</li>
+      <li>walking times will be accurate;</li>
+      <li>roads, paths or entrances will remain accessible;</li>
+      <li>third-party mapping services will remain available; or</li>
+      <li>the route shown will always represent the safest or fastest route.</li>
+    </ul>
+    <h3>16.5</h3>
+    <p>Customers are responsible for using reasonable judgement when following directions.</p>
 
-  <h2>17. App Availability and Maintenance</h2>
-  <h3>17.1</h3>
-  <p>BarTrekker aims to keep the Service available but does not guarantee uninterrupted or error-free availability.</p>
-  <h3>17.2</h3>
-  <p>The App may occasionally be unavailable because of:</p>
-  <ul>
-    <li>maintenance;</li>
-    <li>software updates;</li>
-    <li>technical failures;</li>
-    <li>security incidents;</li>
-    <li>network failures;</li>
-    <li>third-party service failures;</li>
-    <li>device compatibility issues; or</li>
-    <li>circumstances outside BarTrekker's reasonable control.</li>
-  </ul>
-  <h3>17.3</h3>
-  <p>BarTrekker may temporarily suspend or restrict access to the Service where reasonably necessary.</p>
-  <h3>17.4</h3>
-  <p>Where reasonably practicable, BarTrekker will seek to notify Customers affected by material changes to an Event.</p>
+    <h2>17. App Availability and Maintenance</h2>
+    <h3>17.1</h3>
+    <p>BarTrekker aims to keep the Service available but does not guarantee uninterrupted or error-free availability.</p>
+    <h3>17.2</h3>
+    <p>The App may occasionally be unavailable because of:</p>
+    <ul>
+      <li>maintenance;</li>
+      <li>software updates;</li>
+      <li>technical failures;</li>
+      <li>security incidents;</li>
+      <li>network failures;</li>
+      <li>third-party service failures;</li>
+      <li>device compatibility issues; or</li>
+      <li>circumstances outside BarTrekker's reasonable control.</li>
+    </ul>
+    <h3>17.3</h3>
+    <p>BarTrekker may temporarily suspend or restrict access to the Service where reasonably necessary.</p>
+    <h3>17.4</h3>
+    <p>Where reasonably practicable, BarTrekker will seek to notify Customers affected by material changes to an Event.</p>
 
-  <h2>18. Changes to the App and Events</h2>
-  <h3>18.1</h3>
-  <p>BarTrekker may modify, improve, update or discontinue features of the Service.</p>
-  <h3>18.2</h3>
-  <p>BarTrekker may change Event routes, Venue arrangements and other Event details where reasonably necessary.</p>
-  <h3>18.3</h3>
-  <p>Where a change materially affects an Event for which a Customer has already purchased a Ticket, BarTrekker will provide notification where reasonably practicable.</p>
-  <h3>18.4</h3>
-  <p>Where a material change substantially affects what the Customer purchased, BarTrekker will provide any remedy required under applicable law and, where appropriate, may provide a refund or alternative arrangement.</p>
+    <h2>18. Changes to the App and Events</h2>
+    <h3>18.1</h3>
+    <p>BarTrekker may modify, improve, update or discontinue features of the Service.</p>
+    <h3>18.2</h3>
+    <p>BarTrekker may change Event routes, Venue arrangements and other Event details where reasonably necessary.</p>
+    <h3>18.3</h3>
+    <p>Where a change materially affects an Event for which a Customer has already purchased a Ticket, BarTrekker will provide notification where reasonably practicable.</p>
+    <h3>18.4</h3>
+    <p>Where a material change substantially affects what the Customer purchased, BarTrekker will provide any remedy required under applicable law and, where appropriate, may provide a refund or alternative arrangement.</p>
 
-  <h2>19. Third-Party Services</h2>
-  <h3>19.1</h3>
-  <p>The Service may interact with or link to third-party services, including mapping applications, payment providers and other external services.</p>
-  <h3>19.2</h3>
-  <p>Third-party services are controlled by their respective providers and may be subject to separate terms and privacy policies.</p>
-  <h3>19.3</h3>
-  <p>BarTrekker is not responsible for the availability, functionality or content of third-party services to the extent that such matters are outside BarTrekker's reasonable control.</p>
-  <h3>19.4</h3>
-  <p>Nothing in this section limits any rights the Customer may have against BarTrekker under applicable law.</p>
+    <h2>19. Third-Party Services</h2>
+    <h3>19.1</h3>
+    <p>The Service may interact with or link to third-party services, including mapping applications, payment providers and other external services.</p>
+    <h3>19.2</h3>
+    <p>Third-party services are controlled by their respective providers and may be subject to separate terms and privacy policies.</p>
+    <h3>19.3</h3>
+    <p>BarTrekker is not responsible for the availability, functionality or content of third-party services to the extent that such matters are outside BarTrekker's reasonable control.</p>
+    <h3>19.4</h3>
+    <p>Nothing in this section limits any rights the Customer may have against BarTrekker under applicable law.</p>
 
-  <h2>20. Payments</h2>
-  <h3>20.1</h3>
-  <p>Customers must pay the price displayed for the relevant Ticket at the time of purchase.</p>
-  <h3>20.2</h3>
-  <p>Payment processing may be provided by a third-party payment provider.</p>
-  <h3>20.3</h3>
-  <p>BarTrekker does not ordinarily receive or store complete payment card details where those details are processed directly by the relevant payment provider.</p>
-  <h3>20.4</h3>
-  <p>Customers must not use another person's payment method without proper authorisation.</p>
-  <h3>20.5</h3>
-  <p>BarTrekker may suspend or investigate an account where a payment is suspected to be fraudulent, unauthorised or otherwise unlawful.</p>
+    <h2>20. Payments</h2>
+    <h3>20.1</h3>
+    <p>Customers must pay the price displayed for the relevant Ticket at the time of purchase.</p>
+    <h3>20.2</h3>
+    <p>Payment processing may be provided by a third-party payment provider.</p>
+    <h3>20.3</h3>
+    <p>BarTrekker does not ordinarily receive or store complete payment card details where those details are processed directly by the relevant payment provider.</p>
+    <h3>20.4</h3>
+    <p>Customers must not use another person's payment method without proper authorisation.</p>
+    <h3>20.5</h3>
+    <p>BarTrekker may suspend or investigate an account where a payment is suspected to be fraudulent, unauthorised or otherwise unlawful.</p>
 
-  <h2>21. Chargebacks and Payment Disputes</h2>
-  <h3>21.1</h3>
-  <p>Customers should contact BarTrekker before initiating a payment dispute where they believe that a refund is due.</p>
-  <h3>21.2</h3>
-  <p>A Customer must not initiate a fraudulent or knowingly false chargeback.</p>
-  <h3>21.3</h3>
-  <p>Where BarTrekker reasonably believes that a chargeback is fraudulent, abusive or made in bad faith, BarTrekker may investigate the matter and may suspend the associated account while the matter is investigated.</p>
-  <h3>21.4</h3>
-  <p>Nothing in these Terms prevents a Customer from exercising any legitimate statutory right or right available through their payment provider.</p>
+    <h2>21. Chargebacks and Payment Disputes</h2>
+    <h3>21.1</h3>
+    <p>Customers should contact BarTrekker before initiating a payment dispute where they believe that a refund is due.</p>
+    <h3>21.2</h3>
+    <p>A Customer must not initiate a fraudulent or knowingly false chargeback.</p>
+    <h3>21.3</h3>
+    <p>Where BarTrekker reasonably believes that a chargeback is fraudulent, abusive or made in bad faith, BarTrekker may investigate the matter and may suspend the associated account while the matter is investigated.</p>
+    <h3>21.4</h3>
+    <p>Nothing in these Terms prevents a Customer from exercising any legitimate statutory right or right available through their payment provider.</p>
 
-  <h2>22. Intellectual Property</h2>
-  <h3>22.1</h3>
-  <p>BarTrekker owns or is authorised to use the intellectual property associated with the Service, including, where applicable:</p>
-  <ul>
-    <li>the BarTrekker name;</li>
-    <li>BarTrekker branding and logo;</li>
-    <li>App design;</li>
-    <li>website design;</li>
-    <li>software and interface elements;</li>
-    <li>original written descriptions;</li>
-    <li>original promotional material;</li>
-    <li>original graphics;</li>
-    <li>original content; and</li>
-    <li>other proprietary material created or licensed by BarTrekker.</li>
-  </ul>
-  <h3>22.2</h3>
-  <p>Publicly available information concerning locations, streets, venues and other geographical information may not be owned by BarTrekker.</p>
-  <h3>22.3</h3>
-  <p>Customers receive a limited, personal, non-exclusive and non-transferable right to use the Service for its intended purpose.</p>
-  <h3>22.4</h3>
-  <p>Customers must not, without BarTrekker's prior written permission:</p>
-  <ul>
-    <li>reproduce BarTrekker's proprietary content commercially;</li>
-    <li>copy substantial portions of the App;</li>
-    <li>reproduce the BarTrekker branding;</li>
-    <li>commercially redistribute BarTrekker content;</li>
-    <li>create a competing commercial service using BarTrekker's proprietary content;</li>
-    <li>reverse engineer the Service except where such restriction is prohibited by law;</li>
-    <li>scrape or systematically extract data for commercial purposes; or</li>
-    <li>use BarTrekker's proprietary materials to create a competing product or service.</li>
-  </ul>
-  <h3>22.5</h3>
-  <p>Nothing in these Terms prevents a Customer from using publicly available information for ordinary personal or informative purposes.</p>
+    <h2>22. Intellectual Property</h2>
+    <h3>22.1</h3>
+    <p>BarTrekker owns or is authorised to use the intellectual property associated with the Service, including, where applicable:</p>
+    <ul>
+      <li>the BarTrekker name;</li>
+      <li>BarTrekker branding and logo;</li>
+      <li>App design;</li>
+      <li>website design;</li>
+      <li>software and interface elements;</li>
+      <li>original written descriptions;</li>
+      <li>original promotional material;</li>
+      <li>original graphics;</li>
+      <li>original content; and</li>
+      <li>other proprietary material created or licensed by BarTrekker.</li>
+    </ul>
+    <h3>22.2</h3>
+    <p>Publicly available information concerning locations, streets, venues and other geographical information may not be owned by BarTrekker.</p>
+    <h3>22.3</h3>
+    <p>Customers receive a limited, personal, non-exclusive and non-transferable right to use the Service for its intended purpose.</p>
+    <h3>22.4</h3>
+    <p>Customers must not, without BarTrekker's prior written permission:</p>
+    <ul>
+      <li>reproduce BarTrekker's proprietary content commercially;</li>
+      <li>copy substantial portions of the App;</li>
+      <li>reproduce the BarTrekker branding;</li>
+      <li>commercially redistribute BarTrekker content;</li>
+      <li>create a competing commercial service using BarTrekker's proprietary content;</li>
+      <li>reverse engineer the Service except where such restriction is prohibited by law;</li>
+      <li>scrape or systematically extract data for commercial purposes; or</li>
+      <li>use BarTrekker's proprietary materials to create a competing product or service.</li>
+    </ul>
+    <h3>22.5</h3>
+    <p>Nothing in these Terms prevents a Customer from using publicly available information for ordinary personal or informative purposes.</p>
 
-  <h2>23. Prohibited Use of the Service</h2>
-  <p>Customers must not use the Service to:</p>
-  <ul>
-    <li>commit or facilitate unlawful activity;</li>
-    <li>commit fraud;</li>
-    <li>impersonate another person;</li>
-    <li>interfere with the operation of the App;</li>
-    <li>introduce malicious software;</li>
-    <li>attempt to gain unauthorised access to systems;</li>
-    <li>circumvent security measures;</li>
-    <li>manipulate Tickets or QR Codes;</li>
-    <li>commercially scrape or extract proprietary information;</li>
-    <li>exploit errors for financial benefit;</li>
-    <li>interfere with other Customers' use of the Service; or</li>
-    <li>operate an unauthorised competing service using BarTrekker's proprietary content.</li>
-  </ul>
+    <h2>23. Prohibited Use of the Service</h2>
+    <p>Customers must not use the Service to:</p>
+    <ul>
+      <li>commit or facilitate unlawful activity;</li>
+      <li>commit fraud;</li>
+      <li>impersonate another person;</li>
+      <li>interfere with the operation of the App;</li>
+      <li>introduce malicious software;</li>
+      <li>attempt to gain unauthorised access to systems;</li>
+      <li>circumvent security measures;</li>
+      <li>manipulate Tickets or QR Codes;</li>
+      <li>commercially scrape or extract proprietary information;</li>
+      <li>exploit errors for financial benefit;</li>
+      <li>interfere with other Customers' use of the Service; or</li>
+      <li>operate an unauthorised competing service using BarTrekker's proprietary content.</li>
+    </ul>
 
-  <h2>24. Suspension and Termination</h2>
-  <h3>24.1</h3>
-  <p>BarTrekker may suspend or terminate a Customer's access to the Service where reasonably necessary because of:</p>
-  <ul>
-    <li>serious breach of these Terms;</li>
-    <li>fraud;</li>
-    <li>suspected illegal activity;</li>
-    <li>abusive behaviour;</li>
-    <li>misuse of the Service;</li>
-    <li>payment fraud;</li>
-    <li>security concerns; or</li>
-    <li>other circumstances where continued access presents a material risk.</li>
-  </ul>
-  <h3>24.2</h3>
-  <p>Where practicable and appropriate, BarTrekker may notify the Customer of the reason for suspension or termination.</p>
-  <h3>24.3</h3>
-  <p>Termination does not affect rights or obligations that arose before termination.</p>
-  <h3>24.4</h3>
-  <p>Nothing in this section limits mandatory consumer rights.</p>
+    <h2>24. Suspension and Termination</h2>
+    <h3>24.1</h3>
+    <p>BarTrekker may suspend or terminate a Customer's access to the Service where reasonably necessary because of:</p>
+    <ul>
+      <li>serious breach of these Terms;</li>
+      <li>fraud;</li>
+      <li>suspected illegal activity;</li>
+      <li>abusive behaviour;</li>
+      <li>misuse of the Service;</li>
+      <li>payment fraud;</li>
+      <li>security concerns; or</li>
+      <li>other circumstances where continued access presents a material risk.</li>
+    </ul>
+    <h3>24.2</h3>
+    <p>Where practicable and appropriate, BarTrekker may notify the Customer of the reason for suspension or termination.</p>
+    <h3>24.3</h3>
+    <p>Termination does not affect rights or obligations that arose before termination.</p>
+    <h3>24.4</h3>
+    <p>Nothing in this section limits mandatory consumer rights.</p>
 
-  <h2>25. Responsibility for Venue Services</h2>
-  <h3>25.1</h3>
-  <p>Participating Venues are responsible for the services and products they independently provide.</p>
-  <h3>25.2</h3>
-  <p>This includes responsibility for:</p>
-  <ul>
-    <li>food;</li>
-    <li>beverages;</li>
-    <li>alcohol;</li>
-    <li>service by Venue staff;</li>
-    <li>Venue premises;</li>
-    <li>admission decisions;</li>
-    <li>Venue licensing;</li>
-    <li>Venue-specific health and safety requirements; and</li>
-    <li>compliance with applicable law.</li>
-  </ul>
-  <h3>25.3</h3>
-  <p>BarTrekker will take reasonable steps to coordinate Events with participating Venues but does not control the day-to-day operation of those businesses.</p>
-  <h3>25.4</h3>
-  <p>Where a Customer has a complaint concerning a specific product or service supplied directly by a Venue, BarTrekker may assist in communicating the complaint to the Venue, but the Customer's rights against the Venue are not replaced by these Terms.</p>
+    <h2>25. Responsibility for Venue Services</h2>
+    <h3>25.1</h3>
+    <p>Participating Venues are responsible for the services and products they independently provide.</p>
+    <h3>25.2</h3>
+    <p>This includes responsibility for:</p>
+    <ul>
+      <li>food;</li>
+      <li>beverages;</li>
+      <li>alcohol;</li>
+      <li>service by Venue staff;</li>
+      <li>Venue premises;</li>
+      <li>admission decisions;</li>
+      <li>Venue licensing;</li>
+      <li>Venue-specific health and safety requirements; and</li>
+      <li>compliance with applicable law.</li>
+    </ul>
+    <h3>25.3</h3>
+    <p>BarTrekker will take reasonable steps to coordinate Events with participating Venues but does not control the day-to-day operation of those businesses.</p>
+    <h3>25.4</h3>
+    <p>Where a Customer has a complaint concerning a specific product or service supplied directly by a Venue, BarTrekker may assist in communicating the complaint to the Venue, but the Customer's rights against the Venue are not replaced by these Terms.</p>
 
-  <h2>26. Limitation of Liability</h2>
-  <h3>26.1</h3>
-  <p>Nothing in these Terms excludes or limits liability that cannot legally be excluded or limited. This includes liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, or any other liability that applicable law does not permit BarTrekker to exclude or limit.</p>
-  <h3>26.2</h3>
-  <p>Subject to clause 26.1 and applicable consumer law, BarTrekker is responsible only for losses that are reasonably foreseeable consequences of BarTrekker's breach of its obligations or negligence.</p>
-  <h3>26.3</h3>
-  <p>BarTrekker is not responsible for losses caused by matters outside BarTrekker's reasonable control, including failures of third-party services, mapping providers, telecommunications networks or independently operated Venues, except where applicable law provides otherwise.</p>
-  <h3>26.4</h3>
-  <p>BarTrekker is not responsible for a Customer's failure to:</p>
-  <ul>
-    <li>follow reasonable instructions;</li>
-    <li>comply with Venue rules;</li>
-    <li>provide required identification;</li>
-    <li>use the App correctly;</li>
-    <li>follow safe travel practices; or</li>
-    <li>comply with applicable law.</li>
-  </ul>
-  <h3>26.5</h3>
-  <p>Nothing in this section removes or reduces the Customer's statutory consumer rights.</p>
+    <h2>26. Limitation of Liability</h2>
+    <h3>26.1</h3>
+    <p>Nothing in these Terms excludes or limits liability that cannot legally be excluded or limited. This includes liability for death or personal injury caused by negligence, fraud or fraudulent misrepresentation, or any other liability that applicable law does not permit BarTrekker to exclude or limit.</p>
+    <h3>26.2</h3>
+    <p>Subject to clause 26.1 and applicable consumer law, BarTrekker is responsible only for losses that are reasonably foreseeable consequences of BarTrekker's breach of its obligations or negligence.</p>
+    <h3>26.3</h3>
+    <p>BarTrekker is not responsible for losses caused by matters outside BarTrekker's reasonable control, including failures of third-party services, mapping providers, telecommunications networks or independently operated Venues, except where applicable law provides otherwise.</p>
+    <h3>26.4</h3>
+    <p>BarTrekker is not responsible for a Customer's failure to:</p>
+    <ul>
+      <li>follow reasonable instructions;</li>
+      <li>comply with Venue rules;</li>
+      <li>provide required identification;</li>
+      <li>use the App correctly;</li>
+      <li>follow safe travel practices; or</li>
+      <li>comply with applicable law.</li>
+    </ul>
+    <h3>26.5</h3>
+    <p>Nothing in this section removes or reduces the Customer's statutory consumer rights.</p>
 
-  <h2>27. Customer Responsibility for Damage or Loss</h2>
-  <h3>27.1</h3>
-  <p>A Customer may be responsible for losses or damage caused by the Customer's unlawful, deliberate or negligent conduct.</p>
-  <h3>27.2</h3>
-  <p>This may include damage caused to participating Venue property.</p>
-  <h3>27.3</h3>
-  <p>BarTrekker does not automatically accept responsibility for claims made by Venues against Customers.</p>
+    <h2>27. Customer Responsibility for Damage or Loss</h2>
+    <h3>27.1</h3>
+    <p>A Customer may be responsible for losses or damage caused by the Customer's unlawful, deliberate or negligent conduct.</p>
+    <h3>27.2</h3>
+    <p>This may include damage caused to participating Venue property.</p>
+    <h3>27.3</h3>
+    <p>BarTrekker does not automatically accept responsibility for claims made by Venues against Customers.</p>
 
-  <h2>28. Events Outside BarTrekker's Control</h2>
-  <h3>28.1</h3>
-  <p>BarTrekker will not be responsible for failure or delay caused by circumstances outside its reasonable control. These may include:</p>
-  <ul>
-    <li>extreme weather;</li>
-    <li>natural disasters;</li>
-    <li>fire;</li>
-    <li>serious accidents;</li>
-    <li>public emergencies;</li>
-    <li>strikes;</li>
-    <li>civil disorder;</li>
-    <li>government restrictions;</li>
-    <li>changes in law;</li>
-    <li>transport disruption;</li>
-    <li>widespread telecommunications or internet failures;</li>
-    <li>major technical failures;</li>
-    <li>Venue closure outside BarTrekker's reasonable control; or</li>
-    <li>other events that could not reasonably have been prevented or avoided.</li>
-  </ul>
-  <h3>28.2</h3>
-  <p>Where such circumstances affect an Event, BarTrekker will take reasonable steps to notify affected Customers and, where appropriate, offer an alternative arrangement or refund in accordance with applicable law.</p>
+    <h2>28. Events Outside BarTrekker's Control</h2>
+    <h3>28.1</h3>
+    <p>BarTrekker will not be responsible for failure or delay caused by circumstances outside its reasonable control. These may include:</p>
+    <ul>
+      <li>extreme weather;</li>
+      <li>natural disasters;</li>
+      <li>fire;</li>
+      <li>serious accidents;</li>
+      <li>public emergencies;</li>
+      <li>strikes;</li>
+      <li>civil disorder;</li>
+      <li>government restrictions;</li>
+      <li>changes in law;</li>
+      <li>transport disruption;</li>
+      <li>widespread telecommunications or internet failures;</li>
+      <li>major technical failures;</li>
+      <li>Venue closure outside BarTrekker's reasonable control; or</li>
+      <li>other events that could not reasonably have been prevented or avoided.</li>
+    </ul>
+    <h3>28.2</h3>
+    <p>Where such circumstances affect an Event, BarTrekker will take reasonable steps to notify affected Customers and, where appropriate, offer an alternative arrangement or refund in accordance with applicable law.</p>
 
-  <h2>29. Privacy</h2>
-  <h3>29.1</h3>
-  <p>BarTrekker processes personal data in accordance with its Privacy Policy.</p>
-  <h3>29.2</h3>
-  <p>The Privacy Policy explains what information BarTrekker collects, why it is collected, how it is used and the rights available to Customers.</p>
-  <h3>29.3</h3>
-  <p>The Privacy Policy forms part of the information provided to Customers but does not replace these Terms.</p>
+    <h2>29. Privacy</h2>
+    <h3>29.1</h3>
+    <p>BarTrekker processes personal data in accordance with its Privacy Policy.</p>
+    <h3>29.2</h3>
+    <p>The Privacy Policy explains what information BarTrekker collects, why it is collected, how it is used and the rights available to Customers.</p>
+    <h3>29.3</h3>
+    <p>The Privacy Policy forms part of the information provided to Customers but does not replace these Terms.</p>
 
-  <h2>30. Changes to These Terms</h2>
-  <h3>30.1</h3>
-  <p>BarTrekker may update these Terms from time to time.</p>
-  <h3>30.2</h3>
-  <p>Where a change materially affects Customers who have already purchased a Ticket, BarTrekker will not use the change to retrospectively remove rights that have already been acquired, except where necessary to comply with law or where otherwise permitted by the original agreement.</p>
-  <h3>30.3</h3>
-  <p>For material changes affecting existing Customers, BarTrekker will provide reasonable notice where practicable.</p>
-  <h3>30.4</h3>
-  <p>The version of the Terms applicable to a Ticket purchase will generally be the version accepted at the time of purchase, subject to mandatory legal requirements and any later changes that the Customer validly accepts.</p>
+    <h2>30. Changes to These Terms</h2>
+    <h3>30.1</h3>
+    <p>BarTrekker may update these Terms from time to time.</p>
+    <h3>30.2</h3>
+    <p>Where a change materially affects Customers who have already purchased a Ticket, BarTrekker will not use the change to retrospectively remove rights that have already been acquired, except where necessary to comply with law or where otherwise permitted by the original agreement.</p>
+    <h3>30.3</h3>
+    <p>For material changes affecting existing Customers, BarTrekker will provide reasonable notice where practicable.</p>
+    <h3>30.4</h3>
+    <p>The version of the Terms applicable to a Ticket purchase will generally be the version accepted at the time of purchase, subject to mandatory legal requirements and any later changes that the Customer validly accepts.</p>
 
-  <h2>31. Governing Law and Jurisdiction</h2>
-  <h3>31.1</h3>
-  <p>These Terms are governed by the laws of England and Wales, except where mandatory consumer protection laws of the country in which the Customer resides provide otherwise.</p>
-  <h3>31.2</h3>
-  <p>Nothing in these Terms prevents a consumer from relying on mandatory consumer protections available under the laws that apply to their transaction.</p>
-  <h3>31.3</h3>
-  <p>Where a dispute cannot be resolved directly between the Customer and BarTrekker, the parties may use any applicable alternative dispute resolution or court procedures available under applicable law.</p>
+    <h2>31. Governing Law and Jurisdiction</h2>
+    <h3>31.1</h3>
+    <p>These Terms are governed by the laws of England and Wales, except where mandatory consumer protection laws of the country in which the Customer resides provide otherwise.</p>
+    <h3>31.2</h3>
+    <p>Nothing in these Terms prevents a consumer from relying on mandatory consumer protections available under the laws that apply to their transaction.</p>
+    <h3>31.3</h3>
+    <p>Where a dispute cannot be resolved directly between the Customer and BarTrekker, the parties may use any applicable alternative dispute resolution or court procedures available under applicable law.</p>
 
-  <h2>32. Consumer Rights</h2>
-  <h3>32.1</h3>
-  <p>Nothing in these Terms is intended to remove, restrict or exclude any consumer right that cannot legally be excluded.</p>
-  <h3>32.2</h3>
-  <p>Where applicable law gives a Customer rights relating to the quality, performance, conformity or provision of the Service, those rights remain unaffected.</p>
-  <h3>32.3</h3>
-  <p>Where applicable, Customers may have statutory rights relating to cancellation, refunds, defective or improperly performed services and other consumer protections.</p>
-  <h3>32.4</h3>
-  <p>Where a statutory right conflicts with these Terms, the statutory right will prevail to the extent required by law.</p>
+    <h2>32. Consumer Rights</h2>
+    <h3>32.1</h3>
+    <p>Nothing in these Terms is intended to remove, restrict or exclude any consumer right that cannot legally be excluded.</p>
+    <h3>32.2</h3>
+    <p>Where applicable law gives a Customer rights relating to the quality, performance, conformity or provision of the Service, those rights remain unaffected.</p>
+    <h3>32.3</h3>
+    <p>Where applicable, Customers may have statutory rights relating to cancellation, refunds, defective or improperly performed services and other consumer protections.</p>
+    <h3>32.4</h3>
+    <p>Where a statutory right conflicts with these Terms, the statutory right will prevail to the extent required by law.</p>
 
-  <h2>33. Complaints</h2>
-  <h3>33.1</h3>
-  <p>Customers should first contact BarTrekker if they have a complaint concerning an Event or the Service.</p>
-  <h3>33.2</h3>
-  <p>Complaints may be submitted using:</p>
-  <ul>
-    <li>Email: customerservice@bartrekker.com</li>
-    <li>Telephone: +48 451 047 025</li>
-  </ul>
-  <h3>33.3</h3>
-  <p>Customers should provide, where possible:</p>
-  <ul>
-    <li>their name;</li>
-    <li>account email;</li>
-    <li>Ticket information;</li>
-    <li>Event date;</li>
-    <li>Venue involved;</li>
-    <li>description of the problem; and</li>
-    <li>any supporting evidence.</li>
-  </ul>
-  <h3>33.4</h3>
-  <p>BarTrekker will consider complaints reasonably and in accordance with applicable law.</p>
+    <h2>33. Complaints</h2>
+    <h3>33.1</h3>
+    <p>Customers should first contact BarTrekker if they have a complaint concerning an Event or the Service.</p>
+    <h3>33.2</h3>
+    <p>Complaints may be submitted using:</p>
+    <ul>
+      <li>Email: customerservice@bartrekker.com</li>
+      <li>Telephone: +48 451 047 025</li>
+    </ul>
+    <h3>33.3</h3>
+    <p>Customers should provide, where possible:</p>
+    <ul>
+      <li>their name;</li>
+      <li>account email;</li>
+      <li>Ticket information;</li>
+      <li>Event date;</li>
+      <li>Venue involved;</li>
+      <li>description of the problem; and</li>
+      <li>any supporting evidence.</li>
+    </ul>
+    <h3>33.4</h3>
+    <p>BarTrekker will consider complaints reasonably and in accordance with applicable law.</p>
 
-  <h2>34. Severability</h2>
-  <p>If any provision of these Terms is found to be unlawful, invalid or unenforceable, that provision will be interpreted or modified to the minimum extent necessary to make it lawful and enforceable where legally possible. If this is not possible, the relevant provision will be removed without affecting the validity of the remaining provisions.</p>
+    <h2>34. Severability</h2>
+    <p>If any provision of these Terms is found to be unlawful, invalid or unenforceable, that provision will be interpreted or modified to the minimum extent necessary to make it lawful and enforceable where legally possible. If this is not possible, the relevant provision will be removed without affecting the validity of the remaining provisions.</p>
 
-  <h2>35. No Waiver</h2>
-  <p>A failure or delay by BarTrekker in enforcing any provision of these Terms does not constitute a waiver of BarTrekker's right to enforce that provision in the future.</p>
+    <h2>35. No Waiver</h2>
+    <p>A failure or delay by BarTrekker in enforcing any provision of these Terms does not constitute a waiver of BarTrekker's right to enforce that provision in the future.</p>
 
-  <h2>36. Entire Agreement</h2>
-  <p>These Terms, together with the applicable Event information, purchase information and BarTrekker Privacy Policy, form the agreement between BarTrekker and the Customer concerning the use of the Service and purchase of the relevant Ticket, subject to any mandatory rights imposed by applicable law.</p>
+    <h2>36. Entire Agreement</h2>
+    <p>These Terms, together with the applicable Event information, purchase information and BarTrekker Privacy Policy, form the agreement between BarTrekker and the Customer concerning the use of the Service and purchase of the relevant Ticket, subject to any mandatory rights imposed by applicable law.</p>
 
-  <h2>37. Contact Information</h2>
-  <p>BARTREKKER LTD<br>
-  8 Melton Road, Runcorn, England, WA7 4AH<br>
-  Email: customerservice"bartrekker.com<br>
-  Customer Service: +48 451 047 025</p>
-</article>
+    <h2>37. Contact Information</h2>
+    <p>BARTREKKER LTD<br>
+    8 Melton Road, Runcorn, England, WA7 4AH<br>
+    Email: customerservice@bartrekker.com<br>
+    Customer Service: +48 451 047 025</p>
+  </article>
 
-<div class="post-footer-nav">
-  <a class="back-link" href="index.html#blog"><span class="arrow">←</span> Back to all posts</a>
+  <div class="post-footer-nav">
+    <a class="back-link" href="/index.html#blog"><span class="arrow">←</span> Back to all posts</a>
   </div>
+
 </main>
 
 <!-- ============================================================
      SITE FOOTER — same on every page.
-     ============================================================ -->
+============================================================ -->
 <footer class="site-footer">
   <div class="footer-inner">
     <p class="footer-company">Bartrekker ltd.</p>
-    <p class="footer-line"><strong>Contact:</strong> <a href="mailto:customerservice@bartrekker.com">customer service@bartrekker.com</a></p>
+    <p class="footer-line"><strong>Contact:</strong> <a href="mailto:customerservice@bartrekker.com">customerservice@bartrekker.com</a></p>
     <p class="footer-line"><strong>Partnerships:</strong> <a href="mailto:partnerships@bartrekker.com">partnerships@bartrekker.com</a></p>
     <div class="footer-socials">
-      <a class="social-icon" href="https://instagram.com/bartrekker" target="_blank" rel="noopener" aria-label="Instagram">
+      <a class="social-icon" href="https://instagram.com/bartrekkersapp" target="_blank" rel="noopener" aria-label="Instagram">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
       </a>
       <a class="social-icon" href="https://tiktok.com/@bartrekker" target="_blank" rel="noopener" aria-label="TikTok">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/></svg>
       </a>
-      <a class="social-icon" href="https://linkedin.com/company/bartrekker" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <a class="social-icon" href="https://www.linkedin.com/company/bartrekker" target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
       </a>
     </div>
   </div>
+
+  <p class="footer-legal-links">
+    <a href="/terms-and-conditions/">Terms &amp; Conditions</a> ·
+    <a href="/privacypolicy/">Privacy Policy</a> ·
+    <a href="/accountdeletion/">Delete My Account</a>
+  </p>
 </footer>
 
 <script>
@@ -1148,9 +1154,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const navLinks = document.getElementById('navLinks');
   const links = Array.from(document.querySelectorAll('.nav-link'));
 
-  // Nav links may point to another page (e.g. "index.html#blog") on pages
-  // like blog-post.html that don't have the matching section — querySelector
-  // throws on those hrefs, so resolve safely and just skip them.
   function findSection(href) {
     try { return document.querySelector(href); } catch (e) { return null; }
   }
@@ -1159,7 +1162,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .map(link => ({ link, section: findSection(link.getAttribute('href')) }))
     .filter(pair => pair.section);
 
-  // Sticky navbar shadow on scroll
   const onScroll = () => {
     navbar.classList.toggle('scrolled', window.scrollY > 20);
     updateActiveLink();
@@ -1167,7 +1169,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Mobile nav toggle
   navToggle.addEventListener('click', () => {
     const open = navLinks.classList.toggle('open');
     navToggle.classList.toggle('open', open);
@@ -1182,9 +1183,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Scrollspy — highlight the nav link for the section in view.
-  // No-op on pages (like blog-post.html) with no matching sections, leaving
-  // whatever "active" state is set in that page's own markup.
   function updateActiveLink() {
     if (!sectionPairs.length) return;
     const navH = navbar.offsetHeight;
@@ -1200,8 +1198,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Offset anchor scroll for fixed navbar. Links with no matching in-page
-  // section (cross-page links) just fall through to normal navigation.
   links.forEach(link => {
     link.addEventListener('click', (e) => {
       const target = findSection(link.getAttribute('href'));
@@ -1214,7 +1210,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // FAQ accordion
   document.querySelectorAll('.faq-item').forEach(item => {
     const question = item.querySelector('.faq-question');
     const answer = item.querySelector('.faq-answer');
