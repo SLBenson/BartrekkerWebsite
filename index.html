@@ -189,6 +189,42 @@ button { font-family: inherit; cursor: pointer; }
 .nav-toggle.open span:nth-child(2) { opacity: 0; }
 .nav-toggle.open span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.nav-lang-switcher {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.nav-lang-switcher select {
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background-color: var(--white);
+  color: var(--gray);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.nav-lang-switcher select:hover {
+  border-color: var(--orange);
+}
+   
 @media (max-width: 900px) {
   .nav-links {
     position: fixed;
@@ -213,6 +249,8 @@ button { font-family: inherit; cursor: pointer; }
   .nav-links li { width: 100%; }
   .nav-links a { display: block; padding: 14px 0; border-bottom: 1px solid #eee; }
   .nav-toggle { display: block; }
+   .nav-lang-switcher { margin-left: 10px; }
+   .nav-lang-switcher select { padding: 5px 8px; font-size: 13px; }
 }
 
 /* ---------- Hero / Download ---------- */
@@ -934,43 +972,6 @@ a.blog-card:hover {
 .social-icon svg { width: 16px; height: 16px; }
 .social-icon:hover { transform: translateY(-2px); }
 
-/* --- New Right-Aligned Dropdown Selector Styling --- */
-.footer-lang-switcher {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 14px;
-  margin-top: 4px;
-}
-
-.footer-lang-switcher label {
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 600;
-}
-
-.footer-lang-switcher select {
-  padding: 8px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  border-radius: 6px;
-  background-color: transparent; /* Seamless blend with your orange canvas background */
-  color: var(--white);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.2s ease;
-}
-
-.footer-lang-switcher select option {
-  background-color: #d46a27; /* Fallback brand orange block for dropdown pop-up choices list */
-  color: var(--white);
-}
-
-.footer-lang-switcher select:hover {
-  border-color: var(--white);
-  background-color: rgba(255, 255, 255, 0.1);
-}
 
 /* Responsive breakpoint behavior for phone viewports */
 @media (max-width: 600px) {
@@ -1001,6 +1002,18 @@ a.blog-card:hover {
         <li><a href="#blog" class="nav-link">Blog</a></li>
       </ul>
     </nav>
+
+     <div class="nav-lang-switcher">
+  <label for="lang-select" class="sr-only">Language</label>
+  <select id="lang-select" onchange="location = this.value;">
+    <option value="/" id="opt-en">English</option>
+    <option value="/es/" id="opt-es">Español</option>
+    <option value="/fr/" id="opt-fr">Français</option>
+    <option value="/pl/" id="opt-pl">Polski</option>
+    <option value="/it/" id="opt-it">Italiano</option>
+    <option value="/de/" id="opt-de">Deutsch</option>
+  </select>
+</div>
 
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
       <span></span><span></span><span></span>
