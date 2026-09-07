@@ -3,6 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics (Consent Mode) — stays gated until the visitor consents -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DMQ89173"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-E5DMQ89173');
+</script>
 <!-- ============================================================
      EDIT PER POST: browser tab title + search/social description
 ============================================================ -->
@@ -14,6 +30,48 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap"></noscript>
 <style>
+
+/* ---------- Cookie consent banner ---------- */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  background: var(--dark);
+  color: var(--white);
+  padding: 18px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+}
+.cookie-banner.hidden { display: none; }
+.cookie-banner p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 700px;
+}
+.cookie-banner a { color: var(--white); text-decoration: underline; }
+.cookie-banner-buttons { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-banner button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+#cookie-accept { background: var(--orange); color: var(--white); }
+#cookie-decline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
 /* ==========================================================================
    Bartrekker — one-page site
    Colors:  orange #e3682d | dark #323741 | gray #474b54 | peach #f1b396
@@ -447,6 +505,13 @@ button { font-family: inherit; cursor: pointer; }
 </head>
 <body>
 
+<div id="cookie-banner" class="cookie-banner hidden">
+  <p>We use cookies to understand how visitors use this site. See our <a href="/privacypolicy/">Privacy Policy</a> for details.</p>
+  <div class="cookie-banner-buttons">
+    <button id="cookie-decline" type="button">Decline</button>
+    <button id="cookie-accept" type="button">Accept</button>
+  </div>
+</div>
 <!-- ============================================================
      SITE NAVIGATION — same on every page.
      These links point back to sections on index.html, since this
@@ -1231,6 +1296,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+</script>
+<!-- Analytics script -->
+<script>
+(function() {
+  const CONSENT_KEY = 'bt-analytics-consent';
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  const stored = localStorage.getItem(CONSENT_KEY);
+
+  if (stored === 'granted') {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+  } else if (!stored) {
+    banner.classList.remove('hidden');
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+    localStorage.setItem(CONSENT_KEY, 'granted');
+    banner.classList.add('hidden');
+  });
+
+  declineBtn.addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'denied');
+    banner.classList.add('hidden');
+  });
+})();
 </script>
 </body>
 </html>
