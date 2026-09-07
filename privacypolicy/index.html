@@ -1175,12 +1175,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (stored === 'granted') {
     gtag('consent', 'update', { analytics_storage: 'granted' });
+    loadGoogleAnalytics();
   } else if (!stored) {
     banner.classList.remove('hidden');
   }
 
   acceptBtn.addEventListener('click', () => {
     gtag('consent', 'update', { analytics_storage: 'granted' });
+    loadGoogleAnalytics();
     localStorage.setItem(CONSENT_KEY, 'granted');
     banner.classList.add('hidden');
   });
