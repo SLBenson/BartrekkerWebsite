@@ -516,6 +516,50 @@ button { font-family: inherit; cursor: pointer; }
   .expect-grid { grid-template-columns: 1fr; }
 }
 
+/* ---------- Event photo gallery ---------- */
+
+.gallery-strip {
+  overflow: hidden;
+  margin: 50px auto 10px;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.gallery-track {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  width: max-content;
+  animation: gallery-scroll 50s linear infinite;
+}
+
+.gallery-strip:hover .gallery-track {
+  animation-play-state: paused;
+}
+
+.gallery-track img {
+  height: 320px;
+  width: auto;
+  border-radius: 12px;
+  border: 5px solid var(--white);
+  box-shadow: var(--shadow);
+  flex-shrink: 0;
+}
+
+@keyframes gallery-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@media (max-width: 600px) {
+  .gallery-track img { height: 220px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gallery-track { animation: none; overflow-x: auto; }
+  .gallery-strip { overflow-x: auto; }
+}
+
 /* ---------- Partnerships ---------- */
 
 .partnerships {
@@ -1150,6 +1194,9 @@ a.blog-card:hover {
         <h3>Know before you go</h3>
         <p>Bartrekker gives you the start location, time and everything that's included before you buy a ticket.</p>
       </div>
+       </div>
+      <div class="gallery-strip" aria-label="Photos from past Bartrekker events" style="display:none;">
+      <div class="gallery-track" id="galleryTrack"></div>
     </div>
   </section>
 
@@ -1468,5 +1515,29 @@ window.addEventListener('resize', fitNavLinks);
   });
 });
 </script>
+   
+<script>
+// Add a new photo by adding one line to this list — width/height must
+// match the real image's pixel dimensions, so the browser can reserve
+// the correct space before it loads (prevents the page jumping around).
+// Currently empty since there are no event photos yet — the section
+// stays hidden (style="display:none;" above) until this has entries.
+const GALLERY_IMAGES = [
+  // { src: '/assets/gallery/event-01.webp', width: 1600, height: 1067, alt: 'Describe the photo here' },
+];
+
+const galleryTrack = document.getElementById('galleryTrack');
+if (galleryTrack && GALLERY_IMAGES.length > 0) {
+  const renderSet = (hidden) => GALLERY_IMAGES.map(img => `
+    <img src="${img.src}" width="${img.width}" height="${img.height}"
+         alt="${hidden ? '' : img.alt}" ${hidden ? 'aria-hidden="true"' : ''}
+         loading="lazy" decoding="async">
+  `).join('');
+
+  // Rendered twice back-to-back so the loop has no visible seam.
+  galleryTrack.innerHTML = renderSet(false) + renderSet(true);
+}
+</script>
+   
 </body>
 </html>
