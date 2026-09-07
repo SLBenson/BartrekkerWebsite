@@ -13,11 +13,19 @@
     'ad_user_data': 'denied',
     'ad_personalization': 'denied'
   });
-</script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DMQ89173"></script>
-<script>
   gtag('js', new Date());
   gtag('config', 'G-E5DMQ89173');
+
+  // gtag.js itself only downloads once consent is actually granted —
+  // not before, so non-consenting visitors never pay its cost.
+  function loadGoogleAnalytics() {
+    if (window.gaScriptLoaded) return;
+    window.gaScriptLoaded = true;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-E5DMQ89173';
+    document.head.appendChild(s);
+  }
 </script>
 <!-- ============================================================
      EDIT PER POST: browser tab title + search/social description
@@ -1311,12 +1319,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (stored === 'granted') {
     gtag('consent', 'update', { analytics_storage: 'granted' });
+    loadGoogleAnalytics();
   } else if (!stored) {
     banner.classList.remove('hidden');
   }
 
   acceptBtn.addEventListener('click', () => {
     gtag('consent', 'update', { analytics_storage: 'granted' });
+    loadGoogleAnalytics();
     localStorage.setItem(CONSENT_KEY, 'granted');
     banner.classList.add('hidden');
   });
