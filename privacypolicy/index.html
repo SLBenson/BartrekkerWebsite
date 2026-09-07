@@ -3,6 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics (Consent Mode) — stays gated until the visitor consents -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-E5DMQ89173"></script>
+<script>
+  gtag('js', new Date());
+  gtag('config', 'G-E5DMQ89173');
+</script>
 <!-- ============================================================
      EDIT PER POST: browser tab title + search/social description
 ============================================================ -->
@@ -443,9 +459,59 @@ button { font-family: inherit; cursor: pointer; }
   padding: 30px 20px 0;
   border-top: 1px solid var(--border);
 }
+
+/* ---------- Cookie consent banner ---------- */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2000;
+  background: var(--dark);
+  color: var(--white);
+  padding: 18px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+}
+.cookie-banner.hidden { display: none; }
+.cookie-banner p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 700px;
+}
+.cookie-banner a { color: var(--white); text-decoration: underline; }
+.cookie-banner-buttons { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-banner button {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+#cookie-accept { background: var(--orange); color: var(--white); }
+#cookie-decline {
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
 </style>
 </head>
 <body>
+
+<div id="cookie-banner" class="cookie-banner hidden">
+  <p>We use cookies to understand how visitors use this site. See our <a href="/privacypolicy/">Privacy Policy</a> for details.</p>
+  <div class="cookie-banner-buttons">
+    <button id="cookie-decline" type="button">Decline</button>
+    <button id="cookie-accept" type="button">Accept</button>
+  </div>
+</div>
  
 <!-- ============================================================
      SITE NAVIGATION — same on every page.
@@ -454,19 +520,19 @@ button { font-family: inherit; cursor: pointer; }
 ============================================================ -->
 <header class="navbar" id="navbar">
   <div class="navbar-inner">
-    <a href="/index.html" class="logo" aria-label="Bartrekker home">
-      <img class="logo-mark" src="/assets/logo-image.png" alt="Bartrekker logo mark">
-      <img class="logo-text" src="/assets/logo-text.png" alt="Bartrekker">
+    <a href="/" class="logo" aria-label="Bartrekker home">
+      <img class="logo-mark" src="/assets/logo-image.webp" alt="Bartrekker logo mark" width="540" height="540">
+      <img class="logo-text" src="/assets/logo-text.png" alt="Bartrekker" width="1200" height="500">
     </a>
  
     <nav>
       <ul class="nav-links" id="navLinks">
-        <li><a href="/index.html#download" class="nav-link">Download</a></li>
-        <li><a href="/index.html#how-it-works" class="nav-link">How it works</a></li>
-        <li><a href="/index.html#what-to-expect" class="nav-link">What to expect</a></li>
-        <li><a href="/index.html#partnerships" class="nav-link">Partnerships</a></li>
-        <li><a href="/index.html#faq" class="nav-link">FAQ</a></li>
-        <li><a href="/index.html#blog" class="nav-link active">Blog</a></li>
+        <li><a href="/#download" class="nav-link">Download</a></li>
+        <li><a href="/#how-it-works" class="nav-link">How it works</a></li>
+        <li><a href="/#what-to-expect" class="nav-link">What to expect</a></li>
+        <li><a href="/#partnerships" class="nav-link">Partnerships</a></li>
+        <li><a href="/#faq" class="nav-link">FAQ</a></li>
+        <li><a href="/#blog" class="nav-link active">Blog</a></li>
       </ul>
     </nav>
  
@@ -479,7 +545,7 @@ button { font-family: inherit; cursor: pointer; }
 <main>
  
   <div class="post-hero">
-    <a class="back-link" href="/index.html#blog"><span class="arrow">←</span> Back to all posts</a>
+    <a class="back-link" href="/#blog"><span class="arrow">←</span> Back to all posts</a>
  
     <!-- ============================================================
          EDIT PER POST: eyebrow tag, title, date / read time
@@ -499,7 +565,7 @@ button { font-family: inherit; cursor: pointer; }
        EDIT PER POST: hero image — swap the src and alt text
   ============================================================ -->
   <div class="post-hero-image">
-    <img src="/assets/PrivacyPolicy-hero.jpg" alt="Privacy Policy Hero Image">
+    <img src="/assets/PrivacyPolicy-hero.jpg" alt="Privacy Policy Hero Image" width="1280" height="720">
   </div>
  
   <!-- ============================================================
@@ -971,7 +1037,7 @@ button { font-family: inherit; cursor: pointer; }
   </article>
  
   <div class="post-footer-nav">
-    <a class="back-link" href="/index.html#blog"><span class="arrow">←</span> Back to all posts</a>
+    <a class="back-link" href="/#blog"><span class="arrow">←</span> Back to all posts</a>
   </div>
  
 </main>
@@ -993,6 +1059,9 @@ button { font-family: inherit; cursor: pointer; }
       </a>
       <a class="social-icon" href="https://www.linkedin.com/company/bartrekker" target="_blank" rel="noopener" aria-label="LinkedIn">
         <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.facebook.com/BartrekkerApp/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg>
       </a>
     </div>
   </div>
@@ -1086,6 +1155,33 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+</script>
+<!-- Analytics script -->
+<script>
+(function() {
+  const CONSENT_KEY = 'bt-analytics-consent';
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  const stored = localStorage.getItem(CONSENT_KEY);
+
+  if (stored === 'granted') {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+  } else if (!stored) {
+    banner.classList.remove('hidden');
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+    localStorage.setItem(CONSENT_KEY, 'granted');
+    banner.classList.add('hidden');
+  });
+
+  declineBtn.addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'denied');
+    banner.classList.add('hidden');
+  });
+})();
 </script>
 </body>
 </html>
