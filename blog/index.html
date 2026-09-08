@@ -305,11 +305,18 @@ button { font-family: inherit; cursor: pointer; }
     <p class="section-subtitle">News &amp; stories from Bartrekker</p>
 
     <!-- ============================================================
-        blog posts are managed in the json file
+         Add one card per published post. Copy this block for each
+         new post — same shape as the homepage carousel's blog-card.
     ============================================================ -->
-     <div class="blog-index-grid" id="blogIndexGrid"></div>
-    <p class="blog-index-empty" id="blogIndexEmpty" style="display:none;">No posts yet — check back soon.</p>
-    
+    <div class="blog-index-grid">
+      <a class="blog-index-card" href="/blog/bartrekkerlaunch/">
+        <img src="/assets/blog-thumb-launch.webp" alt="Bartrekker launches in Kraków" width="400" height="220" loading="lazy">
+        <div class="blog-index-card-body">
+          <h3>We're Live in Kraków</h3>
+          <p>A short recap of launch day and what's coming next.</p>
+        </div>
+      </a>
+    </div>
   </section>
 </main>
 
@@ -388,6 +395,12 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 </script>
 <script>
+function truncateExcerpt(text, maxLen) {
+  if (text.length <= maxLen) return text;
+  const cut = text.slice(0, maxLen);
+  return cut.slice(0, cut.lastIndexOf(' ')) + '…';
+}
+
 fetch('/blog/posts.json')
   .then(res => res.json())
   .then(posts => {
@@ -403,7 +416,7 @@ fetch('/blog/posts.json')
         <div class="blog-index-card-body">
           <p class="blog-index-card-meta">${new Date(post.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
           <h3>${post.title}</h3>
-          <p>${post.excerpt}</p>
+          <p>${truncateExcerpt(post.excerpt, 280)}</p>
           <span class="blog-index-card-readmore">Read more →</span>
         </div>
       </a>`).join('');
