@@ -381,5 +381,26 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 })();
 </script>
+<script>
+fetch('/blog/posts.json')
+  .then(res => res.json())
+  .then(posts => {
+    const grid = document.getElementById('blogIndexGrid');
+    if (!posts.length) {
+      document.getElementById('blogIndexEmpty').style.display = 'block';
+      return;
+    }
+    const sorted = posts.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+    grid.innerHTML = sorted.map(post => `
+      <a class="blog-index-card" href="${post.url}">
+        <img src="${post.thumb}" alt="${post.title}" width="400" height="220" loading="lazy">
+        <div class="blog-index-card-body">
+          <h3>${post.title}</h3>
+          <p>${post.excerpt}</p>
+        </div>
+      </a>`).join('');
+  })
+  .catch(err => console.warn('Could not load blog posts:', err));
+</script>
 </body>
 </html>
