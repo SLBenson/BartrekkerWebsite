@@ -305,18 +305,11 @@ button { font-family: inherit; cursor: pointer; }
     <p class="section-subtitle">News &amp; stories from Bartrekker</p>
 
     <!-- ============================================================
-         Add one card per published post. Copy this block for each
-         new post — same shape as the homepage carousel's blog-card.
+        blog posts are managed in the json file
     ============================================================ -->
-    <div class="blog-index-grid">
-      <a class="blog-index-card" href="/blog/bartrekkerlaunch/">
-        <img src="/assets/blog-thumb-launch.webp" alt="Bartrekker launches in Kraków" width="400" height="220" loading="lazy">
-        <div class="blog-index-card-body">
-          <h3>We're Live in Kraków</h3>
-          <p>A short recap of launch day and what's coming next.</p>
-        </div>
-      </a>
-    </div>
+     <div class="blog-index-grid" id="blogIndexGrid"></div>
+    <p class="blog-index-empty" id="blogIndexEmpty" style="display:none;">No posts yet — check back soon.</p>
+    
   </section>
 </main>
 
