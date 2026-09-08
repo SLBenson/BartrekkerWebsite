@@ -817,6 +817,7 @@ button { font-family: inherit; cursor: pointer; }
   max-width: 1300px;
   margin: 55px auto 0;
   display: flex;
+  justify-content: center;
   gap: 24px;
   overflow-x: auto;
   padding-bottom: 10px;
@@ -830,7 +831,7 @@ a.blog-card {
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: 32px;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   overflow: hidden;
   text-align: left;
   display: flex;
@@ -840,7 +841,7 @@ a.blog-card {
 }
 a.blog-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
 }
 
 .blog-card .thumb {
@@ -879,6 +880,7 @@ a.blog-card:hover {
 
 @media (max-width: 600px) {
   a.blog-card { flex: 0 0 250px; }
+  .blog-row { justify-content: flex-start; }
 
   .steps { max-width: 100%; }
   .step-pill { display: block; width: 100%; }
@@ -1477,6 +1479,12 @@ if (galleryTrack && GALLERY_IMAGES.length > 0) {
    
 
 <script>
+function truncateExcerpt(text, maxLen) {
+  if (text.length <= maxLen) return text;
+  const cut = text.slice(0, maxLen);
+  return cut.slice(0, cut.lastIndexOf(' ')) + '…';
+}
+
 fetch('/blog/posts.json')
   .then(res => res.json())
   .then(posts => {
@@ -1487,7 +1495,7 @@ fetch('/blog/posts.json')
         <img class="thumb" src="${post.thumb}" alt="${post.title}" width="280" height="150" loading="lazy">
         <div class="blog-body">
           <h3>${post.title}</h3>
-          <p>${post.excerpt}</p>
+          <p>${truncateExcerpt(post.excerpt, 80)}</p>
         </div>
       </a>`).join('');
   })
