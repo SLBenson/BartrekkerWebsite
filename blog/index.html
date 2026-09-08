@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Analytics (Consent Mode) — stays gated until the visitor consents -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied'
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-E5DMQ89173');
+
+  // gtag.js itself only downloads once consent is actually granted.
+  function loadGoogleAnalytics() {
+    if (window.gaScriptLoaded) return;
+    window.gaScriptLoaded = true;
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-E5DMQ89173';
+    document.head.appendChild(s);
+  }
+</script>
+<title>Bartrekker Blog</title>
+<meta name="description" content="News, updates and stories from the Bartrekker team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;700&display=swap"></noscript>
+<style>
+:root {
+  --orange: #e3682d;
+  --dark: #323741;
+  --gray: #474b54;
+  --peach: #f1b396;
+  --white: #ffffff;
+  --border: rgba(109, 109, 109, 0.5);
+  --shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.25);
+  --nav-h: 100px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: var(--dark);
+  background: var(--white);
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+.section-title {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(38px, 6vw, 64px);
+  color: var(--orange);
+  text-align: center;
+  margin: 0;
+  line-height: 1;
+}
+.section-subtitle {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(20px, 3vw, 32px);
+  color: var(--gray);
+  text-align: center;
+  margin: 10px 0 0;
+  line-height: 1;
+}
+button { font-family: inherit; cursor: pointer; }
+
+/* ---------- Navigation ---------- */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(6px);
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  padding: 0 30px;
+  transition: box-shadow .25s ease, height .25s ease;
+}
+.navbar.scrolled { box-shadow: 0 4px 16px rgba(0,0,0,0.08); --nav-h: 78px; }
+.navbar-inner {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo img.logo-mark { height: 56px; width: auto; }
+.logo img.logo-text { height: 44px; width: auto; }
+.nav-links { display: flex; align-items: center; gap: 30px; list-style: none; margin: 0; padding: 0; }
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--gray);
+  text-transform: uppercase;
+  padding: 8px 2px;
+  position: relative;
+  white-space: nowrap;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 2px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+.nav-links a.active { color: var(--orange); }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  width: 34px;
+  height: 26px;
+  position: relative;
+  z-index: 1100;
+}
+.nav-toggle span {
+  position: absolute;
+  left: 0; right: 0;
+  height: 3px;
+  background: var(--dark);
+  border-radius: 3px;
+  transition: transform .25s ease, opacity .25s ease, top .25s ease;
+}
+.nav-toggle span:nth-child(1) { top: 0; }
+.nav-toggle span:nth-child(2) { top: 11px; }
+.nav-toggle span:nth-child(3) { top: 22px; }
+.nav-toggle.open span:nth-child(1) { top: 11px; transform: rotate(45deg); }
+.nav-toggle.open span:nth-child(2) { opacity: 0; }
+.nav-toggle.open span:nth-child(3) { top: 11px; transform: rotate(-45deg); }
+@media (max-width: 900px) {
+  .nav-links {
+    position: fixed;
+    top: var(--nav-h);
+    left: 0; right: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 10px 30px 20px;
+    box-shadow: 0 12px 16px rgba(0,0,0,0.08);
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .2s ease, transform .2s ease;
+  }
+  .nav-links.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .nav-links li { width: 100%; }
+  .nav-links a { display: block; padding: 14px 0; border-bottom: 1px solid #eee; }
+  .nav-toggle { display: block; }
+}
+
+/* ---------- Blog index ---------- */
+.blog-index {
+  padding: calc(var(--nav-h) + 50px) 20px 90px;
+  text-align: center;
+}
+.blog-index-grid {
+  max-width: 1100px;
+  margin: 50px auto 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  text-align: left;
+}
+.blog-index-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.blog-index-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
+.blog-index-card img { width: 100%; height: 180px; object-fit: cover; }
+.blog-index-card-body { padding: 18px 20px 22px; }
+.blog-index-card-body h3 {
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 18px;
+  color: var(--gray);
+  margin: 0 0 8px;
+}
+.blog-index-card-body p { font-size: 15px; color: var(--gray); line-height: 1.5; margin: 0; }
+.blog-index-empty { color: var(--gray); opacity: 0.7; font-size: 16px; margin-top: 50px; }
+@media (max-width: 600px) { .blog-index-grid { grid-template-columns: 1fr; } }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--orange); color: var(--white); padding: 40px 20px; }
+.footer-inner { max-width: 1300px; margin: 0 auto; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.footer-company { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 16px; margin: 0 0 6px; }
+.footer-line { font-size: 14px; line-height: 1.6; margin: 0; }
+.footer-line strong { font-weight: 700; }
+.footer-line a { color: var(--white); font-weight: 600; text-decoration: none; }
+.footer-line a:hover { text-decoration: underline; }
+.footer-socials { display: flex; gap: 12px; margin-top: 14px; }
+.social-icon {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--white); color: var(--orange);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: transform .15s ease;
+}
+.social-icon svg { width: 16px; height: 16px; }
+.social-icon:hover { transform: translateY(-2px); }
+.footer-legal-links {
+  text-align: center;
+  max-width: 1300px;
+  margin: 24px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ---------- Cookie consent banner ---------- */
+.cookie-banner {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 2000;
+  background: var(--dark); color: var(--white);
+  padding: 18px 24px;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: 16px;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.2);
+}
+.cookie-banner.hidden { display: none; }
+.cookie-banner p { margin: 0; font-size: 14px; line-height: 1.5; max-width: 700px; }
+.cookie-banner a { color: var(--white); text-decoration: underline; }
+.cookie-banner-buttons { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-banner button {
+  font-family: 'Inter', sans-serif; font-weight: 700; font-size: 14px;
+  padding: 10px 20px; border-radius: 20px; border: none; cursor: pointer;
+}
+#cookie-accept { background: var(--orange); color: var(--white); }
+#cookie-decline { background: transparent; color: var(--white); border: 1px solid rgba(255, 255, 255, 0.4); }
+</style>
+</head>
+<body>
+
+<div id="cookie-banner" class="cookie-banner hidden">
+  <p>We use cookies to understand how visitors use this site. See our <a href="/privacypolicy/">Privacy Policy</a> for details.</p>
+  <div class="cookie-banner-buttons">
+    <button id="cookie-decline" type="button">Decline</button>
+    <button id="cookie-accept" type="button">Accept</button>
+  </div>
+</div>
+
+<header class="navbar" id="navbar">
+  <div class="navbar-inner">
+    <a href="/" class="logo" aria-label="Bartrekker home">
+      <img class="logo-mark" src="/assets/logo-image.webp" alt="Bartrekker logo mark" width="540" height="540">
+      <img class="logo-text" src="/assets/logo-text.png" alt="Bartrekker" width="1200" height="500">
+    </a>
+    <nav>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="/#download" class="nav-link">Download</a></li>
+        <li><a href="/#how-it-works" class="nav-link">How it works</a></li>
+        <li><a href="/#what-to-expect" class="nav-link">What to expect</a></li>
+        <li><a href="/#partnerships" class="nav-link">Partnerships</a></li>
+        <li><a href="/#faq" class="nav-link">FAQ</a></li>
+        <li><a href="/blog/" class="nav-link active">Blog</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="blog-index">
+    <h1 class="section-title">Blog</h1>
+    <p class="section-subtitle">News &amp; stories from Bartrekker</p>
+
+    <!-- ============================================================
+         Add one card per published post. Copy this block for each
+         new post — same shape as the homepage carousel's blog-card.
+    ============================================================ -->
+    <div class="blog-index-grid">
+      <a class="blog-index-card" href="/blog/bartrekkerlaunch/">
+        <img src="/assets/blog-thumb-launch.webp" alt="Bartrekker launches in Kraków" width="400" height="220" loading="lazy">
+        <div class="blog-index-card-body">
+          <h3>We're Live in Kraków</h3>
+          <p>A short recap of launch day and what's coming next.</p>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <p class="footer-company">Bartrekker ltd.</p>
+    <p class="footer-line"><strong>Contact:</strong> <a href="mailto:customerservice@bartrekker.com">customerservice@bartrekker.com</a></p>
+    <p class="footer-line"><strong>Partnerships:</strong> <a href="mailto:partnerships@bartrekker.com">partnerships@bartrekker.com</a></p>
+    <div class="footer-socials">
+      <a class="social-icon" href="https://instagram.com/bartrekkersapp" target="_blank" rel="noopener" aria-label="Instagram">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/></svg>
+      </a>
+      <a class="social-icon" href="https://tiktok.com/@bartrekker" target="_blank" rel="noopener" aria-label="TikTok">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.linkedin.com/company/bartrekker" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+      </a>
+      <a class="social-icon" href="https://www.facebook.com/BartrekkerApp/" target="_blank" rel="noopener" aria-label="Facebook">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <p class="footer-legal-links">
+    <a href="/terms-and-conditions/">Terms &amp; Conditions</a> ·
+    <a href="/privacypolicy/">Privacy Policy</a> ·
+    <a href="/accountdeletion/">Delete My Account</a>
+  </p>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const navbar = document.getElementById('navbar');
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  const onScroll = () => navbar.classList.toggle('scrolled', window.scrollY > 20);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', open);
+    navToggle.setAttribute('aria-expanded', String(open));
+  });
+});
+</script>
+
+<script>
+(function() {
+  const CONSENT_KEY = 'bt-analytics-consent';
+  const banner = document.getElementById('cookie-banner');
+  const acceptBtn = document.getElementById('cookie-accept');
+  const declineBtn = document.getElementById('cookie-decline');
+  const stored = localStorage.getItem(CONSENT_KEY);
+
+  if (stored === 'granted') {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+    loadGoogleAnalytics();
+  } else if (!stored) {
+    banner.classList.remove('hidden');
+  }
+
+  acceptBtn.addEventListener('click', () => {
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+    loadGoogleAnalytics();
+    localStorage.setItem(CONSENT_KEY, 'granted');
+    banner.classList.add('hidden');
+  });
+
+  declineBtn.addEventListener('click', () => {
+    localStorage.setItem(CONSENT_KEY, 'denied');
+    banner.classList.add('hidden');
+  });
+})();
+</script>
+</body>
+</html>
