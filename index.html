@@ -811,211 +811,75 @@ button { font-family: inherit; cursor: pointer; }
 .blog {
   padding: 70px 20px 100px;
   text-align: center;
-  position: relative;
-  display: block !important;
-  width: 100% !important;
 }
 
-.css-slider-system {
-  position: relative;
-  max-width: 1200px;
+.blog-row {
+  max-width: 1300px;
   margin: 55px auto 0;
-  display: block !important;
+  display: flex;
+  gap: 24px;
+  overflow-x: auto;
+  padding-bottom: 10px;
+  scroll-snap-type: x proximity;
+  -webkit-overflow-scrolling: touch;
 }
 
-.blog-carousel-container {
-  width: 100% !important;
-  max-width: 1200px !important;
-  overflow: hidden !important; 
-  padding: 15px 5px 25px !important;
-  display: block !important;
-  box-sizing: border-box !important;
-}
-
-.blog-carousel-track {
-  display: flex !important;
-  flex-direction: row !important;
-  flex-wrap: nowrap !important;
-  width: calc((6 * 310px) + (5 * 24px)) !important;
-  min-width: calc((6 * 310px) + (5 * 24px)) !important;
-  gap: 24px !important;                    
-  
-  /* SLOW SCROLL CALIBRATION: */
-  /* Set to a relaxed 1.0 second duration with an ultra-smooth ease-in-out profile */
-  transition: transform 1.0s ease-in-out !important; 
-  will-change: transform !important;
-}
-
-.blog-card {
-  flex: 0 0 310px !important; 
-  width: 310px !important;
-  max-width: 310px !important;
-  flex-shrink: 0 !important;
-  height: 270px !important;
-  max-height: 270px !important;
-  box-sizing: border-box !important;
-  background: var(--white, #ffffff);
-  border: 1px solid var(--border, rgba(0,0,0,0.15));
-  border-radius: 32px;       
+a.blog-card {
+  flex: 0 0 280px;
+  scroll-snap-align: start;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 32px;
   box-shadow: var(--shadow);
   overflow: hidden;
   text-align: left;
   display: flex;
   flex-direction: column;
-}
-
-/* --- REVISED CARD-BY-CARD INDIVIDUAL TRANSLATION ENGINE --- */
-/* Each click moves the slider horizontally by exactly one card width + one gap (334px) */
-#slide-1:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(0px) !important; }
-#slide-2:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(-334px) !important; }
-#slide-3:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(-668px) !important; }
-#slide-4:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(-1002px) !important; }
-#slide-5:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(-1336px) !important; }
-#slide-6:checked ~ .blog-carousel-container .blog-carousel-track { transform: translateX(-1670px) !important; }
-
-/* --- INTERACTIVE BUTTON OVERLAYS --- */
-.carousel-arrow {
-  position: absolute !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  background: var(--white, #ffffff) !important;
-  border: 1px solid var(--border, #e0e0e0) !important;
-  box-shadow: var(--shadow) !important;
-  color: var(--orange, #e3682d) !important; 
-  width: 42px !important;               
-  height: 42px !important;
-  border-radius: 50% !important;
-  display: none; /* Controlled contextually below */
-  align-items: center !important;
-  justify-content: center !important;
-  font-weight: bold !important;
-  font-size: 16px !important;
-  z-index: 100 !important;
-  cursor: pointer !important;
-  user-select: none !important;
-  transition: background 0.2s, transform 0.2s !important;
-}
-.carousel-arrow:hover {
-  background: #fdfdfd !important;
-  transform: translateY(-50%) scale(1.05) !important;
-}
-.left-arrow { left: -20px !important; }
-.right-arrow { right: -20px !important; }
-
-/* --- STEP-BY-STEP ARROW HIDE/SHOW ROUTING MATRIX --- */
-/* Controls exactly which forward/backward arrow targets appear on screen at each slide step */
-#slide-1:checked ~ .carousel-nav-arrows .arrow-r1 { display: flex !important; }
-#slide-2:checked ~ .carousel-nav-arrows .arrow-r2, #slide-2:checked ~ .carousel-nav-arrows .arrow-l2 { display: flex !important; }
-#slide-3:checked ~ .carousel-nav-arrows .arrow-r3, #slide-3:checked ~ .carousel-nav-arrows .arrow-l3 { display: flex !important; }
-#slide-4:checked ~ .carousel-nav-arrows .arrow-r4, #slide-4:checked ~ .carousel-nav-arrows .arrow-l4 { display: flex !important; }
-#slide-5:checked ~ .carousel-nav-arrows .arrow-r5, #slide-5:checked ~ .carousel-nav-arrows .arrow-l5 { display: flex !important; }
-#slide-6:checked ~ .carousel-nav-arrows .arrow-l6 { display: flex !important; }
-
-/* --- HOVER EFFECTS FOR ACTIVE CARDS --- */
-a.blog-card {
-  text-decoration: none !important;
-  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
-  cursor: pointer !important;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 a.blog-card:hover {
-  transform: translateY(-4px) !important;
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
 }
 
-/* --- IMAGES & TEXT DESIGN FORMATTING --- */
 .blog-card .thumb {
-  height: 125px !important;             
-  width: 100% !important;
-  object-fit: cover !important;
-  background: #f4f4f4 !important;
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+  background: #f4f4f4;
 }
-.blog-card .thumb.placeholder {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  color: #b9bcc2 !important;
-  font-size: 13px !important;           
-  font-weight: 600 !important;
-  letter-spacing: 0.5px !important;
-}
-.blog-card .blog-body { padding: 16px 18px 20px !important; }
+.blog-card .blog-body { padding: 16px 18px 20px; }
 .blog-card h3 {
-  font-family: 'Anton', sans-serif !important;
-  font-weight: 400 !important;
-  font-size: 18px !important;           
-  color: var(--gray) !important;
-  text-align: center !important;
-  margin: 0 0 10px !important;
-  text-transform: uppercase !important;
+  font-family: 'Anton', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--gray);
+  text-align: center;
+  margin: 0 0 10px;
+  text-transform: uppercase;
 }
 .blog-card p {
-  font-size: 14px !important;           
-  color: var(--gray) !important;
-  text-align: center !important;
-  line-height: 1.4 !important;
-  margin: 0 !important;
-}
-.blog-card.empty {
-  align-items: center !important;
-  justify-content: center;
-  height: 270px !important;             
+  font-size: 14px;
+  color: var(--gray);
+  text-align: center;
+  line-height: 1.4;
+  margin: 0;
 }
 
-/* ---------- RESPONSIVE MOBILE BREAKPOINTS ---------- */
-
-/* TABLETS / MID-SIZE SCREENS: Fixes desktop-to-tablet window shrinking */
-@media (max-width: 900px) {
-  .blog-carousel-container { 
-    overflow-x: auto !important; 
-    /* Smooth, precise snapping behavior for touchscreens */
-    scroll-snap-type: x mandatory !important; 
-    -webkit-overflow-scrolling: touch !important;
-    padding-bottom: 30px !important; /* Prevents card shadows from getting clipped at the bottom */
-  }
-
-  .blog-carousel-track {
-    /* Important: Resetting to absolute widths fixes the translation calculations if arrows are kept, 
-       but if we use native swipe, we calculate the wrapper dynamically */
-    width: max-content !important;    
-    min-width: 100% !important;
-    display: flex !important;
-    gap: 24px !important;
-    padding-right: 20px !important; /* Prevents the last card from hugging the edge closely */
-    transition: transform 0.4s ease-in-out !important; /* Keeps movement smooth if scaled down */
-  }
-
-  .blog-carousel-track .blog-card {
-    /* FIX: Locks sizing ratio tightly to prevent any squishing */
-    flex: 0 0 290px !important; 
-    width: 290px !important;
-    max-width: 290px !important;
-    height: 252px !important; /* Calculated exact 310:270 ratio scaled down slightly for tablet */
-    max-height: 252px !important;         
-    scroll-snap-align: start !important;
-    box-sizing: border-box !important;
-  }
-
-  /* Hides manual arrows on mid-size/touch devices where swipe is natural */
-  .carousel-arrow { display: none !important; } 
-  [id^="slide-"]:checked ~ .blog-carousel-container .blog-carousel-track { transform: none !important; }
+.blog-view-all {
+  display: inline-block;
+  margin-top: 30px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--orange);
 }
+.blog-view-all:hover { text-decoration: underline; }
 
-/* SMARTPHONES: Maximizes screen real estate while locking shape proportions */
 @media (max-width: 600px) {
-  .blog-carousel-container {
-    padding-left: 20px !important;  /* Creates consistent visual margins on mobile screens */
-    padding-right: 20px !important;
-  }
+  a.blog-card { flex: 0 0 250px; }
 
-  .blog-carousel-track .blog-card { 
-    /* FIX: Standardizes card width so a piece of the next card peeks into view, hinting it scrolls */
-    flex: 0 0 280px !important; 
-    width: 280px !important;
-    max-width: 280px !important;
-    height: 244px !important; /* Math-matched to maintain the crisp 310:270 shape factor */
-    max-height: 244px !important;
-  }
-  
   .steps { max-width: 100%; }
   .step-pill { display: block; width: 100%; }
 }
@@ -1128,7 +992,7 @@ a.blog-card:hover {
         <li><a href="#what-to-expect" class="nav-link">What to expect</a></li>
         <li><a href="#partnerships" class="nav-link">Partnerships</a></li>
         <li><a href="#faq" class="nav-link">FAQ</a></li>
-        <li><a href="#blog" class="nav-link">Blog</a></li>
+        <li><a href="/blog/" class="nav-link">Blog</a></li>
       </ul>
     </nav>
 
@@ -1402,45 +1266,8 @@ a.blog-card:hover {
   <h2 class="section-title">Blog</h2>
   <p class="section-subtitle">Content for everyone</p>
 
-  <div class="css-slider-system">
-    
-    <!-- 6 INDIVIDUAL HARDWARE TRACK CONTROLLERS -->
-    <input type="radio" name="blog-slide" id="slide-1" checked hidden>
-    <input type="radio" name="blog-slide" id="slide-2" hidden>
-    <input type="radio" name="blog-slide" id="slide-3" hidden>
-    <input type="radio" name="blog-slide" id="slide-4" hidden>
-    <input type="radio" name="blog-slide" id="slide-5" hidden>
-    <input type="radio" name="blog-slide" id="slide-6" hidden>
-
-    <!-- SEQUENTIAL CLICKABLE ARROWS -->
-    <div class="carousel-nav-arrows">
-      <!-- Right Arrows (Each visible only on its specific card step) -->
-      <label for="slide-2" class="carousel-arrow right-arrow arrow-r1">❯</label>
-      <label for="slide-3" class="carousel-arrow right-arrow arrow-r2">❯</label>
-      <label for="slide-4" class="carousel-arrow right-arrow arrow-r3">❯</label>
-      <label for="slide-5" class="carousel-arrow right-arrow arrow-r4">❯</label>
-      <label for="slide-6" class="carousel-arrow right-arrow arrow-r5">❯</label>
-      
-      <!-- Left Arrows (Each visible only on its specific card step) -->
-      <label for="slide-1" class="carousel-arrow left-arrow arrow-l2">❮</label>
-      <label for="slide-2" class="carousel-arrow left-arrow arrow-l3">❮</label>
-      <label for="slide-3" class="carousel-arrow left-arrow arrow-l4">❮</label>
-      <label for="slide-4" class="carousel-arrow left-arrow arrow-l5">❮</label>
-      <label for="slide-5" class="carousel-arrow left-arrow arrow-l6">❮</label>
-    </div>
-
-    <!-- THE SLIDING CONTAINER VIEWPORT -->
-    <div class="blog-carousel-container">
-      <div class="blog-carousel-track">
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-        <div class="blog-card empty"><div class="thumb placeholder">Coming soon</div></div>
-      </div>
-    </div>
-  </div>
+  <div class="blog-row" id="blogRow"></div>
+  <a class="blog-view-all" href="/blog/">View all posts →</a>
 </section>
    
 </main>
@@ -1648,5 +1475,23 @@ if (galleryTrack && GALLERY_IMAGES.length > 0) {
 })();
 </script>
    
+
+<script>
+fetch('/blog/posts.json')
+  .then(res => res.json())
+  .then(posts => {
+    const row = document.getElementById('blogRow');
+    const latest = posts.slice().sort((a, b) => new Date(b.date) - new Date(a.date)).slice(0, 4);
+    row.innerHTML = latest.map(post => `
+      <a class="blog-card" href="${post.url}">
+        <img class="thumb" src="${post.thumb}" alt="${post.title}" width="280" height="150" loading="lazy">
+        <div class="blog-body">
+          <h3>${post.title}</h3>
+          <p>${post.excerpt}</p>
+        </div>
+      </a>`).join('');
+  })
+  .catch(err => console.warn('Could not load blog posts:', err));
+</script>
 </body>
 </html>
