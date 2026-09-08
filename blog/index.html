@@ -176,11 +176,11 @@ button { font-family: inherit; cursor: pointer; }
   text-align: center;
 }
 .blog-index-grid {
-  max-width: 1100px;
+  max-width: 780px;
   margin: 50px auto 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   text-align: left;
 }
 .blog-index-card {
@@ -188,25 +188,38 @@ button { font-family: inherit; cursor: pointer; }
   flex-direction: column;
   background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: 24px;
   box-shadow: var(--shadow);
   overflow: hidden;
   transition: transform .2s ease, box-shadow .2s ease;
 }
-.blog-index-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.15); }
-.blog-index-card img { width: 100%; height: 180px; object-fit: cover; }
-.blog-index-card-body { padding: 18px 20px 22px; }
+.blog-index-card:hover { transform: translateY(-4px); box-shadow: 0 16px 32px rgba(0,0,0,0.15); }
+.blog-index-card img { width: 100%; height: 360px; object-fit: cover; }
+.blog-index-card-body { padding: 30px 34px 36px; }
+.blog-index-card-meta {
+  font-size: 14px;
+  color: var(--orange);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 10px;
+}
 .blog-index-card-body h3 {
   font-family: 'Anton', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  font-size: 18px;
-  color: var(--gray);
-  margin: 0 0 8px;
+  font-size: clamp(24px, 3vw, 32px);
+  color: var(--dark);
+  margin: 0 0 16px;
+  line-height: 1.15;
 }
-.blog-index-card-body p { font-size: 15px; color: var(--gray); line-height: 1.5; margin: 0; }
+.blog-index-card-body p { font-size: 17px; color: var(--gray); line-height: 1.6; margin: 0 0 18px; }
+.blog-index-card-readmore { font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; color: var(--orange); }
 .blog-index-empty { color: var(--gray); opacity: 0.7; font-size: 16px; margin-top: 50px; }
-@media (max-width: 600px) { .blog-index-grid { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .blog-index-card img { height: 220px; }
+  .blog-index-card-body { padding: 22px 22px 26px; }
+}
 
 /* ---------- Footer ---------- */
 .site-footer { background: var(--orange); color: var(--white); padding: 40px 20px; }
@@ -393,10 +406,12 @@ fetch('/blog/posts.json')
     const sorted = posts.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
     grid.innerHTML = sorted.map(post => `
       <a class="blog-index-card" href="${post.url}">
-        <img src="${post.thumb}" alt="${post.title}" width="400" height="220" loading="lazy">
+        <img src="${post.thumb}" alt="${post.title}" width="780" height="360" loading="lazy">
         <div class="blog-index-card-body">
+          <p class="blog-index-card-meta">${new Date(post.date).toLocaleDateString('en-GB', { day: '2-digit', month: 'long', year: 'numeric' })}</p>
           <h3>${post.title}</h3>
           <p>${post.excerpt}</p>
+          <span class="blog-index-card-readmore">Read more →</span>
         </div>
       </a>`).join('');
   })
