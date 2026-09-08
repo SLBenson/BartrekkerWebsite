@@ -2,7 +2,7 @@
   {
     "url": "/blog/bartrekkerlaunch/",
     "title": "We're Live in Kraków, Also testing the tile styles and shape",
-    "excerpt": "A short recap of launch day and what's coming next. See what we have in store for our new locations, just testing the truncation and limit to sizes. ",
+    "excerpt": "A short recap of launch day and what's coming next. See what we have in store for our new locations, just testing the truncation and limit to sizes. need to also test the truncation on the blog page so need to increase the number of characters.  ",
     "thumb": "/assets/blog-krakow.png",
     "date": "2026-09-08"
   },
