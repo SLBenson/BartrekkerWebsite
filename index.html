@@ -1028,14 +1028,14 @@ a.blog-card:hover {
         <p>Register, Buy a ticket, go to the first location, scan it and the app takes it from there. Secret locations revealed as you go and no guide to rely on.</p>
 
         <div class="store-buttons">
-          <a class="store-btn" href="https://www.apple.com/app-store/" target="_blank" rel="noopener">
+          <a class="store-btn" data-store="app_store" href="https://www.apple.com/app-store/" target="_blank" rel="noopener">
             <img src="assets/apple-icon.png" alt="Apple App Store" width="90" height="90">
             <span>
               <span class="store-label">Get it from the</span><br>
               <span class="store-name">App Store</span>
             </span>
           </a>
-          <a class="store-btn" href="https://play.google.com/store/apps" target="_blank" rel="noopener">
+          <a class="store-btn" data-store="play_store" href="https://play.google.com/store/apps" target="_blank" rel="noopener">
             <img src="assets/google-play.png" alt="Google Play" width="90" height="90">
             <span>
               <span class="store-label">Get it from the</span><br>
@@ -1500,6 +1500,14 @@ fetch('/blog/posts.json')
       </a>`).join('');
   })
   .catch(err => console.warn('Could not load blog posts:', err));
+</script>
+
+  <script>
+document.querySelectorAll('.store-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    gtag('event', 'download_click', { store: btn.dataset.store });
+  });
+});
 </script>
 </body>
 </html>
