@@ -48,13 +48,17 @@ jobs:
         run: python translate_site.py
       # --- END TRANSLATION STEPS ---
 
+      # --- START SITEMAP STEP ---
+      - name: Generate sitemap.xml
+        run: python generate_sitemap.py
+      # --- END SITEMAP STEP ---
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Uploads entire repository including the newly generated /es/ and /fr/ folders
           path: '.'
 
       - name: Deploy to GitHub Pages
