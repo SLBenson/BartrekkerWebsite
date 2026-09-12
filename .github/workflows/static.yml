@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write # CHANGED from 'read' so the runner can push the sitemap back to repo
   pages: write
   id-token: write
 
@@ -51,6 +51,14 @@ jobs:
       # --- START SITEMAP STEP ---
       - name: Generate sitemap.xml
         run: python generate_sitemap.py
+
+      - name: Commit and Push sitemap.xml
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@://github.com"
+          git add sitemap.xml
+          # Only commit and push if the sitemap file actually changed to avoid infinite run loops
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: auto-generate sitemap.xml [skip ci]" && git push)
       # --- END SITEMAP STEP ---
 
       - name: Setup Pages
