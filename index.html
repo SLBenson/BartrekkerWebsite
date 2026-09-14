@@ -5,31 +5,26 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="https://bartrekker.com/">
   
-<!-- Google Analytics (Consent Mode) — stays gated until the visitor consents -->
+<!-- Google Analytics (Consent Mode) -->
 <link rel="preload" href="/blog/posts.json" as="fetch" crossorigin="anonymous" />
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  
+  // Keep your strict defaults
   gtag('consent', 'default', {
     'analytics_storage': 'denied',
     'ad_storage': 'denied',
     'ad_user_data': 'denied',
     'ad_personalization': 'denied'
   });
+  
   gtag('js', new Date());
   gtag('config', 'G-97LYL31BCT');
-
-  // gtag.js itself only downloads once consent is actually granted —
-  // not before, so non-consenting visitors never pay its cost.
-  function loadGoogleAnalytics() {
-    if (window.gaScriptLoaded) return;
-    window.gaScriptLoaded = true;
-    const s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-97LYL31BCT';
-    document.head.appendChild(s);
-  }
 </script>
+
+<!-- FIX 1: Let the file download normally right away so defaults actually process -->
+<script async src="https://googletagmanager.com"></script>
   
 <title>Bartrekker — Events That Run Themselves</title>
 <meta name="description" content="Buy a ticket, scan a QR code and let the Bartrekker app guide your group through secret locations, bars and events — no guide required.">
@@ -1459,16 +1454,15 @@ if (galleryTrack && GALLERY_IMAGES.length > 0) {
   const declineBtn = document.getElementById('cookie-decline');
   const stored = localStorage.getItem(CONSENT_KEY);
 
+  // FIX 2: Send the update signal directly without function injection triggers
   if (stored === 'granted') {
-    gtag('consent', 'update', { analytics_storage: 'granted' });
-    loadGoogleAnalytics();
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
   } else if (!stored) {
     banner.classList.remove('hidden');
   }
 
   acceptBtn.addEventListener('click', () => {
-    gtag('consent', 'update', { analytics_storage: 'granted' });
-    loadGoogleAnalytics();
+    gtag('consent', 'update', { 'analytics_storage': 'granted' });
     localStorage.setItem(CONSENT_KEY, 'granted');
     banner.classList.add('hidden');
   });
