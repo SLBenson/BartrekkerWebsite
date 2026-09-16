@@ -1,0 +1,41 @@
+<table cellpadding="0" cellspacing="0" border="0" style="font-family: Arial, Helvetica, sans-serif;">
+  <tr>
+    <td style="vertical-align: middle; padding-right: 12px;">
+      <img src="https://raw.githubusercontent.com/SLBenson/BartrekkerWebsite/main/assets/beerlogofavicon.png" alt="Bartrekker" width="48" height="48" style="display: block;">
+    </td>
+    <td style="vertical-align: middle; border-left: 2px solid #e8590c; padding-left: 12px;">
+      <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td style="font-size: 16px; font-weight: bold; color: #1a1a1a; padding-bottom: 2px;">
+            Stephen Benson
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size: 13px; color: #555555; padding-bottom: 4px;">
+            Founder/CEO
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size: 13px; font-weight: bold; color: #e8590c; letter-spacing: 0.5px; padding-bottom: 6px;">
+            Bartrekker
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size: 12px; color: #333333; padding-bottom: 2px;">
+            sbenson@bartrekker.com
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size: 12px; color: #333333; padding-bottom: 2px;">
+            <a href="https://www.bartrekker.com" style="color: #333333; text-decoration: none;">www.bartrekker.com</a>
+          </td>
+        </tr>
+        <tr>
+          <td style="font-size: 12px; color: #333333;">
+            +48451047025
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
